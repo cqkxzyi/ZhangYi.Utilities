@@ -1,0 +1,48 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Require测试</title>
+    <script src="~/Scripts/Require.js"></script>
+
+    <script type="text/javascript">
+    //方式一
+    //require(["/scripts/zy/a.js"],
+    //function () {
+    //    alert("加载完成")
+    //}
+    //);
+
+        //方式二
+        require.config({
+            baseUrl : "js",
+            paths: {
+                "jquery": ["https://code.jquery.com/jquery-3.3.1.min"],
+                "jquery2": ["/Scripts/jquery-1.10.2"]
+            }
+        })
+
+        require(["jquery2", "/scripts/zy/a.js"], function ($,a) {
+            alert("所有加载完毕");
+            a.fun1();
+        })
+
+
+
+
+    </script>
+
+</head>
+
+<body>
+    <div>
+        测试页面
+    
+    </div>
+</body>
+</html>

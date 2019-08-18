@@ -1,0 +1,362 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ES5/6测试</title>
+
+    @*<script type="text/javascript">
+
+            var account = Object.create(Object.prototype, {
+                type: {
+                    value: "建设银行",
+                    enumerable: true,
+                    configurable: true,
+                    writable: true
+                }
+            });
+            account.type = "交通银行";
+            console.log(account.type);
+            for (var item in account) {
+                console.info(item);
+                console.info(account[item]);
+            }
+
+            //Arral
+            var arral = new Array();
+            arral[0] = 0;
+            arral[1] = 1;
+            arral[2] = 2;
+            console.info(Array.isArray(arral));
+            arral.forEach(v => console.log(v));
+            console.info(arral.lastIndexOf(2));
+
+
+            //Data
+            var date = new Date();
+            console.log(date.getTime());
+
+            console.info(Date.now());
+
+            var str = " hello world ";
+            console.log(str.trim()); //可以忽略jquery的 $.trim() 了
+
+
+            var str = { "name": "菜鸟教程", "site": "http://www.runoob.com" }
+            console.info(JSON.stringify(str));
+            var str2 = JSON.stringify(str);
+            console.info(JSON.parse(str2));
+
+        </script>*@
+
+
+
+    <script type="text/javascript">
+        //类的定义
+        class Animal {
+            //ES6中新型构造器
+            constructor(name) {
+                this.name = name;
+            }
+
+            //实例方法
+            sayName() {
+                console.log('My name is ' + this.name);
+            }
+        }
+        //类的继承
+        class Programmer extends Animal {
+            constructor(name) {
+                //直接调用父类构造器进行初始化
+                super(name);
+            }
+            program() {
+                console.log("I'm coding...");
+            }
+        }
+        //测试我们的类
+        var animal = new Animal('dummy'),
+            wayou = new Programmer('wayou');
+        animal.sayName();//输出 ‘My name is dummy’
+        wayou.sayName();//输出 ‘My name is wayou’
+        wayou.program();//输出 ‘I'm coding...’
+
+
+
+        //增强的对象字面量
+        //通过对象字面量创建对象
+        var human = {
+            breathe() {
+                console.log('breathing...');
+            }
+        };
+        var worker = {
+            __proto__: human, //设置此对象的原型为human,相当于继承human
+            company: 'freelancer',
+            work() {
+                console.log('working...');
+            }
+        };
+        human.breathe();//输出 ‘breathing...’
+        //调用继承来的breathe方法
+        worker.breathe();//输出 ‘breathing...’
+
+
+        //   字符串模板
+        //产生一个随机数
+        var num = Math.random();
+        //将这个数字输出到console
+        console.log("your num is ${num}");
+
+
+        console.info("tag的用法");
+        let a = 5;
+        let b = 10;
+
+        function tag(s, v1, v2) {
+            console.log(s[0]);
+            console.log(s[1]);
+            console.log(s[2]);
+            console.log(v1);
+            console.log(v2);
+
+            return "OK";
+        }
+
+        tag`Hello ${a + b} world ${a * b}`;
+
+        console.log`123`;
+
+        //函数默认值
+        function hanshu({
+            async = true,
+            beforeSend = function () { },
+            cache = true }) {
+            console.info(async);
+            console.info(cache);
+        }
+        hanshu({ async: false });
+
+        //遍历 Map 结构
+        const map = new Map();
+        map.set('1', 'hello');
+        map.set('2', 'world');
+
+        for (let [key, value] of map) {
+            console.log(key + " is " + value);
+        }
+        // 获取键名
+        for (let [key] of map) {
+            console.log(key);
+        }
+        // 获取键值
+        for (let [, value] of map) {
+            console.log(value);
+        }
+
+
+        //字符串的遍历器接口
+        for (let codePoint of '𠮷ABC') {
+            console.log(codePoint);
+        }
+
+        //模板字符串
+        let name = 111, time = 222;
+        var tempStr = `Hello ${name},
+                            how are you ${time}?`;
+        console.info(tempStr);
+        console.log(`
+                            <ul>
+                                  <li>first</li>
+                                  <li>second</li>
+                            </ul>
+                            `);
+        console.info(String.raw`a\n\bcd\\n`);
+        console.info(String.raw({ raw: 'a\\nb' }));
+        console.info(String.raw({ raw: 'a\\nb' }, 0, 1, 2));
+
+        console.info("abcd".split(","));
+
+
+        //********数组************
+
+        //复制数组
+        const a1 = [1, 2];
+        // 写法一
+        const a2 = [...a1];
+        // 写法二
+        //const [...a2] = a1;
+        console.info(a2);
+
+        //合并数组
+        const arr1 = ['a', 'b'];
+        const arr2 = ['c'];
+        console.info([...arr1, ...arr2]);
+
+        //字符串
+        console.info([...'he张毅llo']);
+
+        //Map 和 Set 结构，Generator 函数
+        let map1 = new Map([
+            [1, 'one'],
+            [2, 'two'],
+            [3, 'three']
+        ]);
+
+        console.info([...map1.keys()]);
+
+        console.info(Array.of(3, 11, 8));
+
+        //数组实例的 find() 和 findIndex()
+        console.info([1, 4, -5, 10].find((n) => n < 0));  // -5
+
+        //fill方法使用给定值，填充一个数组
+        console.info(['a', 'b', 'c'].fill(7));
+
+        //数组是否包含给定的值
+        console.info([1, 2, 3].includes(2));   // true
+
+        //数组实例的 entries()，keys() 和 values() § ⇧
+        for (let index of ['a', 'b'].keys()) {
+            console.log(index);
+        }
+        // 0
+        // 1
+
+        for (let elem of ['a', 'b'].values()) {
+            console.log(elem);
+        }
+        // 'a'
+        // 'b'
+
+        for (let [index, elem] of ['a', 'b'].entries()) {
+            console.log(index, elem);
+        }
+        // 0 "a"
+        // 1 "b"
+
+        //数组是否包含给定的值
+        console.info([1, 2, 3].includes(2))     // true
+        console.info([1, 2, 3].includes(4))    // false
+        console.info([1, 2, NaN].includes(NaN)) // true
+
+
+        //空位
+        console.info(Array(3));
+
+        //ES5 对空位的处理，已经很不一致了，大多数情况下会忽略空位。
+        //forEach(), filter(), reduce(), every() 和some()都会跳过空位。
+        //map()会跳过空位，但会保留这个值
+        //join()和toString()会将空位视为undefined，而undefined和null会被处理成空字符串。
+        // forEach方法
+        //[, 'a'].forEach((x, i) => console.log(i)); // 1
+
+        // filter方法
+        // ['a', , 'b'].filter(x => true) // ['a','b']
+
+        // every方法
+        //[, 'a'].every(x => x === 'a') // true
+
+        // reduce方法
+        //[1,, 2].reduce((x, y) => x + y) // 3
+
+        // some方法
+        //[, 'a'].some(x => x !== 'a') // false
+
+        // map方法
+        //[, 'a'].map(x => 1) // [,1]
+
+        // join方法
+        //[, 'a', undefined, null].join('#') // "#a##"
+
+        // toString方法
+        //[, 'a', undefined, null].toString() // ",a,,"
+
+
+    </script>
+
+
+    @*对象*@
+    <script type="text/javascript">
+        //Object.is函数
+        console.info(+ 0 === -0)  //true
+        console.info(NaN === NaN) // false
+
+        console.info(Object.is(+0, -0)) // false
+        console.info(Object.is(NaN, NaN)) // true
+
+        //Object.assign方法用于对象的合并,
+        const target = { a: 1 };
+        const source1 = { b: 2 };
+        const source2 = { a: 100, c: 3 };
+        console.info(Object.assign(target, source1, source2));
+        //数组的处理
+        console.info(Object.assign([1, 2, 3], [4, 5]));// [4, 5, 3]
+
+        //是浅拷贝,a是对象
+        const obj1 = { a: { b: 1 } };
+        const obj2 = clone(obj1) //Object.assign({}, );
+        obj1.a.b = 2;
+        console.info(obj1);
+        console.info(obj2);
+
+        //克隆对象
+        function clone(origin) {
+            return Object.assign({}, origin);
+        }
+
+        var aa = { a: 11, b: 22 };
+        var bb = clone(aa);
+        aa.a = 33;
+        console.info(aa);
+        console.info(bb);
+
+        //Object.keys()，Object.values()，Object.entries()
+        //Object.fromEntries()方法是Object.entries()的逆操作，用于将一个键值对数组转为对象
+
+
+    </script>
+
+
+
+
+    @*  Symbol 数据类型*@
+    <script type="text/javascript">
+        let s = Symbol();
+        console.info(typeof s);
+
+    </script>
+
+    @*  Set和 Map*@
+    <script type="text/javascript">
+        const set = new Set();
+        [2, 3, 5, 4, 5, 2, 2].forEach(x => set.add(x));
+        console.info(set);
+        //在 Set 内部，两个NaN是相等
+        //在 Set 内部，两个对象总是不相等的
+
+        //判断是否包括某个值
+        if (set.has(1)) {
+            // do something
+        }
+        //Array.from方法可以将 Set 结构转为数组
+        const items = new Set([1, 2, 3, 4, 5]);
+        const array = Array.from(items);
+        console.info(array);
+
+        console.info([...items].filter(c => c > 3));
+        console.info(new Set([...items].filter(c => c > 3)));
+
+    </script>
+</head>
+
+<body>
+    <div>
+        ES5、6测试页面
+    </div>
+</body>
+</html>

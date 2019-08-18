@@ -1,0 +1,10 @@
+礼仪之邦：
+	AppManage项目首次使用了jQuery File Upload上传插件，感觉还不错！
+
+
+
+
+长运小贷：
+	OA系统：
+		表单验证插件：nice-validator-1.1.4,主要是解决没有frame的情况下，提交到后台。
+		上传控件：jQuery-File-Upload-9.9.3，有进度条的上传文件组件

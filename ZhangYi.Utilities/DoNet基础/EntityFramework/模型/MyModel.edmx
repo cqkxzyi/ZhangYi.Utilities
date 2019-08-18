@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HuNiModel1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="HuNiModel1StoreContainer">
+          <EntitySet Name="Base_Area" EntityType="HuNiModel1.Store.Base_Area" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Base_keyWord" EntityType="HuNiModel1.Store.Base_keyWord" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Bus_Info" EntityType="HuNiModel1.Store.Bus_Info" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Bus_User" EntityType="HuNiModel1.Store.Bus_User" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="Base_Area">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="nvarchar" MaxLength="40" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="ParentID" Type="int" />
+          <Property Name="Grade" Type="int" />
+          <Property Name="Sequence" Type="int" />
+        </EntityType>
+        <EntityType Name="Base_keyWord">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UpID" Type="int" />
+          <Property Name="Code" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Value" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="IsStart" Type="bit" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Bus_Info">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="nchar" MaxLength="50" />
+          <Property Name="IsSuccess" Type="bit" Nullable="false" />
+          <Property Name="IsShelves" Type="bit" Nullable="false" />
+          <Property Name="LogName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ComTypeName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ComTypeTableName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Province" Type="nvarchar" MaxLength="20" />
+          <Property Name="City" Type="nvarchar" MaxLength="20" />
+          <Property Name="County" Type="nvarchar" MaxLength="20" />
+          <Property Name="txt" Type="ntext" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="EditDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="FrontImageID" Type="int" />
+          <Property Name="BondID" Type="int" />
+          <Property Name="ReadCounts" Type="int" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+      警告 6035: 关系“FK_BUS_COMM_REFERENCE_BUS_USER”在关系主端上有一些列不属于表的键的一部分。已排除了此关系。
+      -->
+        <EntityType Name="Bus_User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Emal" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="LogName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LogPwd" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="FuPwd" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sex" Type="bit" />
+          <Property Name="Head" Type="nvarchar" MaxLength="50" />
+          <Property Name="Birthday" Type="date" />
+          <Property Name="IdentityCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Province" Type="nvarchar" MaxLength="20" />
+          <Property Name="City" Type="nvarchar" MaxLength="20" />
+          <Property Name="Borough" Type="nvarchar" MaxLength="20" />
+          <Property Name="GzProvince" Type="nvarchar" MaxLength="20" />
+          <Property Name="GzCity" Type="nvarchar" MaxLength="20" />
+          <Property Name="GzBorough" Type="nvarchar" MaxLength="20" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsDefAddress" Type="bit" Nullable="false" />
+          <Property Name="Question1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Question1daan" Type="nvarchar" MaxLength="50" />
+          <Property Name="Question2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Question2daan" Type="nvarchar" MaxLength="50" />
+          <Property Name="Question3" Type="nvarchar" MaxLength="50" />
+          <Property Name="Question3daan" Type="nvarchar" MaxLength="50" />
+          <Property Name="SendModes" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="UserType" Type="int" Nullable="false" />
+          <Property Name="IsChangeAcc" Type="bit" Nullable="false" />
+          <Property Name="IsLocked" Type="bit" Nullable="false" />
+          <Property Name="IsMobileVal" Type="bit" Nullable="false" />
+          <Property Name="IsIdentityCodeVal" Type="int" Nullable="false" />
+          <Property Name="IsBandBindVal" Type="int" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HuNiModel1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="HuNiEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Base_Area" EntityType="HuNiModel1.Base_Area" />
+          <EntitySet Name="Base_keyWord" EntityType="HuNiModel1.Base_keyWord" />
+          <EntitySet Name="Bus_Info" EntityType="HuNiModel1.Bus_Info" />
+          <EntitySet Name="Bus_User" EntityType="HuNiModel1.Bus_User" />
+        </EntityContainer>
+        <EntityType Name="Base_Area">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="40" Unicode="true" FixedLength="false" />
+          <Property Name="Name" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="ParentID" Type="Int32" />
+          <Property Name="Grade" Type="Int32" />
+          <Property Name="Sequence" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Base_keyWord">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UpID" Type="Int32" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="IsStart" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Bus_Info">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="50" Unicode="true" FixedLength="true" />
+          <Property Name="IsSuccess" Type="Boolean" Nullable="false" />
+          <Property Name="IsShelves" Type="Boolean" Nullable="false" />
+          <Property Name="LogName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ComTypeName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ComTypeTableName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Province" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="City" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="County" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="txt" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EditDate" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="FrontImageID" Type="Int32" />
+          <Property Name="BondID" Type="Int32" />
+          <Property Name="ReadCounts" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Bus_User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Emal" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="LogName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="LogPwd" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="FuPwd" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Mobile" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Sex" Type="Boolean" />
+          <Property Name="Head" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Birthday" Type="DateTime" Precision="0" />
+          <Property Name="IdentityCode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Province" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="City" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="Borough" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="GzProvince" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="GzCity" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="GzBorough" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="Address" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="IsDefAddress" Type="Boolean" Nullable="false" />
+          <Property Name="Question1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Question1daan" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Question2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Question2daan" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Question3" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Question3daan" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SendModes" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UserType" Type="Int32" Nullable="false" />
+          <Property Name="IsChangeAcc" Type="Boolean" Nullable="false" />
+          <Property Name="IsLocked" Type="Boolean" Nullable="false" />
+          <Property Name="IsMobileVal" Type="Boolean" Nullable="false" />
+          <Property Name="IsIdentityCodeVal" Type="Int32" Nullable="false" />
+          <Property Name="IsBandBindVal" Type="Int32" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HuNiModel1StoreContainer" CdmEntityContainer="HuNiEntities">
+          <EntitySetMapping Name="Base_Area">
+            <EntityTypeMapping TypeName="HuNiModel1.Base_Area">
+              <MappingFragment StoreEntitySet="Base_Area">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Base_keyWord">
+            <EntityTypeMapping TypeName="HuNiModel1.Base_keyWord">
+              <MappingFragment StoreEntitySet="Base_keyWord">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UpID" ColumnName="UpID" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="IsStart" ColumnName="IsStart" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bus_Info">
+            <EntityTypeMapping TypeName="HuNiModel1.Bus_Info">
+              <MappingFragment StoreEntitySet="Bus_Info">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="IsSuccess" ColumnName="IsSuccess" />
+                <ScalarProperty Name="IsShelves" ColumnName="IsShelves" />
+                <ScalarProperty Name="LogName" ColumnName="LogName" />
+                <ScalarProperty Name="ComTypeName" ColumnName="ComTypeName" />
+                <ScalarProperty Name="ComTypeTableName" ColumnName="ComTypeTableName" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Province" ColumnName="Province" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="County" ColumnName="County" />
+                <ScalarProperty Name="txt" ColumnName="txt" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="EditDate" ColumnName="EditDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="FrontImageID" ColumnName="FrontImageID" />
+                <ScalarProperty Name="BondID" ColumnName="BondID" />
+                <ScalarProperty Name="ReadCounts" ColumnName="ReadCounts" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bus_User">
+            <EntityTypeMapping TypeName="HuNiModel1.Bus_User">
+              <MappingFragment StoreEntitySet="Bus_User">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Emal" ColumnName="Emal" />
+                <ScalarProperty Name="LogName" ColumnName="LogName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="LogPwd" ColumnName="LogPwd" />
+                <ScalarProperty Name="FuPwd" ColumnName="FuPwd" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Head" ColumnName="Head" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="IdentityCode" ColumnName="IdentityCode" />
+                <ScalarProperty Name="Province" ColumnName="Province" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Borough" ColumnName="Borough" />
+                <ScalarProperty Name="GzProvince" ColumnName="GzProvince" />
+                <ScalarProperty Name="GzCity" ColumnName="GzCity" />
+                <ScalarProperty Name="GzBorough" ColumnName="GzBorough" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="IsDefAddress" ColumnName="IsDefAddress" />
+                <ScalarProperty Name="Question1" ColumnName="Question1" />
+                <ScalarProperty Name="Question1daan" ColumnName="Question1daan" />
+                <ScalarProperty Name="Question2" ColumnName="Question2" />
+                <ScalarProperty Name="Question2daan" ColumnName="Question2daan" />
+                <ScalarProperty Name="Question3" ColumnName="Question3" />
+                <ScalarProperty Name="Question3daan" ColumnName="Question3daan" />
+                <ScalarProperty Name="SendModes" ColumnName="SendModes" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="IsChangeAcc" ColumnName="IsChangeAcc" />
+                <ScalarProperty Name="IsLocked" ColumnName="IsLocked" />
+                <ScalarProperty Name="IsMobileVal" ColumnName="IsMobileVal" />
+                <ScalarProperty Name="IsIdentityCodeVal" ColumnName="IsIdentityCodeVal" />
+                <ScalarProperty Name="IsBandBindVal" ColumnName="IsBandBindVal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

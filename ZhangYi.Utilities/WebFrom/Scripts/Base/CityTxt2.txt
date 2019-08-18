@@ -1,0 +1,89 @@
+//根据界面上的省市选项，组成详细地址
+var SetValue = function(objValue) {
+    var nowValue;
+    var d1;
+    var d2;
+    var d3;
+    if (document.getElementById("T_address") != null) {
+        nowValue = document.getElementById("T_address").value;
+        d1 = document.getElementById("dqid10").value;
+        d2 = document.getElementById("dqid20").value;
+        d3 = document.getElementById("dqid30").value;
+    }
+    else {
+        nowValue = document.getElementById(FindClientID("T_address")).value;
+        d1 = document.getElementById(FindClientID("dqid10")).value;
+        d2 = document.getElementById(FindClientID("dqid20")).value;
+        d3 = document.getElementById(FindClientID("dqid30")).value;
+    }
+    if (objValue.length > 0) {
+        nowValue = "";
+        nowValue = d1 + d2 + d3 + nowValue;
+        if (document.getElementById("T_address") != null) {
+            document.getElementById("T_address").value = nowValue;
+        } else {
+            document.getElementById(FindClientID("T_address")).value = nowValue;
+        }
+    }
+}
+//根据界面上的省市选项，组成详细地址
+var SetValue2 = function(objValue) {
+    var nowValue;
+    var d1;
+    var d2;
+    var d3;
+    var d4;
+    if (document.getElementById("T_address") != null) {
+        nowValue = document.getElementById("T_address").value;
+        d1 = document.getElementById("dqid10").value;
+        d2 = document.getElementById("dqid20").value;
+        d3 = document.getElementById("dqid30").value;
+        d4 = document.getElementById("dqid40").value;
+    }
+    else {
+        nowValue = document.getElementById(FindClientID("T_address")).value;
+        d1 = document.getElementById(FindClientID("dqid10")).value;
+        d2 = document.getElementById(FindClientID("dqid20")).value;
+        d3 = document.getElementById(FindClientID("dqid30")).value;
+        d4 = document.getElementById(FindClientID("dqid40")).value;
+    }
+    
+    if (objValue.length > 0) {
+        nowValue = "";
+        nowValue = d1 + d2 + d3 + d4;
+        if (document.getElementById("T_address") != null) {
+            document.getElementById("T_address").value = nowValue;
+        } else {
+        document.getElementById(FindClientID("T_address")).value = nowValue;
+        }
+    }
+}
+//根据界面上的省市选项，组成详细地址
+var SetValue3 = function(objValue) {
+    var nowValue;
+    var d1;
+    var d2;
+    var d3;
+    if (document.getElementById("T_address") != null) {
+        nowValue = document.getElementById("T_address").value;
+        d1 = document.getElementById("dqid10").value;
+        d2 = document.getElementById("dqid20").value;
+        d3 = document.getElementById("dqid30").value;
+    }
+    else {
+        nowValue = document.getElementById(FindClientID("T_address")).value;
+        d1 = document.getElementById(FindClientID("dqid10")).value;
+        d2 = document.getElementById(FindClientID("dqid20")).value;
+        d3 = document.getElementById(FindClientID("dqid30")).value;
+    }
+
+    if (objValue.length > 0) {
+        nowValue = "";
+        nowValue = d1 + d2 + d3;
+        if (document.getElementById("T_address") != null) {
+            document.getElementById("T_address").value = nowValue;
+        } else {
+            document.getElementById(FindClientID("T_address")).value = nowValue;
+        }
+    }
+}

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="HuNi" Class="LinqToSqlDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=ZHANGYI\server08;Initial Catalog=HuNi;User ID=sa" SettingsObjectName="DoNet基础.Properties.Settings" SettingsPropertyName="HuNiConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.SP_OnLine" Method="SP_OnLine">
+    <Parameter Name="LogName" Parameter="logName" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="InfoID" Parameter="infoID" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="NowPag" Parameter="nowPag" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="pageType" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

@@ -1,0 +1,365 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FE029BEC-83C5-46CC-A558-82DEDBE5835C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CSharp</RootNamespace>
+    <AssemblyName>CSharp程序集</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>CSharp通用方法.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="IPLocation, Version=1.0.2392.26968, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\IPLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\可运行环境\Debug\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\可运行环境\Debug\Microsoft.Office.Interop.Word.dll</HintPath>
+    </Reference>
+    <Reference Include="NewLife.Core">
+      <HintPath>..\Dll备份\XCode\NewLife.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>bin\Debug\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>bin\Debug\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net">
+      <HintPath>bin\Debug\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats">
+      <HintPath>bin\Debug\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="XCode">
+      <HintPath>..\Dll备份\XCode\XCode.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="示例窗口\图像格式转换1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="示例窗口\图像格式转换2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="示例窗口\图像格式转换3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="示例窗口\图形\图像显示与保存.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="示例窗口\图形\图形旋转和缩放.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="示例窗口\图形\图片颜色渐变.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="示例窗口\图形\平铺和反转图像.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="示例窗口\图形\画笔和曲线.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="示例窗口\图形\背景网格效果.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="示例窗口\图形\颜色渐变.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="示例窗口\图形\颜色边缘渐变.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="示例窗口\子窗口显示样式.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="示例窗口\子窗口显示样式2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="示例窗口\实用技巧集合.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="示例窗口\实用技巧集合.Designer.cs">
+      <DependentUpon>实用技巧集合.cs</DependentUpon>
+    </Compile>
+    <Compile Include="示例窗口\多线程\Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="示例窗口\多线程\Form2.designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="示例窗口\多线程\frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="示例窗口\多线程\frmMain.designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="示例窗口\多线程\frmSplash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="示例窗口\多线程\frmSplash.designer.cs">
+      <DependentUpon>frmSplash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="示例窗口\多线程\Program.cs" />
+    <Compile Include="示例窗口\拖放.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="示例窗口\拖放.designer.cs">
+      <DependentUpon>拖放.cs</DependentUpon>
+    </Compile>
+    <Compile Include="示例窗口\文件与打印\字体设置.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="示例窗口\文件与打印\打印.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="示例窗口\文件与打印\抓图程序.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="示例窗口\文件与打印\文本编辑器.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="示例窗口\文件与打印\树状结构读取驱动器文件.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="示例窗口\文件与打印\综合打印实例.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="示例窗口\文件与打印\获取文件属性.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="示例窗口\进度条.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="示例窗口\图形\画图下拉框.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="示例窗口\图形\画图.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="示例窗口\Mail\发送邮件.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="示例窗口\Mail\发送邮件.Designer.cs">
+      <DependentUpon>发送邮件.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="通用\WinFormExpand.cs" />
+    <EmbeddedResource Include="示例窗口\图像格式转换1.resx">
+      <DependentUpon>图像格式转换1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="示例窗口\图像格式转换2.resx">
+      <DependentUpon>图像格式转换2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="示例窗口\图像格式转换3.resx">
+      <DependentUpon>图像格式转换3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="示例窗口\图形\图像显示与保存.resx">
+      <DependentUpon>图像显示与保存.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="示例窗口\图形\图形旋转和缩放.resx">
+      <DependentUpon>图形旋转和缩放.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="示例窗口\图形\图片颜色渐变.resx">
+      <DependentUpon>图片颜色渐变.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="示例窗口\图形\平铺和反转图像.resx">
+      <DependentUpon>平铺和反转图像.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="示例窗口\图形\画笔和曲线.resx">
+      <DependentUpon>画笔和曲线.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="示例窗口\图形\背景网格效果.resx">
+      <DependentUpon>背景网格效果.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="示例窗口\图形\颜色渐变.resx">
+      <DependentUpon>颜色渐变.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="示例窗口\图形\颜色边缘渐变.resx">
+      <DependentUpon>颜色边缘渐变.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="示例窗口\子窗口显示样式.resx">
+      <DependentUpon>子窗口显示样式.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="示例窗口\子窗口显示样式2.resx">
+      <DependentUpon>子窗口显示样式2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="示例窗口\实用技巧集合.resx">
+      <DependentUpon>实用技巧集合.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="示例窗口\多线程\frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="示例窗口\多线程\frmSplash.resx">
+      <DependentUpon>frmSplash.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="示例窗口\拖放.resx">
+      <DependentUpon>拖放.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="示例窗口\文件与打印\字体设置.resx">
+      <DependentUpon>字体设置.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="示例窗口\文件与打印\打印.resx">
+      <DependentUpon>打印.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="示例窗口\文件与打印\抓图程序.resx">
+      <DependentUpon>抓图程序.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="示例窗口\文件与打印\文本编辑器.resx">
+      <DependentUpon>文本编辑器.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="示例窗口\文件与打印\树状结构读取驱动器文件.resx">
+      <DependentUpon>树状结构读取驱动器文件.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="示例窗口\文件与打印\综合打印实例.resx">
+      <DependentUpon>综合打印实例.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="示例窗口\文件与打印\获取文件属性.resx">
+      <DependentUpon>获取文件属性.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="示例窗口\进度条.resx">
+      <DependentUpon>进度条.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="示例窗口\图形\画图下拉框.resx">
+      <DependentUpon>画图下拉框.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="示例窗口\图形\画图.resx">
+      <DependentUpon>画图.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="示例窗口\Mail\发送邮件.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>发送邮件.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="示例窗口\右下方弹出窗口哦.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>右下方弹出窗口哦.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="示例窗口\进度条2.resx">
+      <DependentUpon>进度条2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="示例窗口\逐渐透明窗体.resx">
+      <DependentUpon>逐渐透明窗体.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="示例窗口\右下方弹出窗口哦.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="示例窗口\右下方弹出窗口哦.Designer.cs">
+      <DependentUpon>右下方弹出窗口哦.cs</DependentUpon>
+    </Compile>
+    <Compile Include="示例窗口\进度条2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="示例窗口\进度条2.designer.cs">
+      <DependentUpon>进度条2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="示例窗口\逐渐透明窗体.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DotNet.zy.Utilities\DotNet.zy.Utilities.csproj">
+      <Project>{0A9704F9-7864-45AF-BFA7-E09F2B30A29F}</Project>
+      <Name>DotNet.zy.Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

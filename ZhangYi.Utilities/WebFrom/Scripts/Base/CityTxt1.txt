@@ -1,0 +1,207 @@
+function Dsy() {
+    this.Items = {};
+}
+Dsy.prototype.add = function(id, iArray) {
+    this.Items[id] = iArray;
+}
+Dsy.prototype.Exists = function(id) {
+    if (typeof (this.Items[id]) == "undefined") {
+        return false;
+    }
+    return true;
+}
+
+function change(v, u) {
+   
+    eval("s=s" + u + ";");
+    var str = "0";
+    for (i = 0; i < v; i++) {
+            str += ("-" + (document.getElementById(s[i]).selectedIndex));
+    };
+    var ss = document.getElementById(s[v]);
+
+    with (ss) {
+        var length = 0;
+        var eleVal = document.getElementById(s[v - 1]);
+
+        if ((v && eleVal.selectedIndex >= 0) || !v) {
+            if (dsy.Exists(str)) {
+                ar = dsy.Items[str];//找到数组进行循环显示出来
+                for (i = 0; i < ar.length; i++) {
+                    options[length] = new Option(ar[i], ar[i]);
+                }
+                if (v) {
+                        options[0].selected = true;
+                } 
+            } 
+        }
+        if (++v < s.length) {
+            change(v, u);
+        }
+    }
+}
+
+//选择城市用
+function change2(v, u) {
+    //判断是否直辖市
+    if (v == 1) { 
+     var ZXS_City = "北京市重庆市天津市上海市";
+     var selVal = document.getElementById("province").value;
+
+     if (ZXS_City.indexOf(selVal) >= 0) {
+         document.getElementById("city").options.length = 0
+         document.getElementById("city").style.display = "none";
+         return;
+       }
+   }
+   document.getElementById("city").style.display = "";
+
+
+    eval("s=s" + u + ";");
+    var str = "0";
+    for (i = 0; i < v; i++) {
+        str += ("-" + (document.getElementById(s[i]).selectedIndex-1));
+    };
+    var ss = document.getElementById(s[v]);
+    with (ss) {
+        var length = 0;
+        options[0] = new Option(opt0[v], opt0[v]);
+        var eleVal = document.getElementById(s[v - 1]);
+        if ((v && eleVal.selectedIndex >= 0) || !v) {
+            if (dsy.Exists(str)) {
+                ar = dsy.Items[str]; //找到数组进行循环显示出来
+                for (i = 0; i < ar.length; i++) {
+                    options[length] = new Option(ar[i], ar[i]);
+                }
+                    options[0].selected = true;
+            }
+        }
+        if (++v < s.length) {
+            change2(v, u);
+           
+        }
+    }
+}
+
+//根据隐藏字段绑定客户端的数据
+function Initialize() {
+    var str1 = "ctl00_ContInfo_";
+    var ProvinceEle = document.getElementById(s0[0]); //城市控件
+    var CityEle = document.getElementById(s0[1]); //城市控件
+    var CountyEle = document.getElementById(s0[2]); //城市控件
+   
+    var Province = document.getElementById(str1 + "HiddenFieldd_dqid10");
+    var City = document.getElementById(str1 + "HiddenFieldd_dqid20");
+    var County = document.getElementById(str1 + "HiddenFieldd_dqid30");
+    if (Province==null)
+    {
+        Province = document.getElementById("HiddenFieldd_dqid10");
+        City = document.getElementById("HiddenFieldd_dqid20");
+        County = document.getElementById("HiddenFieldd_dqid30");
+    }
+    var ProvinceValue = Province.value;
+    var CityValue = City.value;
+    var CountyValue = County.value;
+
+    var index1; //记录上层的索引，以方便下层获得要查询的数组名称。
+    with (ProvinceEle) {
+        arr = dsy.Items[0]; //得到相应的数组
+            for (var i = 0; i < arr.length; i++) { //循环出所在数组的索引
+                options[length] = new Option(arr[i], arr[i]);
+              if (options[i].value == ProvinceValue) {
+                  options[i].selected = true;
+                  index1 = i;
+              }
+            }
+        };
+        index1 = "0-" + index1;
+        with (CityEle) {
+            var arr = dsy.Items[index1]; //得到相应的数组
+            for (var i = 0; i < arr.length; i++) { //循环出所在数组的索引
+                options[length] = new Option(arr[i], arr[i]);
+                if (options[i].value == CityValue) {
+                    options[i].selected = true;
+                    index1 += ("-" + i);
+                }
+            }
+        };
+        with (CountyEle) {
+            var arr = dsy.Items[index1]; //得到相应的数组
+            for (var i = 0; i < arr.length; i++) { //循环出所在数组的索引
+                options[length] = new Option(arr[i], arr[i]);
+                if (options[i].value == CountyValue) {
+                    options[i].selected = true;
+                }
+            }
+        };
+    }
+    //根据隐藏字段绑定客户端的数据
+    function Initialize2() {
+        var str1 = "ctl00_ContInfo_";
+        var ProvinceEle = document.getElementById(s0[0]); //城市控件
+        var CityEle = document.getElementById(s0[1]); //城市控件
+        var CountyEle = document.getElementById(s0[2]); //城市控件
+        var ShopEle = document.getElementById(s0[3]); //商圈控件
+
+
+        var Province = document.getElementById(str1 + "HiddenFieldd_dqid10");
+        var City = document.getElementById(str1 + "HiddenFieldd_dqid20");
+        var County = document.getElementById(str1 + "HiddenFieldd_dqid30");
+        var Shop = document.getElementById(str1 + "HiddenFieldd_dqid40");
+        if (Province == null) {
+            Province = document.getElementById("HiddenFieldd_dqid10");
+            City = document.getElementById("HiddenFieldd_dqid20");
+            County = document.getElementById("HiddenFieldd_dqid30");
+            Shop = document.getElementById("HiddenFieldd_dqid40");
+        }
+        var ProvinceValue = Province.value;
+        var CityValue = City.value;
+        var CountyValue = County.value;
+        var ShopValue = Shop.value;
+
+        var index1; //记录上层的索引，以方便下层获得要查询的数组名称。
+        with (ProvinceEle) {
+            arr = dsy.Items[0]; //得到相应的数组
+            for (var i = 0; i < arr.length; i++) { //循环出所在数组的索引
+                options[length] = new Option(arr[i], arr[i]);
+                if (options[i].value == ProvinceValue) {
+                    options[i].selected = true;
+                    index1 = i;
+                }
+            }
+        };
+        index1 = "0-" + index1;
+        with (CityEle) {
+            var arr = dsy.Items[index1]; //得到相应的数组
+            for (var i = 0; i < arr.length; i++) { //循环出所在数组的索引
+                options[length] = new Option(arr[i], arr[i]);
+                if (options[i].value == CityValue) {
+                    options[i].selected = true;
+                    index1 += ("-" + i);
+                }
+            }
+        };
+        with (CountyEle) {
+            var arr = dsy.Items[index1]; //得到相应的数组
+            for (var i = 0; i < arr.length; i++) { //循环出所在数组的索引
+                options[length] = new Option(arr[i], arr[i]);
+                if (options[i].value == CountyValue) {
+                    options[i].selected = true;
+                    index1 += ("-" + i);
+                }
+            }
+        };
+        with (ShopEle) {
+            var arr = dsy.Items[index1]; //得到相应的数组
+            if (arr) {
+                for (var i = 0; i < arr.length; i++) { //循环出所在数组的索引
+                    options[length] = new Option(arr[i], arr[i]);
+                    if (options[i].value == ShopValue) {
+                        options[i].selected = true;
+                    }
+                }
+            }
+        }
+    }
+var dsy = new Dsy();
+

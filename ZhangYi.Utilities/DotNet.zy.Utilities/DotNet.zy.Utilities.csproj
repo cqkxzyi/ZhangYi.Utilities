@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0A9704F9-7864-45AF-BFA7-E09F2B30A29F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DotNet.Utilities</RootNamespace>
+    <AssemblyName>DotNet.zy.Utilities</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Chart图形\Assistant.cs" />
+    <Compile Include="Chart图形\OWCChart11.cs" />
+    <Compile Include="ContentTypeHelper.cs" />
+    <Compile Include="ConvertHelper.cs" />
+    <Compile Include="Cookie&amp;Session&amp;Cache\Cache\CacheSingleton.cs" />
+    <Compile Include="Cookie&amp;Session&amp;Cache\Cache\DefaultCache.cs" />
+    <Compile Include="Cookie&amp;Session&amp;Cache\Cache\ICache.cs" />
+    <Compile Include="Cookie&amp;Session&amp;Cache\CookieHelper.cs" />
+    <Compile Include="Cookie&amp;Session&amp;Cache\SessionHelper.cs" />
+    <Compile Include="AssemblyHelper.cs" />
+    <Compile Include="DB_Base\SqlEasy.cs" />
+    <Compile Include="DB_Base\SQLHelper3.cs" />
+    <Compile Include="DB_Base\SQLiteHelper.cs" />
+    <Compile Include="ExtendFunctions\CollectionUtility.cs" />
+    <Compile Include="ExtendFunctions\GlobalUtility.cs" />
+    <Compile Include="ExtendFunctions\StringUtility.cs" />
+    <Compile Include="MyExtend.cs" />
+    <Compile Include="加解密\DesEncryptHelper.cs" />
+    <Compile Include="加解密\SortMD5Encrypt.cs" />
+    <Compile Include="序列化\Xml反序列化示例.cs" />
+    <Compile Include="日志\LogWriter.cs" />
+    <Compile Include="图片\CompressPicHelper.cs" />
+    <Compile Include="图片\PTImage.cs" />
+    <Compile Include="字符串\HtmlHelpers.cs" />
+    <Compile Include="字符串\StringExample.cs" />
+    <Compile Include="序列化\JsonHelper.cs" />
+    <Compile Include="文件操作类\CSV\CsvHelper.cs" />
+    <Compile Include="加解密\MySecurity.cs" />
+    <Compile Include="其他单点功能\FormulaExpress.cs" />
+    <Compile Include="文件操作类\Excel\Com\ExcelByCom3.cs" />
+    <Compile Include="文件操作类\Excel\Com\ExcelByCom.cs" />
+    <Compile Include="文件操作类\Excel\Com\ExcelByCom2.cs" />
+    <Compile Include="文件操作类\Excel\NPOI\ExcelByNPOI1.cs" />
+    <Compile Include="文件操作类\Excel\NPOI\ExcelByNPOI2.cs" />
+    <Compile Include="文件操作类\Excel\NPOI\NPOIHelper.cs" />
+    <Compile Include="文件操作类\Excel\Odbc\ExcexByOleDB1.cs" />
+    <Compile Include="文件操作类\Excel\Odbc\ExcexByOleDB2.cs" />
+    <Compile Include="文件操作类\Excel\Com\ExcelByCom1.cs" />
+    <Compile Include="文件操作类\FTP\FTPClient.cs" />
+    <Compile Include="文件操作类\FTP\FTPHelper.cs" />
+    <Compile Include="文件操作类\FTP\FTPOperater.cs" />
+    <Compile Include="日志\Log4net\ErrorHandler.cs" />
+    <Compile Include="日志\Log4net\Log4netHelper.cs" />
+    <Compile Include="日志\Log4net\LogManager.cs" />
+    <Compile Include="网络\ClientIPHelper.cs" />
+    <Compile Include="页面辅助类\GridViewHelper.cs" />
+    <Compile Include="序列化\ConvertJson.cs" />
+    <Compile Include="其他单点功能\MediaHandler.cs" />
+    <Compile Include="其他单点功能\Mime\MediaTypes.cs" />
+    <Compile Include="其他单点功能\Mime\MimeEntity.cs" />
+    <Compile Include="其他单点功能\Mime\MimeHeaders.cs" />
+    <Compile Include="其他单点功能\Mime\MimeReader.cs" />
+    <Compile Include="其他单点功能\Mime\QuotedPrintableEncoding.cs" />
+    <Compile Include="文件操作类\PDF\PDFOperation.cs" />
+    <Compile Include="Tools.cs" />
+    <Compile Include="XML操作类\XmlHelper.cs" />
+    <Compile Include="XML操作类\XMLProcess.cs" />
+    <Compile Include="ConfigHelper.cs" />
+    <Compile Include="页面辅助类\DataBind.cs" />
+    <Compile Include="Cookie&amp;Session&amp;Cache\CacheHelper.cs" />
+    <Compile Include="加解密\EncryptAndDecrypt.cs" />
+    <Compile Include="其他单点功能\EnrollValidate.cs" />
+    <Compile Include="其他单点功能\ErrorLog.cs" />
+    <Compile Include="文件操作类\FileHelper.cs" />
+    <Compile Include="其他单点功能\汉字转拼音\HanZiToPinY.cs" />
+    <Compile Include="页面辅助类\HttpRequestHelper.cs" />
+    <Compile Include="页面辅助类\HttpWebResponseUtility.cs" />
+    <Compile Include="页面辅助类\RequestHelper.cs" />
+    <Compile Include="字符串\StringValidate.cs" />
+    <Compile Include="JS弹出消息类\JsHelper.cs" />
+    <Compile Include="正则表达式\RegexHelper.cs" />
+    <Compile Include="图片\ImageWater.cs" />
+    <Compile Include="图片\ImageUpLoadAsp.cs" />
+    <Compile Include="DB_Base\DataFieldAttribute.cs" />
+    <Compile Include="DB_Base\ExecAcc.cs" />
+    <Compile Include="DB_Base\ExecMySql.cs" />
+    <Compile Include="DB_Base\PageList.cs" />
+    <Compile Include="DB_Base\SqlHelper.cs" />
+    <Compile Include="DB_Base\SqlHelper2.cs" />
+    <Compile Include="DB_DAL\CommonDAL.cs" />
+    <Compile Include="文件操作类\上传下载\FileDown.cs" />
+    <Compile Include="文件操作类\上传下载\FileUp.cs" />
+    <Compile Include="其他单点功能\分词辅助类\SegList.cs" />
+    <Compile Include="文件操作类\压缩解压缩\ZipHelper.cs" />
+    <Compile Include="图片\ImageClass.cs" />
+    <Compile Include="图片\ImageDown.cs" />
+    <Compile Include="图片\ImageUpload.cs" />
+    <Compile Include="字符串\StringHelper.cs" />
+    <Compile Include="文件操作类\Excel\ExcelHelper.cs" />
+    <Compile Include="日期时间\日历\CNDate.cs" />
+    <Compile Include="其他单点功能\条形码\BarCodeToHTML.cs" />
+    <Compile Include="其他单点功能\汉字转拼音\PinYin.cs" />
+    <Compile Include="网络\NetHelper.cs" />
+    <Compile Include="文件操作类\视频转换类\VideoConvert.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="邮件\邮件2\ConnectCommand.cs" />
+    <Compile Include="邮件\邮件2\ConnectResponse.cs" />
+    <Compile Include="邮件\邮件2\DeleCommand.cs" />
+    <Compile Include="邮件\邮件2\ListCommand.cs" />
+    <Compile Include="邮件\邮件2\ListResponse.cs" />
+    <Compile Include="邮件\邮件2\MailHeaders.cs" />
+    <Compile Include="邮件\邮件2\MailMessageEx.cs" />
+    <Compile Include="邮件\邮件2\NoopCommand.cs" />
+    <Compile Include="邮件\邮件2\PassCommand.cs" />
+    <Compile Include="邮件\邮件2\Pop3Client.cs" />
+    <Compile Include="邮件\邮件2\Pop3Command.cs" />
+    <Compile Include="邮件\邮件2\Pop3Commands.cs" />
+    <Compile Include="邮件\邮件2\Pop3Exception.cs" />
+    <Compile Include="邮件\邮件2\Pop3ListItem.cs" />
+    <Compile Include="邮件\邮件2\Pop3Response.cs" />
+    <Compile Include="邮件\邮件2\Pop3Responses.cs" />
+    <Compile Include="邮件\邮件2\Pop3State.cs" />
+    <Compile Include="邮件\邮件2\QuitCommand.cs" />
+    <Compile Include="邮件\邮件2\RetrCommand.cs" />
+    <Compile Include="邮件\邮件2\RetrResponse.cs" />
+    <Compile Include="邮件\邮件2\RsetCommand.cs" />
+    <Compile Include="邮件\邮件2\Stat.cs" />
+    <Compile Include="邮件\邮件2\StatCommand.cs" />
+    <Compile Include="邮件\邮件2\StatResponse.cs" />
+    <Compile Include="邮件\邮件2\TopCommand.cs" />
+    <Compile Include="邮件\邮件2\UserCommand.cs" />
+    <Compile Include="邮件\MailHelper.cs" />
+    <Compile Include="邮件\MailPoper.cs" />
+    <Compile Include="邮件\SmtpServerHelper.cs" />
+    <Compile Include="随机数类\RandomHelper.cs" />
+    <Compile Include="页面辅助类\HTMLHelper.cs" />
+    <Compile Include="页面辅助类\JavaScriptPlus.cs" />
+    <Compile Include="文件操作类\上传下载\DownLoadHelper.cs" />
+    <Compile Include="ResourceManager\AppMessage.cs" />
+    <Compile Include="ResourceManager\ResourceManager.cs" />
+    <Compile Include="ResourceManager\ResourceManagerWrapper.cs" />
+    <Compile Include="ResourceManager\Resources.cs" />
+    <Compile Include="文件操作类\上传下载\UpLoadFiles.cs" />
+    <Compile Include="文件操作类\DirFile.cs" />
+    <Compile Include="加解密\DESEncrypt.cs" />
+    <Compile Include="加解密\HashEncode.cs" />
+    <Compile Include="加解密\RSACryption.cs" />
+    <Compile Include="随机数类\BaseRandom.cs" />
+    <Compile Include="随机数类\RandomOperate.cs" />
+    <Compile Include="页面辅助类\HttpProc.cs" />
+    <Compile Include="文件操作类\INIFile.cs" />
+    <Compile Include="邮件\MailSender.cs" />
+    <Compile Include="其他单点功能\RMB.cs" />
+    <Compile Include="序列化\XmlSerializeHelper.cs" />
+    <Compile Include="日期时间\DateTimeHelper.cs" />
+    <Compile Include="加解密\Encrypt.cs" />
+    <Compile Include="文件操作类\Excel\GridViewExport.cs" />
+    <Compile Include="JS弹出消息类\ShowMessage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="页面辅助类\PageHelper.cs" />
+    <Compile Include="图片\YZMHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ResourceManager\Sample.xml" />
+    <Content Include="序列化\AppVersion.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="cscompmgd" />
+    <Reference Include="Excel, Version=1.5.0.0, Culture=neutral" />
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL" />
+    <Reference Include="Interop.MSXML2, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.1.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL" />
+    <Reference Include="log4net">
+      <HintPath>..\Dll备份\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Owc11, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+    <Reference Include="MySql.Data, Version=5.0.8.1, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="NewLife.Core">
+      <HintPath>..\Dll备份\XCode\NewLife.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\Dll备份\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>..\Dll备份\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>..\Dll备份\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net">
+      <HintPath>..\Dll备份\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats">
+      <HintPath>..\Dll备份\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="OWC10Chart, Version=1.0.2074.16784, Culture=neutral" />
+    <Reference Include="QQWry.NET, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6c8a31b8bfc5cab8, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+      <Private>False</Private>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite">
+      <HintPath>..\Dll备份\System.Data.SQLite\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.XML" />
+    <Reference Include="XCode">
+      <HintPath>..\Dll备份\XCode\XCode.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

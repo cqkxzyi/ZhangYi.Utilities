@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AppVersionModels>
+  <Items>
+    <AppVersionModel Id="1" Type="o2o" Version="2.31" Name="aaaaa.apk" Content="1:更新了A；&#xD;&#xA;2:更新了B;&#xD;&#xA;3:更新了c;&#xD;&#xA;4:gegnxinle ddd">
+    </AppVersionModel>
+    <AppVersionModel Id="2" Type="礼仪之邦" Version="2" Name="bbbbb.apk" Content="1:更新了A；\r\n2:更新了B\r\n3:更新了c">
+    </AppVersionModel>
+    <AppVersionModel Id="3" Type="其他" Version="2" Name="ccccccc.apk" Content="1:更新了A；\r\n2:更新了B\r\n3:更新了c">
+    </AppVersionModel>
+  </Items>
+</AppVersionModels>
