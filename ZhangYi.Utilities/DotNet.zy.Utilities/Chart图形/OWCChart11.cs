@@ -98,7 +98,7 @@ namespace DotNet.zy.Utilities
         /// <returns></returns>
         public string CreateColumn()
         {
-            Microsoft.Office.Interop.Owc11.ChartSpace objCSpace = new Microsoft.Office.Interop.Owc11.ChartSpaceClass();//创建ChartSpace对象来放置图表			
+            Microsoft.Office.Interop.Owc11.ChartSpace objCSpace = new Microsoft.Office.Interop.Owc11.ChartSpace();//创建ChartSpaceClass对象来放置图表			
             Microsoft.Office.Interop.Owc11.ChChart objChart = objCSpace.Charts.Add(0);//在ChartSpace对象中添加图表，Add方法返回chart对象
 
             //指定图表的类型。类型由OWC.ChartChartTypeEnum枚举值得到//Microsoft.Office.Interop.OWC.ChartChartTypeEnum
@@ -171,7 +171,7 @@ namespace DotNet.zy.Utilities
         /// <returns></returns>
         public string CreatePie()
         {
-            Microsoft.Office.Interop.Owc11.ChartSpace objCSpace = new Microsoft.Office.Interop.Owc11.ChartSpaceClass();//创建ChartSpace对象来放置图表			
+            Microsoft.Office.Interop.Owc11.ChartSpace objCSpace = new Microsoft.Office.Interop.Owc11.ChartSpace();//创建ChartSpace对象来放置图表			
             Microsoft.Office.Interop.Owc11.ChChart objChart = objCSpace.Charts.Add(0);//在ChartSpace对象中添加图表，Add方法返回chart对象
 
 
@@ -220,7 +220,7 @@ namespace DotNet.zy.Utilities
         /// <returns></returns>
         public string CreateBar()
         {
-            Microsoft.Office.Interop.Owc11.ChartSpace objCSpace = new Microsoft.Office.Interop.Owc11.ChartSpaceClass();//创建ChartSpace对象来放置图表			
+            Microsoft.Office.Interop.Owc11.ChartSpace objCSpace = new Microsoft.Office.Interop.Owc11.ChartSpace();//ChartSpaceClass			
             Microsoft.Office.Interop.Owc11.ChChart objChart = objCSpace.Charts.Add(0);//在ChartSpace对象中添加图表，Add方法返回chart对象
 
             //指定图表的类型。类型由OWC.ChartChartTypeEnum枚举值得到//Microsoft.Office.Interop.OWC.ChartChartTypeEnum

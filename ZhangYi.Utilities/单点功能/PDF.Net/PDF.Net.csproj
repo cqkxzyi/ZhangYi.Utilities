@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{184ECB64-FFBA-4528-BD5E-B960B0FA3773}</ProjectGuid>
+    <ProjectGuid>{A91D9CF9-E8A0-41CA-B1F5-95BB5DBBD6D3}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PDF.Net</RootNamespace>

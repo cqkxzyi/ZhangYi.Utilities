@@ -1,0 +1,284 @@
+2019-08-17 22:11:32.3725 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: debugger
+2019-08-17 22:11:32.3725 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: file
+2019-08-17 22:11:32.3725 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: blackhole
+2019-08-17 22:11:32.3725 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: database
+2019-08-17 22:21:14.9977 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: debugger
+2019-08-17 22:21:14.9977 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: error_file
+2019-08-17 22:21:14.9977 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: blackhole
+2019-08-17 22:21:14.9977 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: database
+2019-08-17 22:24:51.0149 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: debugger
+2019-08-17 22:24:51.0149 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: error_file
+2019-08-17 22:24:51.0149 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: blackhole
+2019-08-17 22:24:51.0149 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: database
+2019-08-17 22:25:18.9047 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: console
+2019-08-17 22:25:18.9047 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: error_file
+2019-08-17 22:25:18.9197 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: blackhole
+2019-08-17 22:25:18.9197 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: database
+2019-08-17 22:26:46.1300 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: console
+2019-08-17 22:26:46.1300 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: blackhole
+2019-08-17 22:26:46.1300 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: database
+2019-08-17 22:31:34.3812 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: console
+2019-08-17 22:33:51.5878 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: console
+2019-08-17 22:35:11.0252 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: console
+2019-08-17 22:35:11.0252 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: database
+2019-08-17 22:38:02.3852 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: blackhole
+2019-08-17 22:38:02.3896 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: console
+2019-08-17 22:38:02.3896 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: debugger
+2019-08-17 22:38:02.3896 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: info_file
+2019-08-17 22:38:02.3896 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: database
+2019-08-17 22:39:34.0592 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: blackhole
+2019-08-17 22:39:34.0627 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: console
+2019-08-17 22:39:34.0627 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: debugger
+2019-08-17 22:39:34.0627 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: info_file
+2019-08-17 22:39:34.0627 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: database
+2019-08-17 22:40:45.7488 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: blackhole
+2019-08-17 22:40:45.7488 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: console
+2019-08-17 22:40:45.7488 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: info_file
+2019-08-17 22:40:45.7488 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: database
+2019-08-17 22:41:56.2301 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: console
+2019-08-17 22:41:56.2352 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: info_file
+2019-08-17 22:41:56.2352 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: database
+2019-08-17 22:43:24.7096 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: blackhole
+2019-08-17 22:43:24.7225 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: console
+2019-08-17 22:43:24.7225 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: database
+2019-08-17 22:45:11.2310 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: blackhole
+2019-08-17 22:45:11.2342 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: console
+2019-08-17 22:45:11.2342 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: database
+2019-08-17 22:49:18.0586 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: blackhole
+2019-08-17 22:49:18.0619 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: console
+2019-08-17 22:49:18.0619 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: database
+2019-08-17 22:50:34.6156 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: blackhole
+2019-08-17 22:50:34.6156 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: console
+2019-08-17 22:50:34.6156 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: database
+2019-08-17 22:57:42.9045 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: blackhole
+2019-08-17 22:57:42.9045 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: console
+2019-08-17 22:57:42.9045 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: error_file
+2019-08-17 22:57:47.8186 Error DatabaseTarget(Name=database): Error when writing to database. Exception: System.Data.SqlClient.SqlException (0x80131904): 将截断字符串或二进制数据。
+语句已终止。
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite, String methodName)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent, String connectionString)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:3a649e1c-a2b2-4896-831e-d50887877e59
+Error Number:8152,State:13,Class:16
+2019-08-17 22:57:49.3977 Error DatabaseTarget(Name=database): Error when writing to database. Exception: System.Data.SqlClient.SqlException (0x80131904): 将截断字符串或二进制数据。
+语句已终止。
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite, String methodName)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent, String connectionString)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:3a649e1c-a2b2-4896-831e-d50887877e59
+Error Number:8152,State:13,Class:16
+2019-08-17 22:57:49.4310 Error DatabaseTarget(Name=database): Error when writing to database. Exception: System.Data.SqlClient.SqlException (0x80131904): 将截断字符串或二进制数据。
+语句已终止。
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite, String methodName)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent, String connectionString)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:3a649e1c-a2b2-4896-831e-d50887877e59
+Error Number:8152,State:13,Class:16
+2019-08-17 22:57:49.4667 Error DatabaseTarget(Name=database): Error when writing to database. Exception: System.Data.SqlClient.SqlException (0x80131904): 将截断字符串或二进制数据。
+语句已终止。
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite, String methodName)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent, String connectionString)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:3a649e1c-a2b2-4896-831e-d50887877e59
+Error Number:8152,State:13,Class:16
+2019-08-17 22:58:03.7317 Error DatabaseTarget(Name=database): Error when writing to database. Exception: System.Data.SqlClient.SqlException (0x80131904): 将截断字符串或二进制数据。
+语句已终止。
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite, String methodName)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent, String connectionString)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:3a649e1c-a2b2-4896-831e-d50887877e59
+Error Number:8152,State:13,Class:16
+2019-08-17 22:58:10.3698 Error DatabaseTarget(Name=database): Error when writing to database. Exception: System.Data.SqlClient.SqlException (0x80131904): 将截断字符串或二进制数据。
+语句已终止。
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite, String methodName)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent, String connectionString)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:3a649e1c-a2b2-4896-831e-d50887877e59
+Error Number:8152,State:13,Class:16
+2019-08-17 22:58:10.3984 Error DatabaseTarget(Name=database): Error when writing to database. Exception: System.Data.SqlClient.SqlException (0x80131904): 将截断字符串或二进制数据。
+语句已终止。
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite, String methodName)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent, String connectionString)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:3a649e1c-a2b2-4896-831e-d50887877e59
+Error Number:8152,State:13,Class:16
+2019-08-17 22:58:10.4259 Error DatabaseTarget(Name=database): Error when writing to database. Exception: System.Data.SqlClient.SqlException (0x80131904): 将截断字符串或二进制数据。
+语句已终止。
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite, String methodName)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent, String connectionString)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:3a649e1c-a2b2-4896-831e-d50887877e59
+Error Number:8152,State:13,Class:16
+2019-08-17 22:59:32.3470 Error DatabaseTarget(Name=database): Error when writing to database. Exception: System.Data.SqlClient.SqlException (0x80131904): 将截断字符串或二进制数据。
+语句已终止。
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite, String methodName)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent, String connectionString)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:3a649e1c-a2b2-4896-831e-d50887877e59
+Error Number:8152,State:13,Class:16
+2019-08-17 22:59:40.0098 Error DatabaseTarget(Name=database): Error when writing to database. Exception: System.Data.SqlClient.SqlException (0x80131904): 将截断字符串或二进制数据。
+语句已终止。
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite, String methodName)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent, String connectionString)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:3a649e1c-a2b2-4896-831e-d50887877e59
+Error Number:8152,State:13,Class:16
+2019-08-17 22:59:40.0392 Error DatabaseTarget(Name=database): Error when writing to database. Exception: System.Data.SqlClient.SqlException (0x80131904): 将截断字符串或二进制数据。
+语句已终止。
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite, String methodName)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent, String connectionString)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:3a649e1c-a2b2-4896-831e-d50887877e59
+Error Number:8152,State:13,Class:16
+2019-08-17 22:59:40.0670 Error DatabaseTarget(Name=database): Error when writing to database. Exception: System.Data.SqlClient.SqlException (0x80131904): 将截断字符串或二进制数据。
+语句已终止。
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite, String methodName)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent, String connectionString)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:3a649e1c-a2b2-4896-831e-d50887877e59
+Error Number:8152,State:13,Class:16
+2019-08-17 23:10:13.0068 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: blackhole
+2019-08-17 23:10:13.0227 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: console
+2019-08-17 23:10:13.0227 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: error_file
+2019-08-17 23:13:19.2715 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: blackhole
+2019-08-17 23:13:19.2715 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: console
+2019-08-17 23:16:30.0440 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: blackhole
+2019-08-17 23:16:30.0495 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: console
+2019-08-18 09:41:01.9960 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: blackhole
+2019-08-18 09:41:01.9999 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: console
+2019-08-18 09:42:33.4154 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: blackhole
+2019-08-18 09:42:33.4154 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: console
+2019-08-18 09:43:42.3803 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: blackhole
+2019-08-18 09:43:42.3803 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: console
+2019-08-18 09:56:26.7007 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: blackhole
+2019-08-18 09:56:26.7007 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: console
+2019-08-18 09:56:34.1899 Error DatabaseTarget(Name=database): Error when writing to database. Exception: System.Data.SqlClient.SqlException (0x80131904): 必须声明标量变量 "@logged"。
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite, String methodName)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent, String connectionString)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:2793c4cc-e14a-47d9-9acb-4506d46481da
+Error Number:137,State:2,Class:15
+2019-08-18 09:56:53.0460 Error DatabaseTarget(Name=database): Error when writing to database. Exception: System.Data.SqlClient.SqlException (0x80131904): 必须声明标量变量 "@logged"。
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite, String methodName)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.WriteEventToDatabase(LogEventInfo logEvent, String connectionString)
+   at NLog.Targets.DatabaseTarget.Write(LogEventInfo logEvent)
+ClientConnectionId:2793c4cc-e14a-47d9-9acb-4506d46481da
+Error Number:137,State:2,Class:15
+2019-08-18 09:58:27.5050 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: blackhole
+2019-08-18 09:58:27.5050 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: console
+2019-08-18 09:59:39.4276 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: blackhole
+2019-08-18 09:59:39.4276 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: console
+2019-08-24 16:44:45.3772 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: blackhole
+2019-08-24 16:44:45.3772 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: console

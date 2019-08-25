@@ -27,6 +27,8 @@
     <IISExpressUseClassicPipelineMode />
     <MvcProjectUpgradeChecked>true</MvcProjectUpgradeChecked>
     <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -172,7 +174,7 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DotNet.zy.Utilities\DotNet.zy.Utilities.csproj">
+    <ProjectReference Include="..\..\DotNet.zy.Utilities\DotNet.zy.Utilities.csproj">
       <Project>{0a9704f9-7864-45af-bfa7-e09f2b30a29f}</Project>
       <Name>DotNet.zy.Utilities</Name>
     </ProjectReference>
