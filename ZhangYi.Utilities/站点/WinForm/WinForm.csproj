@@ -349,7 +349,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DotNet.zy.Utilities\DotNet.zy.Utilities.csproj">
+    <ProjectReference Include="..\..\DotNet.zy.Utilities\DotNet.zy.Utilities.csproj">
       <Project>{0A9704F9-7864-45AF-BFA7-E09F2B30A29F}</Project>
       <Name>DotNet.zy.Utilities</Name>
     </ProjectReference>
