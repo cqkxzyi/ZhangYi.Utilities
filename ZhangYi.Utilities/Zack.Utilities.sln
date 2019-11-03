@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2016
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29424.173
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoNet基础", "DoNet基础\DoNet基础.csproj", "{E7EDF60D-B34C-41F7-B9B4-6970F9168F70}"
 EndProject
@@ -35,6 +35,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF窗口", "站点\WPF\WPF窗口.csproj", "{B9A1DEA7-BDDF-45EC-8605-EC45DF23FBB1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MsTest", "站点\MsTest\MsTest.csproj", "{4E8442F2-6A23-4464-B157-F1F65204F05A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core3.0-Web", "站点\Core3.0-Web\Core3.0-Web.csproj", "{6DEAAE94-93B6-43B4-B74F-283331CF3A16}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -186,6 +188,18 @@ Global
 		{4E8442F2-6A23-4464-B157-F1F65204F05A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{4E8442F2-6A23-4464-B157-F1F65204F05A}.Release|x86.ActiveCfg = Release|Any CPU
 		{4E8442F2-6A23-4464-B157-F1F65204F05A}.Release|x86.Build.0 = Release|Any CPU
+		{6DEAAE94-93B6-43B4-B74F-283331CF3A16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DEAAE94-93B6-43B4-B74F-283331CF3A16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DEAAE94-93B6-43B4-B74F-283331CF3A16}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{6DEAAE94-93B6-43B4-B74F-283331CF3A16}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{6DEAAE94-93B6-43B4-B74F-283331CF3A16}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6DEAAE94-93B6-43B4-B74F-283331CF3A16}.Debug|x86.Build.0 = Debug|Any CPU
+		{6DEAAE94-93B6-43B4-B74F-283331CF3A16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DEAAE94-93B6-43B4-B74F-283331CF3A16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DEAAE94-93B6-43B4-B74F-283331CF3A16}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{6DEAAE94-93B6-43B4-B74F-283331CF3A16}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{6DEAAE94-93B6-43B4-B74F-283331CF3A16}.Release|x86.ActiveCfg = Release|Any CPU
+		{6DEAAE94-93B6-43B4-B74F-283331CF3A16}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -201,6 +215,7 @@ Global
 		{FE029BEC-83C5-46CC-A558-82DEDBE5835C} = {DFB01FA6-FB42-4C75-8922-EE8EF031ABFC}
 		{B9A1DEA7-BDDF-45EC-8605-EC45DF23FBB1} = {DFB01FA6-FB42-4C75-8922-EE8EF031ABFC}
 		{4E8442F2-6A23-4464-B157-F1F65204F05A} = {DFB01FA6-FB42-4C75-8922-EE8EF031ABFC}
+		{6DEAAE94-93B6-43B4-B74F-283331CF3A16} = {DFB01FA6-FB42-4C75-8922-EE8EF031ABFC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0F7ED17C-A9F1-415D-B38D-9D2CF90D63B0}
