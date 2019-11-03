@@ -14,6 +14,7 @@ namespace DoNet基础.多线程_异步
             DisplayValue(); //这里不会阻塞  
             System.Diagnostics.Debug.WriteLine("MyClass() End.");
         }
+
         public async void DisplayValue()
         {
             double result = await GetValueAsync(1234.5, 1.01);//此处会开新线程处理GetValueAsync任务，然后方法马上返回  
@@ -21,6 +22,7 @@ namespace DoNet基础.多线程_异步
             //这之后的所有代码都会被封装成委托，在GetValueAsync任务完成时调用  
             System.Diagnostics.Debug.WriteLine("Value is : " + result);
         }
+
         public Task<double> GetValueAsync(double num1, double num2)
         {
             return Task.Run(() =>
@@ -82,16 +84,15 @@ namespace DoNet基础.多线程_异步
         /// <param name="callback">异步方法执行完毕时执行的回调方法，该方法参数为TResult，返回类型必须是void</param>  
         public static async void RunAsync<TResult>(Func<TResult> function, Action<TResult> callback)
         {
-            Func<System.Threading.Tasks.Task<TResult>> taskFunc = () =>
+            Func<Task<TResult>> taskFunc = () =>
             {
-                return System.Threading.Tasks.Task.Run(() =>
+                return Task.Run(() =>
                 {
                     return function();
                 });
             };
             TResult rlt = await taskFunc();
-            if (callback != null)
-                callback(rlt);
+            callback?.Invoke(rlt);
         }
     }
 }

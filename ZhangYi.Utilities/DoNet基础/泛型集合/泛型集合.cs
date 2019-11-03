@@ -9,7 +9,7 @@ using System.Text;
 
 namespace DoNet基础.泛型集合
 {
-    public class 集合字典有一下
+    public class 集合字典有以下
     {
         SortedList sList = new SortedList();
 

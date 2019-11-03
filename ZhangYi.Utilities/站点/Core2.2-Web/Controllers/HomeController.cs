@@ -47,7 +47,7 @@ namespace Core2._2_Web.Controllers
         /// </summary>
         public void TestNLog() {
 
-            logger.Trace("Trace Message");
+            logger.Trace("Trace Message ");
             logger.Debug("Debug调试消息 Message");
             logger.Info("Info我的信息");
             logger.Fatal("Fatal  啊啊啊啊啊啊啊啊啊啊啊啊啊");

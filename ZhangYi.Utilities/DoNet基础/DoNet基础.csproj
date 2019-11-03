@@ -129,6 +129,7 @@
     <Compile Include="Socket编程\ServerSocket.cs" />
     <Compile Include="Socket编程\SocketThread.cs" />
     <Compile Include="YieldTest.cs" />
+    <Compile Include="依赖注入控制反转\控制反转.cs" />
     <Compile Include="反射学习.cs" />
     <Compile Include="多线程、异步\Async_Await.cs" />
     <Compile Include="多线程、异步\多线程学习.cs" />
@@ -211,6 +212,7 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
