@@ -43,7 +43,7 @@ sy.serializeObject = function (form) {
 /**
 * 格式化字符串
 * 使用方法：sy.fs('字符串{0}字符串{1}字符串','第一个变量','第二个变量');
-* @returns 格式化后的字符串
+* returns 格式化后的字符串
 */
 sy.fs = function (str) {
     for (var i = 0; i < arguments.length - 1; i++) {

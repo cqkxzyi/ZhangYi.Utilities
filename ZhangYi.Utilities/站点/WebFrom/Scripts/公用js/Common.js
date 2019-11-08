@@ -106,15 +106,28 @@ function GetUrlParms() {
     }
     return args;
 }
-//得到Url中的参数,url上的中文参数需要encodeURI()
+
+//得到Url中的参数(未解码)
 function getQueryString(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
     var r = window.location.search.substr(1).match(reg);
     if (r != null) {
-        //return unescape(r[2]);
-        return decodeURI(r[2]);
+        return unescape(r[2]);
     }
     return null;
+}
+
+//获取url指定参数（中文解码）
+function getQueryBycn(name) {
+    var query = window.location.search.substring(1);
+    var vars = query.split("&");
+    for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split("=");
+        if (pair[0] == name) {
+            return decodeURI(pair[1]);
+        }
+    }
+    return "";
 }
 
 //替换指定传入参数的值,paramName为参数,replaceWith为新值
@@ -125,30 +138,30 @@ function replaceParamVal(paramName, replaceWith) {
     return nUrl;
 }
 
-        //监听返回按键
-		//先添加这个代码，window.history.pushState('forward', null, './ApplyMain');
-        try {
-            if (window.history && window.history.pushState) {
-                $(window).on('popstate', function () {
-                    var hashLocation = location.hash;
-                    var hashSplit = hashLocation.split("#!/");
-                    var hashName = hashSplit[1];
-                    console.info(hashSplit);
-                    if (hashName !== '') {
-                        var hash = window.location.hash;
-                        this.console.info(hash);
-                        if (hash === '') {
-                            if (!$("#div_xietong").is(':hidden')) {
-                                AlertM.XieTong.close();
+//监听返回按键
+//先添加这个代码，window.history.pushState('forward', null, './ApplyMain');
+try {
+    if (window.history && window.history.pushState) {
+        $(window).on('popstate', function () {
+            var hashLocation = location.hash;
+            var hashSplit = hashLocation.split("#!/");
+            var hashName = hashSplit[1];
+            console.info(hashSplit);
+            if (hashName !== '') {
+                var hash = window.location.hash;
+                this.console.info(hash);
+                if (hash === '') {
+                    if (!$("#div_xietong").is(':hidden')) {
+                        AlertM.XieTong.close();
 
-                            } else {
-                                history.back(-1);
-                            }
-                        }
+                    } else {
+                        history.back(-1);
                     }
-                });
-
+                }
             }
-        } catch (e) {
+        });
+
+    }
+} catch (e) {
             
-        }
+}
