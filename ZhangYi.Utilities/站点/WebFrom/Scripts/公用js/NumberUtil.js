@@ -1,5 +1,4 @@
 ﻿
-
 //生成随机数
 $.fn.Random = function () {
     var seed = new Array('1', '2', '3', '4', '5', '6', '7', '8', '9'); //数组
@@ -91,8 +90,8 @@ function NewGUID() {
     var guid = (G() + G() + "-" + G() + "-" + G() + "-" +
         G() + "-" + G() + G() + G()).toUpperCase();
     return guid;
-};
+}
 
 function G() {
     return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
-};
+}

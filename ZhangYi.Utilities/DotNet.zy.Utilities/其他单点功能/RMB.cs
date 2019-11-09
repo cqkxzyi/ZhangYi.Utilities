@@ -1,4 +1,5 @@
 using System;
+using System.Text;
 
 namespace DotNet.zy.Utilities
 {
@@ -7,6 +8,59 @@ namespace DotNet.zy.Utilities
     /// </summary> 
     public class Rmb
     {
+        /// <summary>
+        /// 金额数字转成大写 (群友提供)
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static string RmbUpper(double value)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            string text = "零壹贰叁肆伍陆柒捌玖";
+            string text2 = "仟佰拾万仟佰拾亿仟佰拾万仟佰拾元角分厘";
+            string text3 = Math.Abs(value).ToString("0000000000000000.000");
+            text3 = text3.Remove(text3.IndexOf("."), 1);
+            for (int i = 0; i < text3.Length; i++)
+            {
+                bool flag = text3[i] != '0';
+                if (flag)
+                {
+                    bool flag2 = i > 0 && text3[i - 1] == '0' && text2[i - 1] != '万' && text2[i - 1] != '亿' && text2[i - 1] != '元';
+                    if (flag2)
+                    {
+                        stringBuilder.Append(text[(int)(text3[i - 1] - '0')]);
+                    }
+                    stringBuilder.Append(text[(int)(text3[i] - '0')]);
+                    stringBuilder.Append(text2[i]);
+                }
+                else
+                {
+                    bool flag3 = stringBuilder.Length > 0;
+                    if (flag3)
+                    {
+                        bool flag4 = text2[i] == '亿' || text2[i] == '元';
+                        if (flag4)
+                        {
+                            stringBuilder.Append(text2[i]);
+                        }
+                        bool flag5 = text2[i] == '万';
+                        if (flag5)
+                        {
+                            bool flag6 = stringBuilder[stringBuilder.Length - 1] != '亿';
+                            if (flag6)
+                            {
+                                stringBuilder.Append(text2[i]);
+                            }
+                        }
+                    }
+                }
+            }
+            return ((value < 0.0) ? "负" : "") + stringBuilder.ToString().Trim("零".ToCharArray());
+        }
+
+
+
+
         /// <summary> 
         /// 转换人民币大小金额 
         /// </summary> 
