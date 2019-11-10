@@ -1,3 +1,26 @@
+WebFrom
+	通用js
+
+Mvc3.0
+	站点通用技术等
+
+Mvc5.0
+	ES5、ES6测试
+	Require 前端Js加载
+	VueJs 前端框架
+
+Core2.2-Web
+	NLog
+	Dapper简易ORM
+
+Core3.0-Web
+
+
+
+
+
+
+
 
 长运小贷：
 	OA系统：
@@ -6,14 +29,7 @@
 	WapApp：
 		复制功能：使用第三方js
 		
-		
-		
-		
-		
-		
-		
-		
-		
+
 		
 上传控件：
 	1：jQuery-File-Upload：有进度条的上传文件组件，长运小贷-OA系统
