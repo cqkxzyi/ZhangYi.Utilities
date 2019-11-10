@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Core2._2_Web.Filter;
+using Core2._2_Web.SignalR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -44,6 +45,8 @@ namespace Core2._2_Web
                 option.Filters.Add(new GlobalExceptionFilter());
             })
             .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            //配置SingnalR
+            services.AddSignalR();
         }
 
 
@@ -79,6 +82,12 @@ namespace Core2._2_Web
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
+            });
+
+            //配置SingnalR
+            app.UseSignalR(routes =>
+            {
+                routes.MapHub<WeChatHub>("/wechatHub");
             });
         }
     }
