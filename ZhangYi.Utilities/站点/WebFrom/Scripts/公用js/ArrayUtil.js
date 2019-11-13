@@ -43,6 +43,19 @@ function findArray(array, feature, isAll) {
     return -1;
 }
 
+//根据数组中的某个字段去重
+function unique(arr, field) {
+    var map = {};
+    var res = [];
+    for (var i = 0; i < arr.length; i++) {
+        if (!map[arr[i][field]]) {
+            map[arr[i][field]] = 1;
+            res.push(arr[i]);
+        }
+    }
+    return res;
+}
+
 
 //数组对象处理相关方法
 Array.prototype.del = function (n) {//n表示第几项，从0开始算起。

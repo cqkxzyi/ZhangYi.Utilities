@@ -87,6 +87,7 @@
     <Content Include="Scripts\Base\CityTxt2.txt" />
     <Content Include="Scripts\Base\Common.js" />
     <Content Include="Scripts\公用js\H5.js" />
+    <Content Include="Scripts\公用js\LocalStorageHelper.js" />
     <Content Include="Scripts\公用js\NumberUtil.js" />
     <Content Include="Scripts\公用js\Cookie.js" />
     <Content Include="Scripts\公用js\SheetValidate.js" />

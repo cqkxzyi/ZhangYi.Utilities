@@ -1,37 +1,4 @@
-﻿Date.prototype.GetFullDate = function() {
-    var objDate = new Date();
-    var year = objDate.getFullYear();
-    var month = objDate.getMonth() + 1;    //getMonth返回的月份是从0开始的，因此要加1
-    var date = objDate.getDate();
-    var day = objDate.getDay();
-    //根据星期数的索引确定其中文表示
-    switch (day) {
-        case 0:
-            day = "星期日";
-            break;
-        case 1:
-            day = "星期一";
-            break;
-        case 2:
-            day = "星期二";
-            break;
-        case 3:
-            day = "星期三";
-            break;
-        case 4:
-            day = "星期四";
-            break;
-        case 5:
-            day = "星期五";
-            break;
-        case 6:
-            day = "星期六";
-            break;
-    }
-    return "今天是：" + year + "年" + month + "月" + date + "日&nbsp; " + day;
-}
-
-
+﻿
 //日期转换成长日期格式：2019年02月05日
 Date.prototype.toCommonCase = function() {
     var xYear = this.getYear();
@@ -153,6 +120,39 @@ DateFormat = (function () {
 })(); 
 
 
+//今天是2019年02月02日 星期六
+Date.prototype.GetFullDate = function () {
+    var objDate = new Date();
+    var year = objDate.getFullYear();
+    var month = objDate.getMonth() + 1;    //getMonth返回的月份是从0开始的，因此要加1
+    var date = objDate.getDate();
+    var day = objDate.getDay();
+    //根据星期数的索引确定其中文表示
+    switch (day) {
+        case 0:
+            day = "星期日";
+            break;
+        case 1:
+            day = "星期一";
+            break;
+        case 2:
+            day = "星期二";
+            break;
+        case 3:
+            day = "星期三";
+            break;
+        case 4:
+            day = "星期四";
+            break;
+        case 5:
+            day = "星期五";
+            break;
+        case 6:
+            day = "星期六";
+            break;
+    }
+    return "今天是：" + year + "年" + month + "月" + date + "日&nbsp; " + day;
+}
 
 //程序:常用公历日期处理程序
 /**//*用相对不规则的字符串来创建日期对象,不规则的含义为:顺序包含年月日三个数值串,有间隔*/
@@ -287,6 +287,7 @@ function DateDiff(sDate1, sDate2) { //sDate1和sDate2是2002-12-18格式
 Number.prototype.fmtRtnVal = function(intOrFloat) {
     return (intOrFloat == 0 ? Math.floor(this) : parseInt(this * 100) / 100);
 }
+
 //根据当前日期所在年和周数返回周日的日期
 Date.prototype.RtnByWeekNum = function(weekNum) {
     if (typeof (weekNum) != "number")
@@ -296,6 +297,7 @@ Date.prototype.RtnByWeekNum = function(weekNum) {
     week = (week == 0 ? 7 : week);
     return date.dateAfter(weekNum * 7 - week, 1);
 }
+
 //根据日期返回该日期所在年的周数
 Date.prototype.getWeekNum = function() {
     var dat = new Date(this.getFullYear(), 0, 1);
@@ -311,12 +313,12 @@ function ZhuanHua(objDate) {
     window.alert(objDate.replace(/\b(\w)\b/g, '0$1'));
 }
 
-//2、得到间隔天数
+//得到间隔天数
 function GetDiffDay(objDate1,objDate2) {
     alert("间隔天数为:" + (objDate1 - objDate2) / 1000 / 60 / 60 / 24 + "天")
 } 
 
-//3、得到间隔时间
+//得到间隔时间
 function GetDiffHH(d1, d2) {
     var d3 = d1 - d2;
     var h = Math.floor(d3 / 3600000);
@@ -327,14 +329,7 @@ function GetDiffHH(d1, d2) {
 
 
 
-//4、得到今天的日期 
-function GetTodayDate() {
-    d = new Date();
-    return d.getFullYear() + "年" + (d.getMonth() + 1) + "月" + d.getDate() + "日";
-}
-
-
-//6、数字日期转汉字 
+//数字日期转汉字 
 Date.prototype.getRead = function() {
     var values = new Array("零", "一", "二", "三", "四", "五", "六", "七", "八", "九");
     var returnValue, temp;
@@ -347,7 +342,7 @@ Date.prototype.getRead = function() {
 }
 
 
-//7、得到前N天或后N天的日期 
+//得到前N天或后N天的日期 
 //方法一： 
 function showdate(n) {
     var uom = new Date(new Date() - 0 + n * 86400000);
@@ -382,15 +377,6 @@ function showdate(n) {
     //msgbox "十天前是:"&showdate(-10) 
     //msgbox "五天后是:"&showdate(5) 
 }
-//方法四： 
-Date.prototype.getDays = function() {
-    var _newDate = new Date();
-    _newDate.setMonth(_newDate.getMonth() + 1);
-    _newDate.setDate(0);
-    $_days = _newDate.getDate();
-    delete _newDate;
-    return $_days;
-}
 
 function showdate(n) {
     var uom = new Date();
@@ -398,11 +384,6 @@ function showdate(n) {
     uom = uom.getFullYear() + "-" + (uom.getMonth() + 1) + "-" + uom.getDate() + "\n星期" + ('天一二三四五六'.charAt(uom.getDay())) + "\n本月有" + uom.getDays() + "天";
     return uom;
 }
-//window.alert("今天是："+showdate(0)); 
-//window.alert("昨天是："+showdate(-1)); 
-//window.alert("明天是："+showdate(1)); 
-//window.alert("10天前是："+showdate(-10)); 
-//window.alert("5天后是："+showdate(5)); 
 
 
 
@@ -435,9 +416,9 @@ function isDate(str) {
 ***功能：扩展日期函数，支持YYYY-MM-DD或YYYY-MMDD hh:mm:ss字符串格式
 ***返回：如果正确，则返回javascript中支持UTC日期格式，如果错误，则返回false  
 ***日期：2004-12-15
-***举例： var myDate = isDate("2004-12-21 23:01:00");   //返回正确的日期
-***       var myDate = isDate("2004-12-21");            //返回正确的日期
-***       var myDate = isDate("2004-23-12 12:60:29");   //返回false，
+***举例： var myDate = isDateTime("2004-12-21 23:01:00");   //返回正确的日期
+***       var myDate = isDateTime("2004-12-21");            //返回正确的日期
+***       var myDate = isDateTime("2004-23-12 12:60:29");   //返回false，
 **********************************************************************************/
 function isDateTime(str) {
     if (str == "") return true;
@@ -467,35 +448,104 @@ function isDateTime(str) {
     }
 }
 
-//IOS兼容算法
-function Ios(){
-   var isWordDay=true;
-    if (isWordDay) {
-        var nowDate = new Date();
-        var month = nowDate.getMonth() + 1 < 10 ? "0" + (nowDate.getMonth() + 1) : nowDate.getMonth() + 1;
-        var strStart = (nowDate.getFullYear()).toString() + "-" + month + "-" + (nowDate.getDate()).toString();
 
-        var startTime = new Date(Date.parse(strStart + " 09:00:00"));
-        var endTime = new Date(Date.parse(strStart + " 17:30:00"));
+function getTs(time1, time2) {
+    try {
+        var ts = time2 - time1;
+        return ts;
 
-        if (startTime > nowDate || endTime < nowDate) {
-            isWordDay = false;
-        }
+    } catch (e) {
+        var arr = time1.getTime().split(/[- : \/]/);
+        var date1 = new Date(arr[0], arr[1] - 1, arr[2], arr[3], arr[4], arr[5]);
     }
 
-    //IOS兼容
-    if (isWordDay) {
-        var nowDate = new Date();
-        var month = nowDate.getMonth() + 1 < 10 ? "0" + (nowDate.getMonth() + 1) : nowDate.getMonth() + 1;
-        var strStart = (nowDate.getFullYear()).toString() + "/" + month + "/" + (nowDate.getDate()).toString();
+    
+    //if (isWordDay) {
+    //    var nowDate = new Date();
+    //    var month = nowDate.getMonth() + 1 < 10 ? "0" + (nowDate.getMonth() + 1) : nowDate.getMonth() + 1;
+    //    var strStart = (nowDate.getFullYear()).toString() + "-" + month + "-" + (nowDate.getDate()).toString();
 
-        var arr = (strStart+' 09:00:00').split(/[- : \/]/),
-            arr2 = (strStart+' 17:30:00').split(/[- : \/]/),
-            date = new Date(arr[0], arr[1] - 1, arr[2], arr[3], arr[4], arr[5]),
-            date2 = new Date(arr2[0], arr2[1] - 1, arr2[2], arr2[3], arr2[4], arr2[5]);
+    //    var startTime = new Date(Date.parse(strStart + " 09:00:00"));
+    //    var endTime = new Date(Date.parse(strStart + " 17:30:00"));
 
-        if (date > nowDate || date2 < nowDate) {
-            isWordDay = false;
+    //    if (startTime > nowDate || endTime < nowDate) {
+    //        isWordDay = false;
+    //    }
+    //}
+    ////IOS兼容
+    //if (isWordDay) {
+    //    var nowDate = new Date();
+    //    var month = nowDate.getMonth() + 1 < 10 ? "0" + (nowDate.getMonth() + 1) : nowDate.getMonth() + 1;
+    //    var strStart = (nowDate.getFullYear()).toString() + "/" + month + "/" + (nowDate.getDate()).toString();
+
+    //    var arr = (strStart + ' 09:00:00').split(/[- : \/]/),
+    //        arr2 = (strStart + ' 17:30:00').split(/[- : \/]/),
+    //        date = new Date(arr[0], arr[1] - 1, arr[2], arr[3], arr[4], arr[5]),
+    //        date2 = new Date(arr2[0], arr2[1] - 1, arr2[2], arr2[3], arr2[4], arr2[5]);
+
+    //    if (date > nowDate || date2 < nowDate) {
+    //        isWordDay = false;
+    //    }
+    //}
+}
+
+
+
+
+
+//获取距离当前时间差（一分钟前、两天前...）
+function getDateDiff(post_modified) {
+    post_modified = post_modified.replace(new RegExp("-", 'g'), "/");
+
+    // 拿到当前时间戳和发布时的时间戳，然后得出时间戳差
+    var curTime = new Date();
+    var postTime = new Date(post_modified);
+
+    var timeDiff = getTs(postTime, curTime);
+
+
+    // 单位换算
+    var min = 60 * 1000;
+    var hour = min * 60;
+    var day = hour * 24;
+    var week = day * 7;
+    var month = week * 4;
+    var year = month * 12;
+
+    // 计算发布时间距离当前时间的周、天、时、分
+    var exceedyear = Math.floor(timeDiff / year);
+    var exceedmonth = Math.floor(timeDiff / month);
+    var exceedWeek = Math.floor(timeDiff / week);
+    var exceedDay = Math.floor(timeDiff / day);
+    var exceedHour = Math.floor(timeDiff / hour);
+    var exceedMin = Math.floor(timeDiff / min);
+
+    // 最后判断时间差到底是属于哪个区间，然后return
+
+    if (exceedyear < 100 && exceedyear > 0) {
+        return '发表于' + exceedyear + '年前';
+    } else {
+        if (exceedmonth < 12 && exceedmonth > 0) {
+            return exceedmonth + '月前';
+        } else {
+            if (exceedWeek < 4 && exceedWeek > 0) {
+                return exceedWeek + '星期前';
+            } else {
+                if (exceedDay < 7 && exceedDay > 0) {
+                    return exceedDay + '天前';
+                } else {
+                    if (exceedHour < 24 && exceedHour > 0) {
+                        return exceedHour + '小时前';
+                    } else {
+                        if (exceedMin == 0) {
+                            return '刚刚发表';
+                        } else {
+                            return exceedMin + '分钟前';
+                        }
+
+                    }
+                }
+            }
         }
     }
 }
