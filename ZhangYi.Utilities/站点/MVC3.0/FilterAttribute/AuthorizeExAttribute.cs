@@ -8,7 +8,7 @@ using System.Web.Security;
 namespace MVC3._0.FilterAttribute
 {
     /// <summary>
-    /// 权限验证属性
+    /// 身份认证
     /// </summary>
     public class AuthorizeExAttribute : AuthorizeAttribute
     {
@@ -45,16 +45,6 @@ namespace MVC3._0.FilterAttribute
             return false;
         }
 
-        /// <summary>
-        /// 主要的验证权限方法
-        /// </summary>
-        /// <param name="user"></param>
-        /// <returns></returns>
-        private bool IsAllow()
-        {
-            //写上验证代码
-            return true;
-        }
 
         /// <summary>
         /// 重写验证。
@@ -70,6 +60,50 @@ namespace MVC3._0.FilterAttribute
                 else
                     filterContext.Result = new RedirectResult(FormsAuthentication.LoginUrl + "?returnUrl=" + filterContext.HttpContext.Request.UrlReferrer);
             }
+        }
+
+        /// <summary>
+        /// AuthorizeCore函数结果为false时，就会触发HandleUnauthorizedRequest函数来处理验证失败
+        /// </summary>
+        /// <param name="filterContext"></param>
+        protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
+        {
+            //如果是Ajax请求
+            if (filterContext.HttpContext.Request.IsAjaxRequest())
+            {
+                //返回json
+                filterContext.Result = new JsonResult
+                {
+                    Data = new
+                    {
+                        ResultCode = 500,
+                        ResultMess = "请求用户未登录！"
+                    }
+                };
+
+                //or
+                //返回js
+                filterContext.Result = new AjaxUnauthorizedResult();
+            }
+            else
+            {
+                //处理Url请求
+                //验证不通过,直接跳转到相应页面，注意：如果不使用以下跳转，则会继续执行Action方法 
+                filterContext.Result = new RedirectResult("/Home/Index");
+            }
+            base.HandleUnauthorizedRequest(filterContext);
+        }
+
+
+        /// <summary>
+        /// 主要的验证权限方法
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        private bool IsAllow()
+        {
+            //写上验证代码
+            return true;
         }
     }
 }

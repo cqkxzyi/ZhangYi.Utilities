@@ -9,13 +9,12 @@ using System.Web.Security;
 namespace MVC3._0.Controllers
 {
     /// <summary>
-    /// 验证登录的过滤器
+    /// 过滤器
     ///  MVC4.0后，微软加了一个AllowAnoumous的过滤器验证，即允许匿名用户访问，方法上的过滤器可以覆盖掉控制器上的标记
     /// </summary>
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = false)]
     public class LoginFilterAttribute : ActionFilterAttribute
     {
-
         ///// <summary>
         ///// 会判断是json请求 还是action请求
         ///// </summary>

@@ -30,6 +30,8 @@ Core3.0-Web
 		上传控件：jQuery-File-Upload-9.9.3，有进度条的上传文件组件
 	WapApp：
 		复制功能：使用第三方js
+		弹框：jqueryAlert
+		遮罩层：busy-load 支持H5、web
 		
 
 		

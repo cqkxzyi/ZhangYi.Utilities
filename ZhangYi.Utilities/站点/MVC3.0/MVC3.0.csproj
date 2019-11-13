@@ -50,9 +50,8 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Dll备份\log4net.dll</HintPath>
+    <Reference Include="log4net">
+      <HintPath>..\..\Dll备份\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -87,7 +86,9 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="FilterAttribute\AjaxUnauthorizedResult.cs" />
     <Compile Include="FilterAttribute\AuthorizeExAttribute.cs" />
+    <Compile Include="FilterAttribute\AuthUserRoleAttribute.cs" />
     <Compile Include="FilterAttribute\LoginFilterAttribute.cs" />
     <Compile Include="FilterAttribute\PurviewFilterAttribute.cs" />
     <Compile Include="FilterAttribute\LoginTimeOutException.cs" />

@@ -1,4 +1,5 @@
 ﻿using MVC3._0.Controllers;
+using MVC3._0.FilterAttribute;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,9 +23,16 @@ namespace MVC3._0
             RegisterRoutes(RouteTable.Routes);
         }
 
+        /// <summary>
+        /// 全局过滤器配置
+        /// </summary>
+        /// <param name="filters"></param>
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            filters.Add(new AuthorizeExAttribute());
+            filters.Add(new LoginFilterAttribute());
+
         }
 
         public static void RegisterRoutes(RouteCollection routes)

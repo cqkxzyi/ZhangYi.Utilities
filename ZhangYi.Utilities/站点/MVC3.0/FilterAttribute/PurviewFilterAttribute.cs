@@ -9,7 +9,7 @@ using System.Web.Security;
 namespace MVC3._0.Controllers
 {
     /// <summary>
-    /// 验证权限的过滤器
+    /// 过滤器
     /// </summary>
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = true)]
     public class PurviewFilterAttribute : ActionFilterAttribute

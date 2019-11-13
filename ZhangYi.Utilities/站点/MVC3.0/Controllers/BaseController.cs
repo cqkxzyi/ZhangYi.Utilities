@@ -1,15 +1,16 @@
-﻿using System;
+﻿using MVC3._0.FilterAttribute;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace MVC3._0.Controllers
 {
     public class BaseController : Controller
     {
-
         #region MVC方式文件下载
         /// <summary>
         /// MVC方式文件下载
@@ -50,9 +51,69 @@ namespace MVC3._0.Controllers
                 }
             }
             return File(fileContent, mimeType, fileName);
-        }  
+        }
 
         #endregion
+
+
+        /// <summary>
+        /// 权限控制
+        /// </summary>
+        /// <param name="filterContext"></param>
+        protected override void OnAuthorization(AuthorizationContext filterContext)
+        {
+            if (filterContext.IsChildAction)
+            {
+                return;
+            }
+
+            bool isAllowAnonymous = filterContext.ActionDescriptor.GetCustomAttributes(typeof(AllowAnonymousAttribute), false).Length > 0;
+            var roles = filterContext.ActionDescriptor.GetCustomAttributes(typeof(AuthUserRoleAttribute), false);
+            string[] roleArray = null;
+            string actionName = null;
+            string controllerName = null;
+            if (roles.Length > 0)
+            {
+                var attributeInfo = ((AuthUserRoleAttribute)(roles)[0]);
+                roleArray = attributeInfo.Roles.Split(',');
+                actionName = attributeInfo.ActionName;
+                controllerName = attributeInfo.ControllerName;
+            }
+
+            if (isAllowAnonymous)
+            {
+                return;
+            }
+            else
+            {
+                if (User.Identity.IsAuthenticated == false)
+                {
+                    filterContext.Result = new RedirectResult(string.Format("{0}?redirectUrl={1}", FormsAuthentication.LoginUrl, HttpUtility.UrlEncode(filterContext.RequestContext.HttpContext.Request.Path)));
+                }
+                else
+                {
+                    var userPhone = User.Identity.Name;
+                    string user = null;
+                    if (user == null)
+                    {
+                        filterContext.Result = new RedirectResult(string.Format("{0}?redirectUrl={1}", FormsAuthentication.LoginUrl, HttpUtility.UrlEncode(filterContext.RequestContext.HttpContext.Request.Path)));
+                    }
+                    else
+                    {
+                        string role = string.Empty;
+
+                        if (roleArray != null && roleArray.Length > 0)
+                        {
+                            if (!roleArray.Contains(role))
+                            {
+                                filterContext.Result = RedirectToAction(actionName, controllerName);
+                            }
+                        }
+                    }
+                    return;
+                }
+            }
+        }
 
     }
 
@@ -97,5 +158,9 @@ namespace MVC3._0.Controllers
         }
         #endregion
     }
+
+
+
+
 
 }
