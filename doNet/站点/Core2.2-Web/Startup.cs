@@ -38,13 +38,13 @@ namespace Core2._2_Web
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
             services
             .AddMvc(option =>
             {
                 option.Filters.Add(new GlobalExceptionFilter());
             })
             .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
             //配置SingnalR
             services.AddSignalR();
         }
@@ -75,14 +75,15 @@ namespace Core2._2_Web
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
-            loggerFactory.AddNLog();
-
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            //配置NLog
+            loggerFactory.AddNLog();
 
             //配置SingnalR
             app.UseSignalR(routes =>

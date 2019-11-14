@@ -11,9 +11,10 @@ namespace DotNet.zy.Utilities
 {
     public class  DefaultCache : ICache
     {
-        private static System.Web.Caching.Cache cache;
-        private static int cacheMinute = 120;
+        private static Cache cache;
+        private static readonly int cacheMinute = 120;
         private static TimeSpan timeSpan = new TimeSpan(0, cacheMinute,0);
+
         static DefaultCache()
         {
             cache = HttpRuntime.Cache;

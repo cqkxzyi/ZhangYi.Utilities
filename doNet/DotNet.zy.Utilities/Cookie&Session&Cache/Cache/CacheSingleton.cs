@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 namespace DotNet.zy.Utilities
 {
     /// <summary>
-    /// 缓存入口   
-    /// 
+    /// 缓存入口
     /// </summary>
     public class CacheSingleton
     {
@@ -30,4 +29,15 @@ namespace DotNet.zy.Utilities
             return _Instance;
         }
     }
+
+    /// <summary>
+    /// 测试
+    /// </summary>
+    public class Test {
+         public Test() {
+          var cache=  CacheSingleton.GetCache();
+            cache.Get("1");
+        }
+    }
+
 }
