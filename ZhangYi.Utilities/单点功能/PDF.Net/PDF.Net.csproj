@@ -40,10 +40,10 @@
       <HintPath>..\Dll备份\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PWMIS.Core">
-      <HintPath>..\..\Dll备份\PDF.Sod\PWMIS.Core.dll</HintPath>
+      <HintPath>..\Dll备份\PDF.Sod\PWMIS.Core.dll</HintPath>
     </Reference>
     <Reference Include="PWMIS.Core.Extensions">
-      <HintPath>..\..\Dll备份\PDF.Sod\PWMIS.Core.Extensions.dll</HintPath>
+      <HintPath>..\Dll备份\PDF.Sod\PWMIS.Core.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />

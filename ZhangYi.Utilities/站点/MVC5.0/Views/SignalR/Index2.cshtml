@@ -1,0 +1,131 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts
+{
+    <!--引用SignalR库. -->
+    <script src="~/Scripts/jquery.signalR-2.4.1.js"></script>
+    <!--引用自动生成的SignalR 集线器(Hub)脚本.在运行的时候在浏览器的Source下可看到 -->
+    <script src="~/signalr/hubs"></script>
+
+    <script type="text/javascript">
+        var systemHub = $.connection.chatHub;
+
+        // 主要是更新在线用户
+        systemHub.client.onConnected = function (id, userName, allUsers) {
+            var node = chatCore.node,
+                myf = node.list.eq(0),
+                str = '',
+                i = 0;
+
+            myf.addClass('loading');
+            onlinenum = allUsers.length;
+            if (onlinenum > 0) {
+                str += '<li class="ChatCore_parentnode  ChatCore_liston">'
+                    + '<h5><i></i><span class="ChatCore_parentname">在线用户</span><em class="ChatCore_nums">（' + onlinenum + '）</em></h5>'
+                    + '<ul id="ChatCore_friend_list" class="ChatCore_chatlist">';
+                for (; i < onlinenum; i++) {
+                    str += '<li id="userid-' + allUsers[i].UserID + '" data-id="' + allUsers[i].ConnectionId + '" class="ChatCore_childnode" type="one"><img src="/Content/Images/001.jpg?' + allUsers[i].UserID + '"  class="ChatCore_oneface"><span  class="ChatCore_onename">' + allUsers[i].UserName + '(' + ')</span><em class="ChatCore_time">' + allUsers[i].LoginTime + '</em></li>';
+                }
+                str += '</ul></li>';
+                myf.html(str);
+            } else {
+                myf.html('<li class="ChatCore_errormsg">没有任何数据</li>');
+            }
+            myf.removeClass('loading');
+        };
+
+        //消息传输
+        chatCore.transmit = function () {
+            var node = chatCore.node, log = {};
+            node.sendbtn = $('#ChatCore_sendbtn');
+            node.imwrite = $('#ChatCore_write');
+
+            //发送
+            log.send = function () {
+                var data = {
+                    content: node.imwrite.val(),
+                    id: chatCore.nowchat.id,
+                    sign_key: '', //密匙
+                    _: +new Date
+                };
+
+                if (data.content.replace(/\s/g, '') === '') {
+                    layer.tips('说点啥呗！', '#ChatCore_write', 2);
+                    node.imwrite.focus();
+                } else {
+                    //此处皆为模拟
+                    var keys = chatCore.nowchat.type + chatCore.nowchat.id;
+
+                    //聊天模版
+                    log.html = function (param, type) {
+                        return '<li class="' + (type === 'me' ? 'ChatCore_chateme' : '') + '">'
+                            + '<div class="ChatCore_chatuser">'
+                            + function () {
+                                if (type === 'me') {
+                                    return '<span class="ChatCore_chattime">' + param.time + '</span>'
+                                        + '<span class="ChatCore_chatname">' + param.name + '</span>'
+                                        + '<img src="' + param.face + '" >';
+                                } else {
+                                    return '<img src="' + param.face + '" >'
+                                        + '<span class="ChatCore_chatname">' + param.name + '</span>'
+                                        + '<span class="ChatCore_chattime">' + param.time + '</span>';
+                                }
+                            }()
+                            + '</div>'
+                            + '<div class="ChatCore_chatsay">' + param.content + '<em class="ChatCore_zero"></em></div>'
+                            + '</li>';
+                    };
+
+                    log.imarea = chatCore.chatbox.find('#ChatCore_area' + keys);
+
+                    log.imarea.append(log.html({
+                        time: new Date().toLocaleString(),
+                        name: config.user.name,
+                        face: config.user.face,
+                        content: data.content
+                    }, 'me'));
+                    node.imwrite.val('').focus();
+                    log.imarea.scrollTop(log.imarea[0].scrollHeight);
+
+                    // 调用服务端sendPrivateMessage方法来转发消息
+                    systemHub.server.sendPrivateMessage(chatCore.nowchat.id, data.content);
+                }
+
+            };
+            node.sendbtn.on('click', log.send);
+
+            node.imwrite.keyup(function (e) {
+                if (e.keyCode === 13) {
+                    log.send();
+                }
+            });
+        };
+
+        //用户离线
+        systemHub.client.onUserDisconnected = function (id, userName) {
+            onlinenum = onlinenum - 1;
+            $(".ChatCore_nums").html("（" + onlinenum + "）");
+            $("#ChatCore_friend_list li[data-id=" + id + "]").remove();
+        };
+        // 启动连接
+        $.connection.hub.start().done(function () {
+            systemHub.server.connect(userid, username); // 调用服务端connect方法
+        });
+    </script>
+
+}
+
+
+<h2>SignalR实时通信测试</h2>
+
+<div class="container">
+    <input type="text" id="message" />
+    <input type="button" id="sendmessage" value="发送" />
+    <input type="hidden" id="displayname" />
+    <ul id="discussion"></ul>
+</div>
+

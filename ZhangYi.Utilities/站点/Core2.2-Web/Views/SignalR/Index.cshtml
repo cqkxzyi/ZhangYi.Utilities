@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Scripts{
+    <script src="~/lib/signalr/dist/browser/signalr.js"></script>
+    <script src="~/js/SignalR.js"></script>
+}
+
+<h1>SignalR测试</h1>
+
+
+<div>
+    <ul id="msgList"></ul>
+
+</div>
+
+<input id="userName" type="text" />
+<input id="content" type="text" />
+
+<input id="btnSend" type="button" value="发送" />

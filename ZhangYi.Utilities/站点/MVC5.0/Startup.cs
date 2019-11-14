@@ -11,7 +11,7 @@ namespace MVC5._0
         {
             ConfigureAuth(app);
             app.MapSignalR();
-            app.MapSignalR<SignalRConn>("/SignalRConn");//采用持久化连接类（PersistentConnection）
+            //app.MapSignalR<SignalRConn>("/SignalRConn");//采用持久化连接类（PersistentConnection）
         }
     }
 }

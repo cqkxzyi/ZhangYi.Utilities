@@ -10,11 +10,11 @@ namespace DotNet.zy.Utilities
 	{
 		#region ========加密======== 
  
-        /// <summary>
-        /// 加密
-        /// </summary>
-        /// <param name="Text"></param>
-        /// <returns></returns>
+		/// <summary>
+		/// 加密
+		/// </summary>
+		/// <param name="Text"></param>
+		/// <returns></returns>
 		public static string Encrypt(string Text) 
 		{
 			return Encrypt(Text,"MATICSOFT");
@@ -49,11 +49,11 @@ namespace DotNet.zy.Utilities
 		#region ========解密======== 
    
  
-        /// <summary>
-        /// 解密
-        /// </summary>
-        /// <param name="Text"></param>
-        /// <returns></returns>
+		/// <summary>
+		/// 解密
+		/// </summary>
+		/// <param name="Text"></param>
+		/// <returns></returns>
 		public static string Decrypt(string Text) 
 		{
 			return Decrypt(Text,"MATICSOFT");

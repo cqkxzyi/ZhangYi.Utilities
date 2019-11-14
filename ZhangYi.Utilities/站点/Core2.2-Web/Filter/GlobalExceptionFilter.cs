@@ -20,15 +20,16 @@ namespace Core2._2_Web.Filter
 
         public void OnException(ExceptionContext filterContext)
         {
-            logger.Error(filterContext.Exception, filterContext.Exception.Message);
-            var result = new BaseResult()
-            {
-                ResultCode = 106,//系统异常代码
-                ResultMsg = "系统异常",//系统异常信息
-            };
-            filterContext.Result = new ObjectResult(result);
-            filterContext.HttpContext.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-            filterContext.ExceptionHandled = true;
+            
+            //logger.Error(filterContext.Exception, filterContext.Exception.Message);
+            //var result = new BaseResult()
+            //{
+            //    ResultCode = 106,//系统异常代码
+            //    ResultMsg = "系统异常",//系统异常信息
+            //};
+            //filterContext.Result = new ObjectResult(result);
+            //filterContext.HttpContext.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+            //filterContext.ExceptionHandled = true;
         }
     }
 

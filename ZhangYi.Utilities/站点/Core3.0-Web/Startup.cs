@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Core3._0_Web.轮询任务;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -24,6 +25,19 @@ namespace Core3._0_Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            //注册轮询任务
+            services.AddSingleton<Microsoft.Extensions.Hosting.IHostedService, BackManagerService>(factory =>
+            {
+                OrderManagerService order = new OrderManagerService();
+                return new BackManagerService(options =>
+                {
+                    options.Name = "订单超时检查";
+                    options.CheckTime = 5 * 1000;
+                    options.Callback = order.CheckOrder;
+                    options.Handler = order.OnBackHandler;
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
