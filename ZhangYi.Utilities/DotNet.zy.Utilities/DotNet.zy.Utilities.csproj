@@ -215,12 +215,20 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="cscompmgd" />
-    <Reference Include="Excel, Version=1.5.0.0, Culture=neutral" />
-    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL" />
-    <Reference Include="Interop.MSXML2, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Excel">
+      <HintPath>..\Dll备份\Excel.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
-    <Reference Include="itextsharp, Version=5.1.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL" />
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\Dll备份\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.MSXML2">
+      <HintPath>..\Dll备份\Interop.MSXML2.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\Dll备份\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="log4net">
       <HintPath>..\Dll备份\log4net.dll</HintPath>
     </Reference>
@@ -234,7 +242,9 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>..\Dll备份\Microsoft.Office.Interop.Owc11.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data, Version=5.0.8.1, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data">
+      <HintPath>..\Dll备份\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="NewLife.Core">
       <HintPath>..\Dll备份\XCode\NewLife.Core.dll</HintPath>
     </Reference>
@@ -253,8 +263,12 @@
     <Reference Include="NPOI.OpenXmlFormats">
       <HintPath>..\Dll备份\NPOI.OpenXmlFormats.dll</HintPath>
     </Reference>
-    <Reference Include="OWC10Chart, Version=1.0.2074.16784, Culture=neutral" />
-    <Reference Include="QQWry.NET, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6c8a31b8bfc5cab8, processorArchitecture=MSIL" />
+    <Reference Include="OWC10Chart">
+      <HintPath>..\Dll备份\OWC10Chart.dll</HintPath>
+    </Reference>
+    <Reference Include="QQWry.NET">
+      <HintPath>..\Dll备份\QQWry.NET.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core">
