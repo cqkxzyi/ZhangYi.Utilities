@@ -5,6 +5,7 @@ using System.Threading;
 using System.Windows.Forms;
 using DoNet基础;
 using DoNet基础.多线程;
+using DoNet基础.多线程_异步_并行;
 using DoNet基础.异步;
 using DoNet基础.泛型集合;
 
@@ -50,6 +51,9 @@ namespace DoNet基础
             //bool b1= System.Object.ReferenceEquals(a, b);  //returns true
             //bool b2 = Object.Equals(a,b);
 
+            //安全集合.ConcurrentBagWithPallel();
+            控制并发的高级用法 temp = new 控制并发的高级用法();
+            temp.测试4();
 
 
             Console.Read();

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,6 @@ namespace DoNet基础.多线程_异步
             Task t1 = Task.Factory.StartNew(() => k1());
             Task t2 = Task.Factory.StartNew(() => k2());
      
-
             //更加简洁的书写方式
             Task.Run(() =>
             {
@@ -45,12 +45,8 @@ namespace DoNet基础.多线程_异步
             }
         }
 
-
         /// <summary>
-        /// 测试Task.Run的线程执行顺序
-        ///执行结果：   开始 线程1
-        //              进入 线程2
-        //              退出 线程1
+        /// Task.Run 测试
         /// </summary>
         public static void Test()
         {
@@ -61,23 +57,41 @@ namespace DoNet基础.多线程_异步
                 Thread.Sleep(1500);
                 Console.WriteLine("完毕" + Thread.CurrentThread.ManagedThreadId);
             });
-
+            
             Task.WaitAll(t);
+
             Console.WriteLine("退出 线程" + Thread.CurrentThread.ManagedThreadId);
         }
 
+        /// <summary>
+        /// Task.WaitAll 测试
+        /// </summary>
+        public static void WaitAll()
+        {
+            var list = new List<int>() {1,2,3,4,5 };
+            var lstTask = new List<Task>();
+            foreach (var data in list)
+            {
+                var task = new Task(
+                    (object d) => { Console.WriteLine("Title:" + data.ToString()); }
+                    , data);
 
-
+                lstTask.Add(task);
+                task.Start();
+            }
+            Task.WaitAll(lstTask.ToArray());
+        }
     }
 
 
 
-    public class ParallelDemo
+    public class Parallel_ForEach
     {
-
         public void ParallelForTest()
         {
             StringBuilder str = new StringBuilder();
+
+            //并行方式1
             Parallel.For(0, 100, c =>
             {
                 str.Append(c);
@@ -88,22 +102,54 @@ namespace DoNet基础.多线程_异步
             List<int> _data = new List<int>();
             _data.Add(1); _data.Add(2); _data.Add(3); _data.Add(4);
 
+            //并行方式2
             Parallel.ForEach(_data, (index) =>
             {
                 str.Append(index);
             });
 
 
-            //并行调用多个任务
+            //并行方式3
             var tasks = new Action[] { () => Task1(), () => Task1(), () => Task1() };
             Parallel.Invoke(tasks);
-
+            
         }
 
         public void Task1()
         {
             Console.WriteLine("执行");
         }
+
+        /// <summary>
+        /// 控制并发的用法
+        /// C#内置了很多锁对象，如lock 互斥锁，Interlocked 内部锁，Monitor 这几个比较常见，lock内部实现其实就是使用了Monitor对象
+        /// </summary>
+        public void 控制并发的用法()
+        {
+            List<int> list = new List<int>();
+            for (int i = 1; i <= 2000; i++)
+            {
+                list.Add(i);
+            }
+            
+            int num = 1;
+            Console.WriteLine($"num初始值为：" + num.ToString());
+            list.AsParallel().ForAll(n =>
+            {
+                //Interlocked对象提供了，变量自增，自减、或者相加等方法,我们使用自增方法Interlocked.Increment
+                Interlocked.Increment(ref num);
+            });
+            //Parallel.ForEach(list, (index) =>
+            //{
+            //    Interlocked.Increment(ref index);
+            //});
+
+            Console.WriteLine($"使用内部锁，并发{list.Count}次后为：" + num.ToString());
+        }
+
+
+
+
 
     }
 
@@ -263,4 +309,6 @@ namespace DoNet基础.多线程_异步
         }
     }
 
-}
+        
+
+    }

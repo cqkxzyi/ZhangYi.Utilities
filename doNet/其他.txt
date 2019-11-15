@@ -34,7 +34,15 @@ rocketmq和redis去别，
 string strPawnInfo = data.PawnInfoList.Aggregate(((i, j) => new PawnInfoModel { Boo = i.Boo + delimiter + j.Boo }).Boo);
 string.Join(",", data.PawnInfoList.Select(c => c.PawnAddress));		
 
-TheadPool.QueueUserItem 不推荐使用，容易阻塞线程
+TheadPool.QueueUserItem //不推荐使用，容易阻塞线程
+
+
+
+
+//登录成功配置登录cookie
+FormsAuthentication.SetAuthCookie
+//获取方式
+User.Identity.Name
 
 		
 =============================数据库技巧====================================
@@ -43,7 +51,58 @@ stuff  for xml path ('')
 
 
 
-===========================示例代码==============================
+
+
+=============================前端=========================================
+判断某个元素在数组中的位置
+	var arr = [ "xml", "html", "css", "js" ]; 
+	$.inArray("js", arr);  //返回 3,
+删除数组中的某个元素
+	arr.splice(0,1);
+判断数组是否为null
+	if (array === undefined || array.length == 0)
+JQuery遍历each
+	$(selector).each(function(index,element))
+	
+	
+	
+$("[name='delete']").off("click"); //如果该对象存在其他click事件先解绑事件
+$("[name='download']").one("click", function () {只绑定一次事件
+$.inArray(val, Attachments)//判断值是否在数组中，并返回位置
+
+
+import Storage from './Storage'    当前目录
+import {Const} from '../Const/Index'	上一层
+
+
+
+
+获取当前content：getReactApplicationContext()
+
+
+
+
+=============================ES6=======================================
+indexOf	
+includes()：返回布尔值，表示是否找到了参数字符串
+startsWith()：返回布尔值，表示参数字符串是否在原字符串的头部
+endsWith()：返回布尔值，表示参数字符串是否在原字符串的尾部
+repeat()，表示将原字符串重复n次
+padStart()，padEnd()字符串补全长度
+matchAll()
+模板字符串中嵌入变量，需要将变量名写在${}之中
+Number.isFinite()用来检查一个数值是否为有限的（finite），即不是Infinity. Number.isFinite()对于非数值一律返回false
+Number.isNaN()用来检查一个值是否为NaN
+
+
+=============================待整理=======================================
+输出html片段：
+	@Html.Partial("~/Views/Shared/Pager.cshtml")
+	@{Html.RenderPartial("Pager");}
+
+	
+
+===========================EF示例代码==============================
 //综合（封装过）
 IDAL.IDBSession dbSession = DBSessionFactory.CreateDbSession();
 dbSession.ProductSkuAttributeDal.AddEntity(skuAttr);//增删改查都可以
@@ -88,69 +147,6 @@ this.GetCurrentDbSession.ExecuteSql(sql, sqlParam)
 os.Database.SqlQuery<OrderTrackModel>(sql, paramarter.ToArray())
 
 
-//异步集合操作
-var lstTask = new List<Task>();
-foreach(var data in lst)
-					{
-						var task = new Task((object d) =>
-						 {
-							 Console.WriteLine("Title:" + data.Title);
-						 },data);
-
-						lstTask.Add(task);
-						task.Start();
-					  
-					}
-Task.WaitAll(lstTask.ToArray());
-
-
-//登录成功配置登录cookie
-FormsAuthentication.SetAuthCookie
-//获取方式
-User.Identity.Name
-
-
-
-=============================前端=========================================
-判断某个元素在数组中的位置
-	var arr = [ "xml", "html", "css", "js" ]; 
-	$.inArray("js", arr);  //返回 3,
-删除数组中的某个元素
-	arr.splice(0,1);
-判断数组是否为null
-	if (array === undefined || array.length == 0)
-JQuery遍历each
-	$(selector).each(function(index,element))
-	
-	
-	
-$("[name='delete']").off("click"); //如果该对象存在其他click事件先解绑事件
-$("[name='download']").one("click", function () {只绑定一次事件
-$.inArray(val, Attachments)//判断值是否在数组中，并返回位置
-
-
-import Storage from './Storage'    当前目录
-import {Const} from '../Const/Index'	上一层
-
-
-
-
-获取当前content：getReactApplicationContext()
-
-
-
-
-=============================ES6=======================================
-indexOf	
-includes()：返回布尔值，表示是否找到了参数字符串
-startsWith()：返回布尔值，表示参数字符串是否在原字符串的头部
-endsWith()：返回布尔值，表示参数字符串是否在原字符串的尾部
-repeat()，表示将原字符串重复n次
-padStart()，padEnd()字符串补全长度
-matchAll()
-模板字符串中嵌入变量，需要将变量名写在${}之中
-Number.isFinite()用来检查一个数值是否为有限的（finite），即不是Infinity. Number.isFinite()对于非数值一律返回false
-Number.isNaN()用来检查一个值是否为NaN
 
 
 

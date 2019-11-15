@@ -8,7 +8,6 @@ using System.Windows.Forms;
 
 namespace DoNet基础.异步
 {
-
     #region 委托类
     public class 委托类
     {

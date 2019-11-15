@@ -131,10 +131,11 @@
     <Compile Include="YieldTest.cs" />
     <Compile Include="依赖注入控制反转\控制反转.cs" />
     <Compile Include="反射学习.cs" />
-    <Compile Include="多线程、异步\Async_Await.cs" />
-    <Compile Include="多线程、异步\多线程学习.cs" />
-    <Compile Include="多线程、异步\并行运算.cs" />
-    <Compile Include="多线程、异步\异步学习.cs" />
+    <Compile Include="多线程、异步、并行\Async_Await.cs" />
+    <Compile Include="多线程、异步、并行\多线程学习.cs" />
+    <Compile Include="多线程、异步、并行\安全集合.cs" />
+    <Compile Include="多线程、异步、并行\并行运算.cs" />
+    <Compile Include="多线程、异步、并行\异步学习.cs" />
     <Compile Include="委托\委托学习.cs" />
     <Compile Include="泛型集合\泛型集合.cs" />
     <Compile Include="算法.cs" />
