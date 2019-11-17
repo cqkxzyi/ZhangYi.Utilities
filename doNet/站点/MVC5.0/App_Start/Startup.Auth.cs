@@ -11,7 +11,7 @@ using MVC5._0.Models;
 
 namespace MVC5._0
 {
-    public partial class Startup
+    public partial class Startup2
     {
         // 有关配置身份验证的详细信息，请访问 http://go.microsoft.com/fwlink/?LinkId=301864
         public void ConfigureAuth(IAppBuilder app)

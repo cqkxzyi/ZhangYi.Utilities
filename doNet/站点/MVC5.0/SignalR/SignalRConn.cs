@@ -7,6 +7,9 @@ using Microsoft.AspNet.SignalR;
 
 namespace MVC5._0.SignalR
 { 
+    /// <summary>
+    /// 永久连接类
+    /// </summary>
     public class SignalRConn : PersistentConnection
     {
         protected override Task OnConnected(IRequest request, string connectionId)

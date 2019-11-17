@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts
+{
+    <!--引用SignalR库. -->
+    <script src="~/Scripts/jquery.signalR-2.4.1.js"></script>
+
+    <script>
+        $(function () {
+            //无代理
+            var conn = $.hubConnection();
+
+            var proxy = conn.createHubProxy("ChatHub");
+
+            //注册客户端方法 “sendMessage”
+            proxy.on("sendMessage", function (data) {
+                console.log("客户端方法被调用");
+                console.log(data);
+            });
+
+            conn.start().done(function (data) {
+                //调用服务器方法
+                proxy.invoke("Hello");
+                //调用服务器方法
+                proxy.invoke("Send","zhangyi");
+
+            });
+        });
+
+    </script>
+}
+
+
+<h2>SignalR实时通信 无代理 测试</h2>
+
+<div class="container">
+    <input type="text" id="message" />
+    <input type="button" id="sendmessage" value="发送" />
+    <input type="hidden" id="displayname" />
+    <ul id="discussion"></ul>
+</div>
+

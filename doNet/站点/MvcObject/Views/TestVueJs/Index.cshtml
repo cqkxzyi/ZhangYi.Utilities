@@ -1,0 +1,337 @@
+﻿@{Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Vue.js测试</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+
+
+<body>
+    <div id="app1">
+        <p>我的名字：{{ message }}</p>
+        <span v-once>这个将不会改变: {{ message }}</span>
+    </div>
+
+    <div id="app2">
+        <ol>
+            <li v-for="item in todos">
+                {{ item.text }}
+            </li>
+        </ol>
+    </div>
+
+    <div id="app3">
+        <span v-if="isTrue">v-if测试-true</span>
+        <span v-else>v-if测试-else</span>
+
+    </div>
+
+    <div id="app4">
+        <span>{{message}}</span>
+        <button v-on:click="setTest">点击我</button>        
+        @*v-on:click缩写形似：@click*@
+    </div>
+
+    <div id="v-html">
+        <span>{{message}}</span>
+        <span v-html="message"></span>
+    </div>
+    <div id="app5">
+        <button v-bind:disabled="isTrue">测试v-bind</button>
+       @* v-bind:href缩写形式：:href*@
+    </div>
+
+    <div id="example" title="计算属性测试">
+        <p>message: "{{ message }}"</p>
+        <p>翻转 message: "{{ reversedMessage }}"</p>
+    </div>
+
+
+    <script type="text/javascript">
+        var app = new Vue({
+            el: '#app1',
+            data: {
+                message: 'Hello Vue!',
+                todos: [
+                        { text: 'Learn JavaScript' },
+                        { text: 'Learn Vue' },
+                        { text: 'Build something awesome' }
+                ]
+            }
+        });
+        app.message = "张毅";
+
+        app = new Vue({
+            el: '#app2',
+            data: {
+                todos: [
+                        { text: 'Learn JavaScript' },
+                        { text: 'Learn Vue' },
+                        { text: 'Build something awesome' }
+                ]
+            }
+        });
+
+        app = new Vue({
+            el: '#app3',
+            data: {
+                isTrue: true,
+
+            }
+        });
+
+
+        app = new Vue({
+            el: '#app4',
+            data: {
+                message: "v-on:click测试："
+
+            },
+            methods:
+                {
+                    setTest: function () {
+                        this.message = this.message + "哈";
+                    }
+                }
+        });
+
+        app = new Vue({
+            el: '#v-html',
+            data: {
+                message: "<span style='color:red'>测试</span>"
+
+            }
+        });
+
+        app = new Vue({
+            el: '#app5',
+            data: {
+                isTrue: false
+
+            }
+        });
+
+        app = new Vue({
+            el: '#example',
+            data: {
+                message: "张毅还可以"
+            },
+            computed: {
+                // 计算属性的 getter
+                reversedMessage: function () {
+                    // `this` 指向 vm 实例
+                    return this.message.split('').reverse().join('')
+                }
+            }
+        });
+        app.message = "zhangyi还是可以的";
+
+    </script>
+    <h3>====================css style==========</h3>
+
+    
+
+    <h3>====================组件基础==========</h3>
+    <div id="components-demo">
+        <button-counter></button-counter>
+    </div>
+    <div id="components-demo2">
+        <blog-post title="我传入进去的值"></blog-post>
+    </div>
+    @*例子3*@
+    <div id="components-demo3">
+        <blog-post2 v-for="post in posts"
+                   v-bind:key="post.id"
+                   v-bind:aaa="post">
+        </blog-post2>
+    </div>
+
+    @*例子4*@
+    <div id="blog-posts-events-demo">
+        <div :style="{ fontSize: postFontSize + 'em' }">
+            <blog-post3 v-for="post in posts"
+                        v-bind:key="post.id"
+                        v-bind:bbb="post"
+                        v-on:change-eval="postFontSize +=(0.1+$event)">
+            </blog-post3>
+        </div>
+    </div>
+
+    @*例子5   自定义组件的 v-model*@
+    <div id="app">
+        <!-- <price-input v-model="price"></price-input> -->
+        <!-- 手动实现了v-model双向绑定 -->
+        <!-- 3、父组件的input事件被触发，将传来的值赋给父组件的变量price -->
+        <!-- 4、父组件value的值绑定到price -->
+        <price-input val="" v-on:input="onInput"></price-input>
+        <p>{{price}}</p>
+    </div>  
+    
+    
+      @*例子6  自定义组件的 v-model*@
+    <div id="div-base-checkbox">
+        <base-checkbox v-model="true" checked=true></base-checkbox>
+    </div>
+
+
+
+            <script type="text/javascript">
+                //例子1
+                Vue.component('button-counter', {
+                    data: function () {
+                        return {
+                            count: 0
+                        }
+                    },
+                    template: '<button v-on:click="count++">例子1：点击次数: {{count}} times.</button>'
+                });
+                //初始化
+                new Vue({ el: '#components-demo' })
+
+
+                //例子2
+                Vue.component('blog-post', {
+                    props: ['title'],
+                    template: '<h4>{{ title }}</h4>'
+                })
+                //初始化
+                new Vue({ el: '#components-demo2' })
+
+
+                //例子3
+                Vue.component('blog-post2', {
+                    props: ['aaa'],
+                    template:
+                      '<div>' +
+                        '<h4>{{ aaa.title }}</h4>' +
+                        '<div v-html="aaa.content"></div>' +
+                     '</div>'
+                })
+
+                //初始化
+                new Vue({
+                    el: '#components-demo3',
+                    data: {
+                        posts: [{ id: 1, title: "标题1", content: "内容1" }, { id: 2, title: "标题2", content: "内容2" }]
+                    }
+                });
+
+                //例子4
+                Vue.component('blog-post3', {
+                    props: ['bbb'],
+                    template:
+                      '<div>' +
+                        '<h4>{{ bbb.title }}</h4>' +
+                        '<button v-on:click=\'$emit("change-eval", 0.1)\'>点击我</button>' +
+                        '<div v-html="bbb.content"></div>' +
+                     '</div>'
+                })
+
+                //初始化
+                new Vue({
+                    el: '#blog-posts-events-demo',
+                    data: {
+                        posts: [{ id: 1, title: "通过事件向父级组件发送消息1", content: "内容1" }, { id: 2, title: "通过事件向父级组件发送消息2", content: "内容2" }],
+                        postFontSize: 1
+                    }
+                });
+
+
+                //例子5 自定义组件的
+                Vue.component('price-input', {
+                    template: '<input :value="val" v-on:input="updateVal($event.target.value)" type="text">',
+                    props: ["val"],
+                    methods: {
+                        updateVal: function (val) {
+                            // 2、手动触发父组件的input事件并将值传给父组件
+                            this.$emit('input', val);
+                        }
+                    }
+                });
+                new Vue({
+                    el: '#app',
+                    data: {
+                        price: ''
+                    },
+                    methods: {
+                        onInput: function (val) {
+                            this.price = val;
+                        }
+                    }
+                });
+
+                //例子6 自定义组件的 v-model
+                Vue.component('base-checkbox', {
+                    model: {
+                        prop: 'checked',
+                        event: 'change'
+                    },
+                    props: {
+                        checked: Boolean
+                    },
+                    template:
+                      '<input type="checkbox" v-bind:checked="checked" v-on:change=\'$emit("change", $event.target.checked)\'>',
+                    methods: {
+                        change: function (val) {
+                            alert(val);
+                        }
+                    }
+                });
+
+
+                new Vue({
+                    el: '#div-base-checkbox',
+                    data: {
+                        checked: true,
+                        lovingVue: "123"
+                    },
+                    methods: {
+                        change: function (val) {
+                            this.price = val;
+                        }
+                    }
+                });
+
+            </script>
+
+
+            <h3>=============通过插槽分发内容=================</h3>
+            <alert-box>
+                插进去的内容
+            </alert-box>
+            <script type="text/javascript">
+                Vue.component('alert-box', {
+                    template:
+                      '<div><strong>哈哈</strong><slot></slot></div>'
+                });
+            </script>
+
+            <h3>==============================</h3>
+            <script type="text/javascript">
+
+            </script>
+            <h3>==============================</h3>
+            <script type="text/javascript">
+
+            </script>
+            <h3>==============================</h3>
+            <script type="text/javascript">
+
+            </script>
+            <h3>==============================</h3>
+            <script type="text/javascript">
+
+            </script>
+            <h3>==============================</h3>
+            <script type="text/javascript">
+
+            </script>
+</body>
+</html>
+
+
