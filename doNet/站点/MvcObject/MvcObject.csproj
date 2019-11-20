@@ -48,9 +48,14 @@
     <Reference Include="EntLibContrib.Data.SQLite">
       <HintPath>..\..\Dll备份\EntLibContrib.Data.SQLite.dll</HintPath>
     </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.85.4.369, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ICSharpCode.SharpZipLib.dll.0.85.4.369\lib\net20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Dll备份\log4net.dll</HintPath>
+      <HintPath>..\..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Memcached.Client, Version=1.0.0.0, Culture=neutral, PublicKeyToken=42c0400964dcc297, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Memcached.Client.1.0.0\lib\Memcached.Client.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.AspNet.SignalR.Core.2.4.1\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
@@ -150,6 +155,7 @@
     <Compile Include="Controllers\Base\ErrorController.cs" />
     <Compile Include="Controllers\TestES56Controller.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TestMencacheController.cs" />
     <Compile Include="Controllers\TestSignalRController.cs" />
     <Compile Include="Controllers\TestRequireController.cs" />
     <Compile Include="Controllers\TestVueJsController.cs" />
@@ -164,15 +170,16 @@
     </Compile>
     <Compile Include="MVCExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SignalR\ChatHub.cs" />
-    <Compile Include="SignalR\SignalRConn.cs" />
+    <Compile Include="通用\MemcacheHelper.cs" />
+    <Compile Include="通用\SignalR\ChatHub.cs" />
+    <Compile Include="通用\SignalR\SignalRConn.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="通用\BindList.cs" />
-    <Compile Include="通用\EnumItem.cs" />
+    <Compile Include="通用\项目\BindList.cs" />
+    <Compile Include="通用\项目\EnumItem.cs" />
     <Compile Include="通用\ExceptionHelper.cs" />
-    <Compile Include="通用\MyConsts.cs" />
-    <Compile Include="通用\MyEnum.cs" />
-    <Compile Include="通用\MyStruct.cs" />
+    <Compile Include="通用\项目\MyConsts.cs" />
+    <Compile Include="通用\项目\MyEnum.cs" />
+    <Compile Include="通用\项目\MyStruct.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -221,6 +228,7 @@
     <Content Include="Views\TestVueJs\Index.cshtml" />
     <Content Include="Views\TestSignalR\SignalRConn.cshtml" />
     <Content Include="Views\TestSignalR\NoAgent.cshtml" />
+    <Content Include="Views\TestMencache\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

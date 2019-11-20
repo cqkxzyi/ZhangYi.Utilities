@@ -23,10 +23,13 @@ MongoDB数据库
 
 高并发高性能，熟悉rabbitmq，redis，熟悉jvm这一类就好多
 
-待学习：
-	ConcurrentDictionary键值对
+
+
 大石头：19年，redis/rockermq/agent 的增长速度最快，可以想象，大家热衷于大数据、中间件、中台。
-rocketmq和redis去别，
+rocketmq和redis区别。
+
+ConcurrentDictionary键值对
+Lazy延迟加载
 		
 		
 ================================编程技巧=======================================		
@@ -35,7 +38,6 @@ string strPawnInfo = data.PawnInfoList.Aggregate(((i, j) => new PawnInfoModel { 
 string.Join(",", data.PawnInfoList.Select(c => c.PawnAddress));		
 
 TheadPool.QueueUserItem //不推荐使用，容易阻塞线程
-
 
 
 

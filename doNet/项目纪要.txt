@@ -1,10 +1,10 @@
 WebFrom
 	通用js
 
-Mvc3.0
-	站点框架通用技术等
 
-Mvc5.0
+
+MvcObject
+	站点框架通用技术等
 	ES5、ES6测试
 	Require 前端Js加载
 	VueJs 前端框架
@@ -46,4 +46,3 @@ Core3.0-Web
 
 
 待学习：
-	Lazy延迟加载
