@@ -86,6 +86,7 @@ namespace DoNet基础.委托
 
             //3、Action系列委托：接收返回为void的方法
             var d4 = new Action<int, string>(twoParamNoReturnAction);
+
             d4(1,"asdf");
         }
 

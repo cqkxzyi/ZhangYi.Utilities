@@ -73,7 +73,7 @@ namespace DoNet基础.多线程_异步
             foreach (var data in list)
             {
                 var task = new Task(
-                    (object d) => { Console.WriteLine("Title:" + data.ToString()); }
+                    (object obj) => { Console.WriteLine("Title:" + obj.ToString()); }
                     , data);
 
                 lstTask.Add(task);

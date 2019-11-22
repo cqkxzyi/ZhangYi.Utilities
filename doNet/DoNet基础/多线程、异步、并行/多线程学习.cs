@@ -1031,40 +1031,69 @@ namespace DoNet基础.多线程
                     //    Console.WriteLine(e);
                     //}
     }
-    
+
     #endregion
 
 
-
+    #region 简易线程的三种实现方式
     /// <summary>
     /// 简易线程的三种实现方式
     /// </summary>
-    public class QueueUserWorkItem
+    public class 简易线程的三种实现方式
     {
-        public void aaa()
+        public void 方式一()
         {
-            //方式一
-            ThreadPool.QueueUserWorkItem(delegate {
-                Console.WriteLine("结束1");
-                Console.WriteLine("<br />");
-            
-            });
+            //QueueUserWorkItem方式一
+            ThreadPool.QueueUserWorkItem(delegate { Console.WriteLine("成功"); });
 
-            //方式二
+
+            //QueueUserWorkItem方式二
+            Action<object> action = (object obj) => { Console.WriteLine(obj.ToString()); };
+            ThreadPool.UnsafeQueueUserWorkItem(obj => action(obj), "obj");
+
+
+            //QueueUserWorkItem方式三
+            ThreadPool.UnsafeQueueUserWorkItem(RunWorkerThread, "obj");
+            void RunWorkerThread(object obj)
+            {
+                Console.WriteLine("RunWorkerThread开始工作");
+                Console.WriteLine("工作者线程启动成功!");
+            }
+
+
+        }
+
+        public void 方式二() 
+        {
+            //Task.Factory.StartNew 可以设置线程是长时间运行，这时线程池就不会等待这个线程回收
             Task.Factory.StartNew(() =>
             {
                 Console.WriteLine("3.5秒后结束");
                 Thread.Sleep(3500);
                 Console.WriteLine("结束2");
-                Console.WriteLine("<br />");
             });
 
-            //方式三
+            //带返回参数
+            Func<object, int> function = (object a) => { return 11; };
+            var result = Task.Factory.StartNew(function, 1);
+            var aaa = result.Result;
+        }
+
+        public void 方式三()
+        {
+            //Task.Run方式
             Task.Run(() =>
             {
                 Console.WriteLine("结束3");
-                Console.WriteLine("<br />");
             });
-}
+
+            //高级测试
+            var task = new Task(
+                   (object obj) => { Console.WriteLine("Title:" + obj.ToString()); }
+                   , 123);
+            Func<Task> func = () => { return task; };
+            var resunt2 = Task.Run(func);
+        }
     }
+    #endregion
 }

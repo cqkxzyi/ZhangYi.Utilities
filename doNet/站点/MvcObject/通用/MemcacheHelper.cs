@@ -28,12 +28,12 @@ namespace MvcObject.通用
             pool.MaxIdle = 1000 * 60 * 60 * 6;
             //socket连接的超时时间，下面设置表示不超时（单位ms），即一直保持链接状态
             pool.SocketConnectTimeout = 0;
-            //通讯的超市时间，下面设置为3秒（单位ms），.Net版本没有实现
-            pool.SocketTimeout = 1000 * 3;
             //维护线程的间隔激活时间，下面设置为30秒（单位s），设置为0时表示不启用维护线程
             pool.MaintenanceSleep = 30;
             //设置SocktIO池的故障标志
             pool.Failover = true;
+            //通讯的超市时间，下面设置为3秒（单位ms），.Net版本没有实现
+            pool.SocketTimeout = 1000 * 3;
             //是否对TCP/IP通讯使用nalgle算法，.net版本没有实现
             pool.Nagle = false;
             //socket单次任务的最大时间（单位ms），超过这个时间socket会被强行中端掉，当前任务失败。
