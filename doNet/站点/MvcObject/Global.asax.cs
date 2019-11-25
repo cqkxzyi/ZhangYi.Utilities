@@ -1,5 +1,6 @@
 using MvcObject.Controllers;
 using MvcObject.FilterAttribute;
+using MvcObject.Õ®”√;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,8 @@ namespace MvcObject
 
 
             RegisterGlobalFilters(GlobalFilters.Filters);
+
+;
         }
 
         /// <summary>

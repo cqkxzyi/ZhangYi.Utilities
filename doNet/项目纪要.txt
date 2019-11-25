@@ -9,7 +9,7 @@ MvcObject
 	Require 前端Js加载
 	VueJs 前端框架
 	SignalR实时通信
-	RabbitMQ
+	RabbitMQ消息队列
 
 Core2.2-Web
 	NLog

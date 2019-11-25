@@ -1,6 +1,9 @@
-﻿using System;
+﻿using MvcObject.通用;
+using RabbitMQ.Client;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
@@ -10,7 +13,7 @@ namespace MvcObject.Controllers
     /// RabbitMQ测试
     /// 
     /// ExchangeType有direct、Fanout和Topic三种，不同类型的Exchange路由的行为是不一样的
-    /// 
+    /// http://localhost:15672/#/
     /// 
     /// 
     /// 
@@ -18,12 +21,31 @@ namespace MvcObject.Controllers
     public class TestRabbitMQController : Controller
     {
         /// <summary>
-        /// 
+        /// 生产者模式
         /// </summary>
         /// <returns></returns>
         public ActionResult Index()
         {
+            //RabbitMQProducerHelper.发送到队列("发送到队列");
+            RabbitMQProducerHelper.发送到交换机("发送到交换机");
+
             return View();
         }
+
+
+        /// <summary>
+        /// 消费者测试
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Index2()
+        {
+            //RabbitMQConsumerHelper.接收队列消息();
+            RabbitMQConsumerHelper.接收交换机消息();
+            //RabbitMQConsumerHelper.消费负载均衡();
+
+            return View();
+        }
+
+
     }
 }
