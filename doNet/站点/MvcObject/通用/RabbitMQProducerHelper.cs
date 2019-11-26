@@ -60,7 +60,7 @@ namespace MvcObject.通用
             using (var channel = connection.CreateModel())
             {
                 //创建交换机
-                channel.ExchangeDeclare("exchange_zhangyi", "fanout", true, false, null);
+                channel.ExchangeDeclare("exchange_zhangyi", "topic", false, false, null);
 
                 var body = Encoding.UTF8.GetBytes(message);
                 channel.BasicPublish("exchange_zhangyi", "", null, body); //开始传递

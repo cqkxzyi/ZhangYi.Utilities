@@ -37,11 +37,16 @@ namespace MvcObject.Controllers
         /// 消费者测试
         /// </summary>
         /// <returns></returns>
-        public ActionResult Index2()
+        public ActionResult Index2(int i=1)
         {
             //RabbitMQConsumerHelper.接收队列消息();
-            RabbitMQConsumerHelper.接收交换机消息();
+            
             //RabbitMQConsumerHelper.消费负载均衡();
+
+            if(i==1)
+                RabbitMQConsumerHelper.接收交换机消息1();
+            else
+                RabbitMQConsumerHelper.接收交换机消息2();
 
             return View();
         }

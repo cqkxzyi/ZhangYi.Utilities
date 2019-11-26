@@ -57,7 +57,32 @@ namespace MvcObject.通用
             channel.BasicConsume(queue: "queue_zhangyi", autoAck: false, consumer: consumer);
         }
 
-        public static void 接收交换机消息()
+        public static void 接收交换机消息1()
+        {
+            var connection = GetConnection();
+
+            var channel = connection.CreateModel();
+            //创建一个名称为queue_zhangyi的消息队列
+            channel.QueueDeclare("queue_1", false, false, false, null);
+            channel.QueueBind("queue_1", "exchange_zhangyi", "", null);//绑定交换机
+
+            //构造消费者实例
+            var consumer = new EventingBasicConsumer(channel);
+            //绑定消息接收后的事件委托
+            consumer.Received += (model, ea) =>
+            {
+                var message = Encoding.UTF8.GetString(ea.Body);
+                Console.WriteLine(" 接收到消息： {0}", message);
+                Thread.Sleep(1000);//模拟耗时
+                Console.WriteLine(" 处理完毕 ");
+
+                //autoAck:fasle的时候，需要手动消息确认。
+                channel.BasicAck(deliveryTag: ea.DeliveryTag, multiple: false);
+            };
+            //启动消费者
+            channel.BasicConsume(queue: "queue_1", autoAck: false, consumer: consumer);
+        }
+        public static void 接收交换机消息2()
         {
             var connection = GetConnection();
 
