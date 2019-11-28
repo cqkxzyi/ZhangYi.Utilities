@@ -15,10 +15,32 @@ function IsPC() {
     return flag;
 }
 
+//是否IOS端
+function IsIOS(){
+	 if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)){
+		 
+		 return true;
+	 }
+	return false;
+}
+//是否Android端
+function IsAndrid(){
+	 if (navigator.userAgent.match(/(Android);?/i)){
+		 return true;
+	 }
+	return false;
+}
 
+//是否微信浏览器
+function IsAndrid(){
+	 var ua = navigator.userAgent.toLowerCase();
+     if (ua.match(/MicroMessenger/i) == "micromessenger") {
+		 return true;
+	 }
+	 return false;
+}
 
-
-
+ 
 
 
 

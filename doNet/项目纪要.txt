@@ -26,8 +26,8 @@ Core3.0-Web
 
 长运小贷：
 	OA系统：
-		表单验证插件：nice-validator-1.1.4,主要是解决没有frame的情况下，提交到后台。
-		上传控件：jQuery-File-Upload-9.9.3，有进度条的上传文件组件
+		表单验证插件：nice-validator-1.1.4,主要是解决没有frame的情况下，提交到后台，另一种是用户系统后台的验证控件。
+		上传控件：jQuery-File-Upload，有进度条的上传文件组件
 	WapApp：
 		复制功能：使用第三方js
 		弹框：jqueryAlert
@@ -39,7 +39,7 @@ Core3.0-Web
 	1：jQuery-File-Upload：有进度条的上传文件组件，长运小贷-OA系统
 	2：WebUploader： 	长运小贷-官网
 	3：bootstrap-fileinput：长运小贷-用户系统系统 ，写了通用扩展函数的
-	4：WapApp自己写的上传控件，可以多文件上传、可以压缩
+	4：WapApp 上传控件，可以多文件上传、可以压缩(cyxd自己写的)
 	5：
 
 
