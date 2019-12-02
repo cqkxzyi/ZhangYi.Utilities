@@ -49,18 +49,14 @@ Core3.0-Web
 基于Node.js的puppeteer,edge爬虫工具
 Docker容器引擎
 MVVM开发模式
-AngelaJS		 requirejs
+AngelaJS
 webassemly技术革命
-dapper数据库操作
 nginx技术
 MongoDB数据库
 
-高并发高性能，熟悉rabbitmq，redis，熟悉jvm这一类就好多
-
-
+高并发高性能，熟悉RabbitMQ，Redis，熟悉jvm这一类就好多
 
 大石头：19年，redis/rockermq/agent 的增长速度最快，可以想象，大家热衷于大数据、中间件、中台。
 rocketmq和redis区别。
 
 ConcurrentDictionary键值对
-Lazy延迟加载

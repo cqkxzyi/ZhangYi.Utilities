@@ -116,6 +116,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="LazyTest.cs" />
     <Compile Include="Linq\LinqToObject.cs" />
     <Compile Include="Linq\LinqToSql.designer.cs">
       <AutoGen>True</AutoGen>

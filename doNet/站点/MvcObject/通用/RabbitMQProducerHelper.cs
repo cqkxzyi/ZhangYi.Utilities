@@ -60,6 +60,9 @@ namespace MvcObject.通用
             using (var channel = connection.CreateModel())
             {
                 //创建交换机
+                //类型：（fanout：广播）
+                //直连接类型direct必须是生产者发布消息指定的routingKey和消费者在队列绑定时指定的routingKey完全相等时才能匹配到队列上
+                //topic可以进行模糊匹配
                 channel.ExchangeDeclare("exchange_zhangyi", "topic", false, false, null);
 
                 var body = Encoding.UTF8.GetBytes(message);
@@ -250,48 +253,47 @@ namespace MvcObject.通用
 
 
     /// <summary>
-    /// 未知
+    /// 远程过程调用RPC
     /// </summary>
-    public class 分库分表模式 {
+    public class 远程过程调用RPC
+    {
 
         public void 客户端()
         {
             var connection = RabbitMQProducerHelper.GetConnection();
-            using (var channel = connection.CreateModel())
+            var channel = connection.CreateModel();
+
+            //申明唯一guid用来标识此次发送的远程调用请求
+            var correlationId = Guid.NewGuid().ToString();
+            //申明需要监听的回调队列
+            var replyQueue = channel.QueueDeclare().QueueName;
+            var properties = channel.CreateBasicProperties();
+            properties.ReplyTo = replyQueue;//指定回调队列
+            properties.CorrelationId = correlationId;//指定消息唯一标识
+
+            var body = Encoding.UTF8.GetBytes("123");
+            //发布消息
+            channel.BasicPublish(exchange: "", routingKey: "rpc_queue", basicProperties: properties, body: body);
+            Console.WriteLine($"[*] Request fib()");
+
+            //创建消费者用于处理消息回调（远程调用返回结果）
+            var callbackConsumer = new EventingBasicConsumer(channel);
+            channel.BasicConsume(queue: replyQueue, autoAck: true, consumer: callbackConsumer);
+            callbackConsumer.Received += (model, ea) =>
             {
-                //申明唯一guid用来标识此次发送的远程调用请求
-                var correlationId = Guid.NewGuid().ToString();
-                //申明需要监听的回调队列
-                var replyQueue = channel.QueueDeclare().QueueName;
-                var properties = channel.CreateBasicProperties();
-                properties.ReplyTo = replyQueue;//指定回调队列
-                properties.CorrelationId = correlationId;//指定消息唯一标识
-
-                var body = Encoding.UTF8.GetBytes("123");
-                //发布消息
-                channel.BasicPublish(exchange: "", routingKey: "rpc_queue", basicProperties: properties, body: body);
-                Console.WriteLine($"[*] Request fib()");
-
-                //创建消费者用于处理消息回调（远程调用返回结果）
-                var callbackConsumer = new EventingBasicConsumer(channel);
-                channel.BasicConsume(queue: replyQueue, autoAck: true, consumer: callbackConsumer);
-                callbackConsumer.Received += (model, ea) =>
-                {
                     //仅当消息回调的ID与发送的ID一致时，说明远程调用结果正确返回。
                     if (ea.BasicProperties.CorrelationId == correlationId)
-                    {
-                        var responseMsg = $"Get Response: {Encoding.UTF8.GetString(ea.Body)}";
-                        Console.WriteLine($"[x]: {responseMsg}");
-                    }
-                };
-            }
-
+                {
+                    var responseMsg = $"Get Response: {Encoding.UTF8.GetString(ea.Body)}";
+                    Console.WriteLine($"[x]: {responseMsg}");
+                }
+            };
         }
+
         public void 服务端()
         {
             var connection = RabbitMQProducerHelper.GetConnection();
-            using (var channel = connection.CreateModel())
-            {
+            var channel = connection.CreateModel();
                 //申明队列接收远程调用请求
                 channel.QueueDeclare(queue: "rpc_queue", durable: false,exclusive: false, autoDelete: false, arguments: null);
                 var consumer = new EventingBasicConsumer(channel);
@@ -317,7 +319,5 @@ namespace MvcObject.通用
                 //启动消费者
                 channel.BasicConsume(queue: "rpc_queue", autoAck: false, consumer: consumer);
             }
-
-        }
     }
 }
