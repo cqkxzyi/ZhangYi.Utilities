@@ -1,5 +1,7 @@
---1.建立链接服务器,通过@datasrc指定数据源，适合链接其他多种数据库
+---------------------------------
+-----------第一种方式------------
 
+--1.建立链接服务器,通过@datasrc指定数据源，适合链接其他多种数据库
 EXEC master.dbo.sp_addlinkedserver @server = N'Link',
                                    @srvproduct='ms', 
                                    @provider=N'SQLNCLI',                                    
@@ -31,7 +33,7 @@ update [OrderedGift] set SettlementPrice=temp2.SettlementPrice_decimal  from [Or
 exec sp_dropserver 'Link','droplogins'
 
 
-
---第二种方式------------
+---------------------------------
+-----------第二种方式------------
 SELECT TOP 10 * FROM
 opendatasource('SQLOLEDB','server=114.55.2.99;uid=lyzbzhangyi;pwd=lt35fz7nC5Q9;database=LI63IDSO').[LI63IDSO].[dbo].[Portal_UserAccount]

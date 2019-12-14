@@ -22,7 +22,7 @@ namespace MVC3._0
         /// <param name="isRadio">是否是单选</param>
         /// <returns></returns>
         public static MvcHtmlString CheckBoxList(this HtmlHelper helper,string name, IEnumerable<SelectListItem> items, bool isRadio = false)
-        {
+        { 
             #region 
 
             var str = new StringBuilder();
