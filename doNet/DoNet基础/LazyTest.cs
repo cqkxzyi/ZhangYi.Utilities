@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DoNet基础
+namespace DoNet基础.LazyTest
 {
     public class LazyTest
     {
@@ -30,7 +30,8 @@ namespace DoNet基础
         }
 
         public string Name { get; set; }
-        public int Age { get; set; }
+        public int Age { get; set; } 
+        public int TeacherID { get; set; }
     }
 
 }

@@ -38,14 +38,14 @@ Number.isNaN()用来检查一个值是否为NaN
 
 
 
-=============================面试=======================================
-	编程技巧：
-	尽量避免任何层的同步调用
-	尽量使用异步编程（async、await）
-	使用异步编程避免TASK.WAIT或TAST.RESULT
-	尽量异步执行I/O操作
-	尽量使用缓存
-	优化数据访问
+=============================面试======================================= 
+编程技巧：
+尽量避免任何层的同步调用
+尽量使用异步编程（async、await）
+使用异步编程避免TASK.WAIT或TAST.RESULT
+尽量异步执行I/O操作
+尽量使用缓存
+优化数据访问
 
 
 
@@ -53,51 +53,6 @@ Number.isNaN()用来检查一个值是否为NaN
 
 
 
-
-
-===========================EF示例代码==============================
-//综合（封装过）
-IDAL.IDBSession dbSession = DBSessionFactory.CreateDbSession();
-dbSession.ProductSkuAttributeDal.AddEntity(skuAttr);//增删改查都可以
-
-//综合二（直接操作数据库）
-using (var db = new LI63O2OEntities())
-{
-   db.N_LYZB_ProductSkuAttribute.Where(t => proskuids.Contains(t.MID_guid)).ToList();//新增
-   db.SaveChanges();//查出来、修改
-	//事务
-	using (var tran = new TransactionScope())
-	{
-	 db.SaveChanges();
-	 tran.Complete();
-	}
-}
-//通过每一个Service来处理
-
-
-//查询
-skuAttrValueService.LoadEntities(t => gValueIds.Contains(t.MID_guid)); 
-
-
-
-MemberCompanyService 
-//更新数据方式
-public bool AddSale(N_GroupCommodity GroupCommodity)
-{
-	 Db.Set<N_GroupCommodity>().Attach(GroupCommodity);
-	 Db.Entry<N_GroupCommodity>(GroupCommodity).Property(t => t.CurrentGroupSales_decimal).IsModified = true;
-	 return true;
-}
-//最简单新增改查
-MemberService类
-public override void SetCurretnDal()
-{
-	  CurrentDal = this.GetCurrentDbSession.MemberDal;
-}
-
-//Entity执行sql
-this.GetCurrentDbSession.ExecuteSql(sql, sqlParam)
-os.Database.SqlQuery<OrderTrackModel>(sql, paramarter.ToArray())
 
 
 
