@@ -135,29 +135,6 @@ namespace DoNet基础.委托
            bool istrue = del3(10);
          
         }
-
-
-        //扩展方法
-        public static void TestPrintString()
-        {
-            var a = "aaa";
-            a.PrintString();
-            Console.ReadKey();
-        }
-
-
     }
 
-    #region 扩展方法辅助内容
-    public static class MyExtensions
-    {
-        /// <summary>
-        /// 张毅写的扩展方法
-        /// </summary>
-        public static void PrintString(this String val)
-        {
-            Console.WriteLine(val);
-        }
-    }
-    #endregion
 }

@@ -41,12 +41,12 @@ namespace DoNet基础.多线程
             MethodInvoker mi = new MethodInvoker(StartThread);
             for (int i = 0; i < 100; i++)
             {
-                mi.BeginInvoke(null,null);//只有windowForm窗口能用
+                mi.BeginInvoke(null, null);//只有windowForm窗口能用
                 Thread.Sleep(100);
-            } 
+            }
 
 
-            ThreadPool.SetMaxThreads(20,20);
+            ThreadPool.SetMaxThreads(20, 20);
 
         }
 
@@ -97,7 +97,7 @@ namespace DoNet基础.多线程
 
         private static void Second()
         {
-            Console.WriteLine("Ti调用Join之前.T2 state [{0}], T1 state [{1}], CurrentThreadName={2}",T2.ThreadState, T1.ThreadState,Thread.CurrentThread.Name);
+            Console.WriteLine("Ti调用Join之前.T2 state [{0}], T1 state [{1}], CurrentThreadName={2}", T2.ThreadState, T1.ThreadState, Thread.CurrentThread.Name);
 
             //T2被阻塞，T1执行完了再执行T2
             T1.Join();
@@ -188,7 +188,7 @@ namespace DoNet基础.多线程
             waker.Start();
             Console.ReadLine();
         }
-        
+
         private static void PutThreadToSleep()
         {
             for (int i = 0; i < 50; i++)
@@ -201,7 +201,7 @@ namespace DoNet基础.多线程
                         Console.WriteLine("PutThreadToSleep线程在{0}时，设置睡眠20毫秒", i.ToString());
                         //在这里设置了睡眠，时间到了会唤醒，但是有别人把它Interrupt中断了，就会报异常。
                         Thread.Sleep(20);
-                        
+
                     }
                     catch (ThreadInterruptedException e)
                     {
@@ -338,8 +338,8 @@ namespace DoNet基础.多线程
         }
     }
 
-    #endregion 
- 
+    #endregion
+
 
     #region Monitor锁机制
 
@@ -371,10 +371,10 @@ namespace DoNet基础.多线程
     }
 
 
-     //2：Monitor.Wait和Monitor.Pulse
-     //首先这两个方法是成对出现，通常使用在Enter，Exit之间。
-     //Wait： 暂时的释放资源锁，然后该线程进入”等待队列“中，那么自然别的线程就能获取到资源锁。
-     //Pulse:  唤醒“等待队列”中的线程，那么当时被Wait的线程就重新获取到了锁。
+    //2：Monitor.Wait和Monitor.Pulse
+    //首先这两个方法是成对出现，通常使用在Enter，Exit之间。
+    //Wait： 暂时的释放资源锁，然后该线程进入”等待队列“中，那么自然别的线程就能获取到资源锁。
+    //Pulse:  唤醒“等待队列”中的线程，那么当时被Wait的线程就重新获取到了锁。
 
     /// <summary>
     /// 锁定对象
@@ -440,7 +440,7 @@ namespace DoNet基础.多线程
         public void Run()
         {
             Monitor.Enter(this.obj);
-            Console.WriteLine("{0}:3直奔茅厕，兄弟，你还是进来吧，小心憋坏了！",Thread.CurrentThread.Name);
+            Console.WriteLine("{0}:3直奔茅厕，兄弟，你还是进来吧，小心憋坏了！", Thread.CurrentThread.Name);
             //唤醒别的等待队列中的线程
             Monitor.Pulse(this.obj);
             Console.WriteLine("{0}:4哗啦啦....", Thread.CurrentThread.Name);
@@ -512,7 +512,7 @@ namespace DoNet基础.多线程
         {
             //获取读锁
             rw.AcquireReaderLock(TimeSpan.FromSeconds(30));
-            Console.WriteLine("我是线程{0},我读取的集合为:{1}",Thread.CurrentThread.ManagedThreadId, string.Join(",", list));
+            Console.WriteLine("我是线程{0},我读取的集合为:{1}", Thread.CurrentThread.ManagedThreadId, string.Join(",", list));
             //释放读锁
             rw.ReleaseReaderLock();
         }
@@ -551,7 +551,7 @@ namespace DoNet基础.多线程
     {
         static Mutex mutex = new Mutex(false, "cnblogs");
 
-        public void  Main()
+        public void Main()
         {
             Thread t = new Thread(Run);
             t.Start();
@@ -874,7 +874,7 @@ namespace DoNet基础.多线程
     /// </summary>
     public class 生产者消费者
     {
-        public  void Main()
+        public void Main()
         {
             int result = 0; //一个标志位，如果是0表示程序没有出错，如果是1表明有错误发生
             Cell cell = new Cell();
@@ -978,7 +978,7 @@ namespace DoNet基础.多线程
         int cellContents; // Cell对象里边的内容
         bool isread = false; //为false则不能读取，写入正在进行
 
-       
+
         /// <summary>
         /// 生产操作
         /// </summary>
@@ -1012,7 +1012,7 @@ namespace DoNet基础.多线程
                 {
                     Monitor.Wait(this);
                 }
-                Console.WriteLine("消费了: {0},目前生产了{1}", n,cellContents);
+                Console.WriteLine("消费了: {0},目前生产了{1}", n, cellContents);
 
                 //表示消费行为已经完成
                 isread = false;
@@ -1021,79 +1021,18 @@ namespace DoNet基础.多线程
             return cellContents;
         }
 
-        
-                    //catch (SynchronizationLockException e)
-                    //{
-                    //    Console.WriteLine(e);
-                    //}
-                    //catch (ThreadInterruptedException e)
-                    //{
-                    //    Console.WriteLine(e);
-                    //}
+
+        //catch (SynchronizationLockException e)
+        //{
+        //    Console.WriteLine(e);
+        //}
+        //catch (ThreadInterruptedException e)
+        //{
+        //    Console.WriteLine(e);
+        //}
     }
 
     #endregion
 
 
-    #region 简易线程的三种实现方式
-    /// <summary>
-    /// 简易线程的三种实现方式
-    /// </summary>
-    public class 简易线程的三种实现方式
-    {
-        public void 方式一()
-        {
-            //QueueUserWorkItem方式一
-            ThreadPool.QueueUserWorkItem(delegate { Console.WriteLine("成功"); });
-
-
-            //QueueUserWorkItem方式二
-            Action<object> action = (object obj) => { Console.WriteLine(obj.ToString()); };
-            ThreadPool.UnsafeQueueUserWorkItem(obj => action(obj), "obj");
-
-
-            //QueueUserWorkItem方式三
-            ThreadPool.UnsafeQueueUserWorkItem(RunWorkerThread, "obj");
-            void RunWorkerThread(object obj)
-            {
-                Console.WriteLine("RunWorkerThread开始工作");
-                Console.WriteLine("工作者线程启动成功!");
-            }
-
-
-        }
-
-        public void 方式二() 
-        {
-            //Task.Factory.StartNew 可以设置线程是长时间运行，这时线程池就不会等待这个线程回收
-            Task.Factory.StartNew(() =>
-            {
-                Console.WriteLine("3.5秒后结束");
-                Thread.Sleep(3500);
-                Console.WriteLine("结束2");
-            });
-
-            //带返回参数
-            Func<object, int> function = (object a) => { return 11; };
-            var result = Task.Factory.StartNew(function, 1);
-            var aaa = result.Result;
-        }
-
-        public void 方式三()
-        {
-            //Task.Run方式
-            Task.Run(() =>
-            {
-                Console.WriteLine("结束3");
-            });
-
-            //高级测试
-            var task = new Task(
-                   (object obj) => { Console.WriteLine("Title:" + obj.ToString()); }
-                   , 123);
-            Func<Task> func = () => { return task; };
-            var resunt2 = Task.Run(func);
-        }
-    }
-    #endregion
 }

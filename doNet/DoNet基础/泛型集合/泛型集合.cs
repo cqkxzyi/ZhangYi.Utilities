@@ -91,7 +91,7 @@ namespace DoNet基础.泛型集合
     {
         public void test()
         {
-            var empTelTable = new SortedDictionary<Employee, String>(
+            var empTelTable = new SortedDictionary<Employee, string>(
                 new DelegatedComparer<Employee>((x, y) => x.Id - y.Id)
                );
         }

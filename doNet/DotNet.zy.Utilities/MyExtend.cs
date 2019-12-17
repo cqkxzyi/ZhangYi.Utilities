@@ -52,5 +52,16 @@ namespace DotNet.Utilities
 
         #endregion
 
+
+
+        #region  Sring扩展
+        /// <summary>
+        /// Sring扩展
+        /// </summary>
+        public static void PrintString(this String val)
+        {
+            Console.WriteLine(val);
+        }
+        #endregion
     }
 }

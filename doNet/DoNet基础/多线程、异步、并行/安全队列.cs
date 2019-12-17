@@ -23,15 +23,15 @@ namespace DoNet基础.多线程_异步_并行
             var taskQueue = new ConcurrentQueue<CustomTask>();
             var cts = new CancellationTokenSource();
             //生成任务添加至并发队列
-            var taskSource = Task.Run(() => TaskProducer(taskQueue));
+            var taskSource = Task.Run(() => TaskIn(taskQueue));
             //同时启动四个任务处理队列中的任务
             Task[] processors = new Task[4];
             for (int i = 1; i <= 4; i++)
             {
                 string processId = i.ToString();
                 processors[i - 1] = Task.Run(
-                    () => TaskProcessor(taskQueue, "Processor " + processId, cts.Token)
-                    );
+                                             () => TaskOut(taskQueue, "Processor " + processId, cts.Token)
+                                    );
             }
             await taskSource;
             //向任务发送取消信号
@@ -39,26 +39,38 @@ namespace DoNet基础.多线程_异步_并行
             await Task.WhenAll(processors);
         }
 
-
-        static async Task TaskProducer(ConcurrentQueue<CustomTask> queue)
+        /// <summary>
+        /// 入列
+        /// </summary>
+        /// <param name="queue"></param>
+        /// <returns></returns>
+        static async Task TaskIn(ConcurrentQueue<CustomTask> queue)
         {
             for (int i = 0; i < 20; i++)
             {
                 await Task.Delay(50);
                 var workItem = new CustomTask { Id = i };
+                //入列
                 queue.Enqueue(workItem);
                 Console.WriteLine("task {0} has been posted", workItem.Id);
             }
         }
 
-
-        static async Task TaskProcessor(ConcurrentQueue<CustomTask> queue, string name, CancellationToken token)
+        /// <summary>
+        /// 出列
+        /// </summary>
+        /// <param name="queue"></param>
+        /// <param name="name"></param>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        static async Task TaskOut(ConcurrentQueue<CustomTask> queue, string name, CancellationToken token)
         {
             CustomTask workItem;
             bool dequeueSuccesful = false;
             await GetRandomDelay();
             do
             {
+                //出列
                 dequeueSuccesful = queue.TryDequeue(out workItem);
                 if (dequeueSuccesful)
                 {

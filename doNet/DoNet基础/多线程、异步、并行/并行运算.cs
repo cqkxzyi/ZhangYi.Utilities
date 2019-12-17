@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace DoNet基础.多线程_异步
 {
+    #region TaskTest
 
-    public static class TaskTest
+    public  class TaskTest
     {
         private static void button1_Click(object sender, EventArgs e)
         {
@@ -30,20 +31,38 @@ namespace DoNet基础.多线程_异步
                 Thread.Sleep(100);
                 //改变界面
                 //this.Invoke(new Action(
-                //    () => { this.label1.Text = i.ToString(); }));
+                //() => { this.label1.Text = i.ToString(); }));
             }
         }
 
         static void k2()
         {
-            for (int i = 0; i < 100; i++)
-            {
-                Thread.Sleep(100);
-                //改变界面
-                //this.Invoke(new Action(
-                //    () => { this.label2.Text = i.ToString(); }));
-            }
+            Console.Write("哈哈");
         }
+
+        public void 一个Task内可以包含多个Task()
+        {
+            Task tasks = new Task(() =>
+            {
+                Task.Factory.StartNew(() => k1());
+                Task.Factory.StartNew(() => k2());
+            });
+            tasks.Start();
+            //阻塞，直到整个任务完成
+            tasks.Wait();
+        }
+        
+        public void 带返回值的Task()
+        {
+            Func<object, long> fun = delegate (object obj)
+            {
+                return long.Parse(obj.ToString());
+            };
+            Task<long> tsk = new Task<long>(fun, 100);
+            tsk.Start();
+            Console.WriteLine(tsk.Result.ToString());
+        }
+
 
         /// <summary>
         /// Task.Run 测试
@@ -82,8 +101,82 @@ namespace DoNet基础.多线程_异步
             Task.WaitAll(lstTask.ToArray());
         }
     }
+    #endregion TaskTest~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
+
+    #region 简易线程的三种实现方式
+    /// <summary>
+    /// 简易线程的三种实现方式
+    /// </summary>
+    public class 简易线程的三种实现方式
+    {
+        public void 方式一()
+        {
+            //QueueUserWorkItem方式一
+            ThreadPool.QueueUserWorkItem(delegate { Console.WriteLine("成功"); });
+
+            //UnsafeQueueUserWorkItem方式一
+            Action<object> action = (object obj) => { Console.WriteLine(obj.ToString()); };
+            ThreadPool.UnsafeQueueUserWorkItem(obj => action(obj), "obj");
+        
+            //QueueUserWorkItem方式二
+            ThreadPool.UnsafeQueueUserWorkItem(RunWorkerThread, "obj");
+            void RunWorkerThread(object obj)
+            {
+                Console.WriteLine("RunWorkerThread开始工作");
+                Console.WriteLine("工作者线程启动成功!");
+            }
+        }
+
+        public void 方式二()
+        {
+            //Task.Factory.StartNew 可以设置线程是长时间运行，这时线程池就不会等待这个线程回收
+            Task.Factory.StartNew(() =>
+            {
+                Console.WriteLine("3.5秒后结束");
+                Thread.Sleep(3500);
+                Console.WriteLine("结束2");
+            });
+
+            //带返回参数
+            Func<object, int> function = (object a) => { return int.Parse(a.ToString()); };
+            var result = Task.Factory.StartNew(function, 1);
+            int aaa = result.Result;
+        }
+
+        public void 方式三()
+        {
+            //Task.Run方式
+            Task.Run(() =>
+            {
+                Console.WriteLine("结束3");
+            });
+
+            //高级测试（有入参、无出参）
+            var task = new Task(
+                   (object obj) => { Console.WriteLine("Title:" + obj.ToString()); }
+                   , 123);
+            Func<Task> func = () => { return task; };
+            var resunt2 = Task.Run(func);
+
+            //更高级测试（有入参、有出参）
+            var task2 = new Task<string>(
+                   (object obj) =>
+                   {
+                       return obj.ToString();
+                   }
+                   , 123);
+
+            Func<Task<string>> func2 = () => { return task2; };
+            var resunt3 = Task.Run(func2);
+            string resultStr = resunt3.Result;
+        }
+    }
+    #endregion
+
+
+    #region Parallel_ForEach
 
     public class Parallel_ForEach
     {
@@ -146,13 +239,11 @@ namespace DoNet基础.多线程_异步
 
             Console.WriteLine($"使用内部锁，并发{list.Count}次后为：" + num.ToString());
         }
-
-
-
-
-
     }
+    #endregion ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Parallel_ForEach
 
+
+    #region Parallel_Invoke
 
     public class ParallelInvokeDemo
     {
@@ -197,30 +288,7 @@ namespace DoNet基础.多线程_异步
                 () => Thread2(pOption.CancellationToken));
 
 
-            /*
-             * 一个 Task 内可以包含多个 Task
-            Task tasks = new Task(() => 
-            {
-                Task.Factory.StartNew(() => Method()); 
-                Task.Factory.StartNew(() => Method2()); 
-                Task.Factory.StartNew(() => Method3()); 
-            }); 
-            tasks.Start(); 
-            // 阻塞，直到整个任务完成
-            tasks.Wait(); 
-            */
 
-
-            /*
-             * 带返回值的 Task
-            Func<object, long> fun = delegate(object state)
-            {
-                return 1.0;
-            };
-            Task<long> tsk = new Task<long>(fun, "state");
-            tsk.Start();
-            Console.WriteLine(tsk.Result.ToString()); 
-            */
         }
 
 
@@ -247,6 +315,7 @@ namespace DoNet基础.多线程_异步
             }
         }
     }
+    #endregion ~~~~~~~~~~~~~~~~~~~~~~Parallel_Invoke
 
 
     public partial class ParallelPLINQ

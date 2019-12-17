@@ -16,15 +16,15 @@ namespace DoNet基础.多线程_异步
 
         public async void DisplayValue()
         {
-            double result = await GetValueAsync(1234.5, 1.01);//此处会开新线程处理GetValueAsync任务，然后方法马上返回  
+            double result = await GetValueAsync(1234, 1.01);//此处会开新线程处理GetValueAsync任务，然后方法马上返回  
 
             //这之后的所有代码都会被封装成委托，在GetValueAsync任务完成时调用  
             System.Diagnostics.Debug.WriteLine("Value is : " + result);
         }
 
-        public Task<double> GetValueAsync(double num1, double num2)
+        public async Task<double> GetValueAsync(double num1, double num2)
         {
-            return Task.Run(() =>
+            return await Task.Run(() =>
             {
                 for (int i = 0; i < 1000000; i++)
                 {
@@ -36,7 +36,7 @@ namespace DoNet基础.多线程_异步
 
 
         /// <summary>
-        /// 上面的DisplayValue实际执行效果是下面这样的。
+        /// 上面的DisplayValue实际执行效果是下面这样的
         /// </summary>
         public void DisplayValue2()
         {
