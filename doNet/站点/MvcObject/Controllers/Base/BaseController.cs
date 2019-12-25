@@ -62,8 +62,7 @@ namespace MvcObject.Controllers
         /// <param name="filterContext"></param>
         protected override void OnAuthorization(AuthorizationContext filterContext)
         {
-            return;
-
+            //return;
 
 
             if (filterContext.IsChildAction)
@@ -72,6 +71,12 @@ namespace MvcObject.Controllers
             }
 
             bool isAllowAnonymous = filterContext.ActionDescriptor.GetCustomAttributes(typeof(AllowAnonymousAttribute), false).Length > 0;
+            if (isAllowAnonymous)
+            {
+                return;
+            }
+
+            //1角色信息
             var roles = filterContext.ActionDescriptor.GetCustomAttributes(typeof(AuthUserRoleAttribute), false);
             string[] roleArray = null;
             string actionName = null;
@@ -84,40 +89,54 @@ namespace MvcObject.Controllers
                 controllerName = attributeInfo.ControllerName;
             }
 
-            if (isAllowAnonymous)
+            //2用户信息
+            object[] authUsers = filterContext.ActionDescriptor.GetCustomAttributes(typeof(AuthorizeAttribute), false);
+
+
+            //未登录直接跳转到登陆页
+            //登录成功配置FormsAuthentication.SetAuthCookie("登录唯一标识", true);
+            if (User.Identity.IsAuthenticated == false)
             {
-                return;
+                filterContext.Result = new RedirectResult(string.Format("{0}?redirectUrl={1}", FormsAuthentication.LoginUrl, HttpUtility.UrlEncode(filterContext.RequestContext.HttpContext.Request.Path)));
             }
             else
             {
-                if (User.Identity.IsAuthenticated == false)
+                //登录标识
+                var userPhone = User.Identity.Name;
+
+                if (string.IsNullOrEmpty(userPhone))
                 {
                     filterContext.Result = new RedirectResult(string.Format("{0}?redirectUrl={1}", FormsAuthentication.LoginUrl, HttpUtility.UrlEncode(filterContext.RequestContext.HttpContext.Request.Path)));
                 }
                 else
                 {
-                    var userPhone = User.Identity.Name;
-                    string user = null;
-                    if (user == null)
-                    {
-                        filterContext.Result = new RedirectResult(string.Format("{0}?redirectUrl={1}", FormsAuthentication.LoginUrl, HttpUtility.UrlEncode(filterContext.RequestContext.HttpContext.Request.Path)));
-                    }
-                    else
-                    {
-                        string role = string.Empty;
+                    //根据登录者userPhone查询所属角色
+                    string role = string.Empty;
 
-                        if (roleArray != null && roleArray.Length > 0)
+                    //1判断角色
+                    if (roleArray != null && roleArray.Length > 0)
+                    {
+                        if (!roleArray.Contains(role))
                         {
-                            if (!roleArray.Contains(role))
-                            {
-                                filterContext.Result = RedirectToAction(actionName, controllerName);
-                            }
+                            filterContext.Result = RedirectToAction(actionName, controllerName);
                         }
                     }
-                    return;
+
+                    //2判断用户
+                    if (authUsers.Length > 0 && ((AuthorizeAttribute)authUsers[0]).Users.Contains(userPhone))
+                    {
+                        //允许访问
+                    }
+                    else {
+                        filterContext.Result = RedirectToAction(actionName, controllerName);
+                    }
+
                 }
+                return;
             }
         }
+
+
 
     }
 

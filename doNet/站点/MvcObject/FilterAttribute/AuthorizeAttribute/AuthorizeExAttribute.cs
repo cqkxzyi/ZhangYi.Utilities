@@ -63,7 +63,7 @@ namespace MvcObject.FilterAttribute
         }
 
         /// <summary>
-        /// AuthorizeCore函数结果为false时，就会触发HandleUnauthorizedRequest函数来处理验证失败
+        /// AuthorizeCore 函数结果为false时，就会触发此函数
         /// </summary>
         /// <param name="filterContext"></param>
         protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
@@ -102,7 +102,9 @@ namespace MvcObject.FilterAttribute
         /// <returns></returns>
         private bool IsAllow()
         {
-            //写上验证代码
+            //业务逻辑
+
+
             return true;
         }
     }
