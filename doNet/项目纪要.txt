@@ -17,10 +17,6 @@ Core2.2-Web
 
 Core3.0-Web
 
-docker加上Jenkins部署比较简单
-NewLife.Cube.Core 魔方平台
-
-
 
 
 
@@ -61,3 +57,8 @@ MongoDB数据库
 rocketmq和redis区别。
 
 ConcurrentDictionary键值对
+
+docker加上Jenkins部署比较简单
+NewLife.Cube.Core 魔方平台
+
+服务治理：Consul,ZooKeeper,Doozerd,ETCD 
