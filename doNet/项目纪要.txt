@@ -16,7 +16,7 @@ Core2.2-Web
 	Dapper简易ORM
 
 Core3.0-Web
-	JWT
+	轮询任务
 
 docker加上Jenkins部署比较简单
 NewLife.Cube.Core 魔方平台

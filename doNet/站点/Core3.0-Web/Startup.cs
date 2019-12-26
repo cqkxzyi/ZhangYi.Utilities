@@ -54,6 +54,7 @@ namespace Core3._0_Web
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
+
             app.UseStaticFiles();
 
             app.UseRouting();

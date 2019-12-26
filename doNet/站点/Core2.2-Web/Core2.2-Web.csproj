@@ -30,6 +30,9 @@
 
 
   <ItemGroup>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Update="Nlog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
