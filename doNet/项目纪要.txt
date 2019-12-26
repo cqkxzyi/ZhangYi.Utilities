@@ -10,15 +10,18 @@ MvcObject
 	VueJs 前端框架
 	SignalR实时通信
 	RabbitMQ消息队列
+	StackExchange.Redis
 
 Core2.2-Web
 	NLog
 	Dapper简易ORM
+	SignalR实时通信
 
 Core3.0-Web
 	轮询任务
+	CSRedis
 
-fiddler抓包工具
+
 
 
 
@@ -43,25 +46,3 @@ fiddler抓包工具
 	5：
 
 
-
-
-===============待学习===================
-基于Node.js的puppeteer,edge爬虫工具
-Docker容器引擎
-MVVM开发模式
-AngelaJS
-webassemly技术革命
-nginx技术
-MongoDB数据库
-
-高并发高性能，熟悉RabbitMQ，Redis，熟悉jvm这一类就好多
-
-大石头：19年，redis/rockermq/agent 的增长速度最快，可以想象，大家热衷于大数据、中间件、中台。
-rocketmq和redis区别。
-
-ConcurrentDictionary键值对
-
-docker加上Jenkins部署比较简单
-NewLife.Cube.Core 魔方平台
-
-服务治理：Consul,ZooKeeper,Doozerd,ETCD 

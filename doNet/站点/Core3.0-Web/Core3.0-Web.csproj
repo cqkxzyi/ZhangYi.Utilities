@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
@@ -6,8 +6,8 @@
     <UserSecretsId>09dfbd89-0b36-4570-9448-a86a71f60998</UserSecretsId>
   </PropertyGroup>
 
-
   <ItemGroup>
+    <PackageReference Include="CSRedisCore" Version="3.3.0" />
   </ItemGroup>
 
 </Project>
