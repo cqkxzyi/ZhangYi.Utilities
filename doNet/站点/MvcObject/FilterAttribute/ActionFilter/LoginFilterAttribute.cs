@@ -10,7 +10,7 @@ namespace MvcObject.FilterAttribute
 {
     /// <summary>
     /// 过滤器
-    ///  MVC4.0后，微软加了一个AllowAnoumous的过滤器验证，即允许匿名用户访问，方法上的过滤器可以覆盖掉控制器上的标记
+    ///  MVC4.0后，微软加了一个[AllowAnonymous]的过滤器验证，即允许匿名用户访问，方法上的过滤器可以覆盖掉控制器上的标记
     /// </summary>
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = false)]
     public class LoginFilterAttribute : ActionFilterAttribute
@@ -35,6 +35,12 @@ namespace MvcObject.FilterAttribute
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
+            if (filterContext.ActionDescriptor.IsDefined(typeof(NoPermissionRequiredAttribute), true))
+            {
+                base.OnActionExecuting(filterContext);
+                return;
+            }
+
             string controllerName = (string)filterContext.RouteData.Values["controller"];
             string actionName = (string)filterContext.RouteData.Values["action"];
             
@@ -64,6 +70,18 @@ namespace MvcObject.FilterAttribute
 
                 filterContext.Result = new RedirectResult(loginUrl);
             }
+        }
+    }
+
+
+    /// <summary>
+    /// 不需要登录即可访问
+    /// </summary>
+    public class NoPermissionRequiredAttribute : ActionFilterAttribute
+    {
+        public override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            base.OnActionExecuting(filterContext);
         }
     }
 }

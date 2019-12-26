@@ -190,11 +190,11 @@
     <Compile Include="Controllers\TestRedisController.cs" />
     <Compile Include="Controllers\TestVueJsController.cs" />
     <Compile Include="FilterAttribute\AjaxUnauthorizedResult.cs" />
-    <Compile Include="FilterAttribute\AuthorizeExAttribute.cs" />
-    <Compile Include="FilterAttribute\AuthUserRoleAttribute.cs" />
-    <Compile Include="FilterAttribute\LoginFilterAttribute.cs" />
+    <Compile Include="FilterAttribute\AuthorizeAttribute\AuthorizeExAttribute.cs" />
+    <Compile Include="FilterAttribute\AuthorizeAttribute\AuthUserRoleAttribute.cs" />
+    <Compile Include="FilterAttribute\ActionFilter\LoginFilterAttribute.cs" />
     <Compile Include="FilterAttribute\LoginTimeOutException.cs" />
-    <Compile Include="FilterAttribute\PurviewFilterAttribute.cs" />
+    <Compile Include="FilterAttribute\ActionFilter\PurviewFilterAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -267,6 +267,7 @@
     <Content Include="Views\TestRedis\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="aa\" />
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>

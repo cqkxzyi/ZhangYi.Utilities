@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet.zy.Utilities", "DotN
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "程序集", "程序集", "{B96270AD-2AEA-4395-916D-C57BA9E4642F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "功能纪要", "功能纪要", "{8EC907C7-95C6-4432-9CD6-1AA6CB882170}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "纪要", "纪要", "{8EC907C7-95C6-4432-9CD6-1AA6CB882170}"
 	ProjectSection(SolutionItems) = preProject
 		其他.txt = 其他.txt
 		项目纪要.txt = 项目纪要.txt

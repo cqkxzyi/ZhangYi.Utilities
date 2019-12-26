@@ -16,7 +16,9 @@ Core2.2-Web
 	Dapper简易ORM
 
 Core3.0-Web
+	轮询任务
 
+fiddler抓包工具
 
 
 
@@ -29,6 +31,7 @@ Core3.0-Web
 		复制功能：使用第三方js
 		弹框：jqueryAlert
 		遮罩层：busy-load 支持H5、web
+	业务系统：Jwt鉴权功能
 		
 
 		
