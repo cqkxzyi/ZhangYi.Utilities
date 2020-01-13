@@ -19,7 +19,6 @@ namespace Core2._2_Web
 {
     public class Startup
     {
-
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -34,7 +33,6 @@ namespace Core2._2_Web
         public void ConfigureServices(IServiceCollection services)
         {
             GetConfig();
-
 
             services.Configure<CookiePolicyOptions>(options =>
             {
@@ -103,9 +101,18 @@ namespace Core2._2_Web
         /// <summary>
         /// 获取json参数配置
         /// </summary>
-        public void GetConfig() {
+        public void GetConfig() 
+        {
+            //获取运行路径
             dynamic type = (new Program()).GetType();
             string currentDirectory = Path.GetDirectoryName(type.Assembly.Location);
+            var path = Environment.CurrentDirectory;
+
+            var json = new ConfigurationBuilder().SetBasePath(path).AddJsonFile("appsettings.json").Build();
+            var val4 = json["model:id"];
+            var name = Configuration.GetSection("name");
+
+
 
             //添加 json 文件路径
             //Directory.GetCurrentDirectory()获取的是执行dotnet命令所在目录
@@ -113,15 +120,16 @@ namespace Core2._2_Web
             //创建配置根对象
             var configurationRoot = builder.Build();
 
-            //取配置根下的 Logging 部分
-            var nameSection = configurationRoot.GetSection("AllowedHosts");
-            //取配置根下的 family 部分
-            var familySection = configurationRoot.GetSection("family");
-            //取 family 部分下的 mother 部分下的 name 部分
-            var motherNameSection = familySection.GetSection("Logging").GetSection("LogLevel");
 
+            //弱类型方式读取
+            var id = configurationRoot["model:id"];
+            var val1 = configurationRoot.GetSection("name");
+            var val2 = configurationRoot.GetSection("model").GetSection("name");
             //Value 为文本值
-            Console.WriteLine($"name: {nameSection.Value}");
+            Console.WriteLine($"name: {val2.Value}");
+
+            //强类型方式读取
+            var info = configurationRoot.GetValue<int>("model:id");
         }
     }
 }

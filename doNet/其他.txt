@@ -2,6 +2,8 @@
 
 ================================编程技巧=======================================		
 fiddler抓包工具
+Libman库管理器
+BuildBundlerMinifier压缩工具
 
 
 
@@ -57,7 +59,8 @@ docker加上Jenkins部署比较简单
 NewLife.Cube.Core 魔方平台
 
 服务治理：Consul,ZooKeeper,Doozerd,ETCD 
-
+Serverless
+第三方依赖注入矿建：Unity、Autofac
 
 
 
@@ -71,6 +74,10 @@ NewLife.Cube.Core 魔方平台
 	优化数据访问
 	JWT跨域身份认证，区别于传统有状态JWT是无状态的，可靠性、容灾较好。
 
+
+	IoC容器(控制反转):：
+		1：注册类型
+		2：请求实例
 
 
 

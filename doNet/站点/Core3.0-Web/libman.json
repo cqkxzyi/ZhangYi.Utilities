@@ -1,0 +1,19 @@
+{
+  "version": "1.0",
+  "defaultProvider": "unpkg",
+  "libraries": [
+    {
+      "library": "jquery@3.4.1",
+      "destination": "wwwroot/js/jquery/",
+      "files": [
+        "dist/core.js",
+        "dist/jquery.js",
+        "dist/jquery.min.js",
+        "dist/jquery.min.map",
+        "dist/jquery.slim.js",
+        "dist/jquery.slim.min.js",
+        "dist/jquery.slim.min.map"
+      ]
+    }
+  ]
+}
