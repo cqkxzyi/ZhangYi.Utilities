@@ -25,7 +25,6 @@ namespace Core3._0_Web
 
         /// <summary>
         /// 启动程序、生命周期管理
-        /// 
         /// </summary>
         /// <param name="args"></param>
         /// <returns></returns>
