@@ -161,6 +161,20 @@ namespace Core3._0_Web
 
             //强类型方式读取
             var info = configurationRoot.GetValue<int>("model:id");
+
+
+
+            //内存字段模式添加配置
+            IConfigurationBuilder builder = new ConfigurationBuilder();
+            builder.AddInMemoryCollection(new Dictionary<string, string>()
+            {
+                { "key1","value1" },
+                { "key2","value2" },
+                { "section1:key4","value4" },
+            });
+
+           
+
         }
         #endregion
 

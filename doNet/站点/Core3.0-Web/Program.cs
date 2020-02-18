@@ -15,6 +15,9 @@ namespace Core3._0_Web
     /// </summary>
     public class Program
     {
+        //Ö´ÐÐË³Ðò£º
+        //ConfigureWebHostDefaults¡·ConfigureHostConfiguration¡·ConfigureAppConfiguration¡·
+        //ConfigureServices¡·Configure¡·
 
         public static void Main(string[] args)
         {

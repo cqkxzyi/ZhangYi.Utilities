@@ -11,7 +11,8 @@ BuildBundlerMinifier压缩工具
 
 
 =============================前端=========================================
-
+//输入框改变事件，优于blur
+ $('#TransactionPrice').bind('input porpertychange', function(){});
 
 
 
