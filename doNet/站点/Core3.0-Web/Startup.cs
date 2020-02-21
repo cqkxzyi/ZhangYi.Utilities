@@ -41,13 +41,15 @@ namespace Core3._0_Web
             //获取json参数配置
             GetConfig();
 
+            
+
             services.AddControllersWithViews();
 
             //跨域
             services.AddCors();
 
             //注册轮询任务
-            services.AddSingleton<Microsoft.Extensions.Hosting.IHostedService, BackManagerService>(factory =>
+            services.AddSingleton<IHostedService, BackManagerService>(factory =>
             {
                 OrderManagerService order = new OrderManagerService();
                 return new BackManagerService(options =>
@@ -72,7 +74,7 @@ namespace Core3._0_Web
         /// <param name="env"></param>
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            //测试中间件
+            //测试中间件(没有next的话，会终段后面的中间件)
             app.Run( async (context)=> {
                 await context.Response.WriteAsync("aaa");
             });
@@ -135,20 +137,24 @@ namespace Core3._0_Web
         {
 
             //直接读取字符串
-            var conn = Configuration.GetConnectionString("default");
+            string conn = Configuration.GetConnectionString("default");
             conn = Configuration["connection"];
-            //Configuration.Bind();
+
+            //读取GetSection
+            IConfigurationSection configurationSection = Configuration.GetSection("connection");
 
 
             //获取运行路径
             dynamic type = (new Program()).GetType();
             string currentDirectory = Path.GetDirectoryName(type.Assembly.Location);
             var path = Environment.CurrentDirectory;
+            var path2 = Directory.GetCurrentDirectory();
 
 
             //添加 json 文件路径
             //Directory.GetCurrentDirectory()获取的是执行dotnet命令所在目录
-            var configurationRoot = new ConfigurationBuilder().SetBasePath(currentDirectory).AddJsonFile("appsettings.json").Build();
+            IConfigurationBuilder configurationBuilder = new ConfigurationBuilder().SetBasePath(currentDirectory).AddJsonFile("appsettings.json");
+            IConfigurationRoot configurationRoot = configurationBuilder.Build();
 
 
             //弱类型方式读取
