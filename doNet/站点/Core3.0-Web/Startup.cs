@@ -144,11 +144,12 @@ namespace Core3._0_Web
             IConfigurationSection configurationSection = Configuration.GetSection("connection");
 
 
-            //获取运行路径
+            //获取运行路径各种方法
             dynamic type = (new Program()).GetType();
             string currentDirectory = Path.GetDirectoryName(type.Assembly.Location);
             var path = Environment.CurrentDirectory;
             var path2 = Directory.GetCurrentDirectory();
+            var path3 = AppDomain.CurrentDomain.BaseDirectory;
 
 
             //添加 json 文件路径

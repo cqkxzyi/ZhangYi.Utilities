@@ -1,3 +1,53 @@
+===================已掌握=======================
+SignalR：实时通信
+
+
+===================待学习=======================
+基于Node.js的puppeteer,edge爬虫工具
+Docker容器引擎
+MVVM开发模式
+AngelaJS
+webassemly技术革命
+nginx技术
+MongoDB数据库
+Ocelot Api网关
+
+高并发高性能，熟悉RabbitMQ，Redis，熟悉jvm这一类就好多，近年来redis/rockermq/agent 大家热衷于大数据、中间件、中台。
+rocketmq和redis区别
+docker加上Jenkins部署比较简单
+NewLife.Cube.Core 魔方平台
+
+服务治理：Consul,ZooKeeper,Doozerd,ETCD 
+Serverless
+第三方依赖注入框架：Unity、Autofac
+
+微软：
+●Windows支持OpenSSH 了
+●导出Excel另一种方式： nuget添加WeihanLi.Npoi
+●Office处理插件：Spire.Office for .NET（旗下有Spire.Doc，Spire XLS，Spire.PDF，Spire.BarCode）
+●导入导出Excel：WeihanLi.Npoi
+●DotNet项目生成api工具：Swagger
+●接口API规范统一：NET Standard?
+●Hangfire 分布式作业调度框架服务
+●终结者模式：MediatR，可以简化控制器业务逻辑。
+
+
+待学习：
+●Spring Cloud
+●依赖注入/控制反转：Autofac框架
+●Python、爬虫技术、八爪鱼
+●图书：李运华-从零开始学架构
+●AutoMapper:对象映射框架
+●Dapper：ORM框架之王
+●Kerberos：安全认证
+●NCache：分布式缓存
+●Ocelot：开源Api网关
+●gRPC for dotnet?微软官方集成的谷歌PPC
+●CsRedisCore:内存数据库操作
+
+其他：
+●文档制作工具GitBook
+
 
 =============================极客时间学习纪要================================
 服务生命周期：单例、作用域、瞬时
@@ -6,31 +56,10 @@ Autofac容器组件，可以实现面向切面编程，相当于拦截器
 	支持前缀过滤、文件读取（支持检测变更） 
 配置绑定强类型，自定义配置数据源（实现配置中心功能）
 服务组件集成配置,监测配置动态变更，三种验证方式 
-ILogger日志作用域，Serilog使用技巧
+ILogger日志作用域，日志框架Serilog使用技巧
 自定义中间件的使用
 自定义异常处理
-静态文件中间件
+静态文件中间件的使用、文件提供程序的使用
+Swagger三方包的使用，自定义路由约束
 
 
-
-
-
-
-
-
-
-
-
-
-
-=============================ES6=======================================
-indexOf	
-includes()：返回布尔值，表示是否找到了参数字符串
-startsWith()：返回布尔值，表示参数字符串是否在原字符串的头部
-endsWith()：返回布尔值，表示参数字符串是否在原字符串的尾部
-repeat()，表示将原字符串重复n次
-padStart()，padEnd()字符串补全长度
-matchAll()
-模板字符串中嵌入变量，需要将变量名写在${}之中
-Number.isFinite()用来检查一个数值是否为有限的（finite），即不是Infinity. Number.isFinite()对于非数值一律返回false
-Number.isNaN()用来检查一个值是否为NaN

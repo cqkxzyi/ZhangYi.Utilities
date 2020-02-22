@@ -5,100 +5,15 @@ Libman库管理器
 BuildBundlerMinifier压缩工具
 
 
-
 =============================前端=========================================
-
-
 
 
 
 		
 =============================数据库技巧====================================
 stuff  for xml path ('')
- 
 
 
-
-
-
-
-===================待学习=======================
-基于Node.js的puppeteer,edge爬虫工具
-Docker容器引擎
-MVVM开发模式
-AngelaJS
-webassemly技术革命
-nginx技术
-MongoDB数据库
-Ocelot Api网关
-
-高并发高性能，熟悉RabbitMQ，Redis，熟悉jvm这一类就好多
-
-大石头：19年，redis/rockermq/agent 的增长速度最快，可以想象，大家热衷于大数据、中间件、中台。
-rocketmq和redis区别。
-
-ConcurrentDictionary键值对
-
-docker加上Jenkins部署比较简单
-NewLife.Cube.Core 魔方平台
-
-服务治理：Consul,ZooKeeper,Doozerd,ETCD 
-Serverless
-第三方依赖注入矿建：Unity、Autofac
-
-微软：
-●Windows 支持 OpenSSH 了！
-●导出Excel另一种方式： nuget添加WeihanLi.Npoi
-●Office处理插件：Spire.Office for .NET（旗下有Spire.Doc，Spire XLS，Spire.PDF，Spire.BarCode）
-●导入导出Excel：WeihanLi.Npoi
-●DotNet项目生成api工具：Swagger
-●接口API规范统一：NET Standard?
-●Hangfire 分布式作业调度框架服务
-●终结者模式：MediatR，可以简化控制器业务逻辑。
-●SignalR：实时通信
-
-待学习：
-●Spring Cloud
-●依赖注入/控制反转：Autofac框架
-●Python、爬虫技术、八爪鱼
-●图书：李运华-从零开始学架构
-●AutoMapper:对象映射框架
-●Dapper：ORM框架之王
-●Kerberos：安全认证
-●NCache：分布式缓存
-●Ocelot：开源Api网关
-●gRPC for dotnet?微软官方集成的谷歌PPC
-●CsRedisCore:内存数据库操作
-
-其他：
-●文档制作工具GitBook
-
-
-
-
-
-
-
-
-=============================面试======================================= 
-编程技巧：
-	尽量避免任何层的同步调用
-	尽量使用异步编程（async、await）
-	使用异步编程避免TASK.WAIT或TAST.RESULT
-	尽量异步执行I/O操作
-	尽量使用缓存
-	优化数据访问
-	JWT跨域身份认证，区别于传统有状态.JWT是无状态的，可靠性、容灾较好。
-
-
-	IoC容器(控制反转):：
-		1：注册类型
-		2：请求实例
-
-	消息队列、异步、读写分离
-	设计原则：依赖于抽象，而不是具体的实现
-
-	
 
 
 
