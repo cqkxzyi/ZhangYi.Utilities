@@ -2,7 +2,6 @@ WebFrom
 	通用js
 
 
-
 MvcObject
 	站点框架通用技术等
 	ES5、ES6测试
@@ -14,7 +13,7 @@ MvcObject
 
 Core2.2-Web
 	NLog
-	Dapper简易ORM
+	Dapper简易ORM框架之王
 	SignalR实时通信
 
 Core3.0-Web

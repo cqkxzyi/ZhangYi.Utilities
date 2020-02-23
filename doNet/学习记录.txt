@@ -1,52 +1,42 @@
 ===================已掌握=======================
-SignalR：实时通信
+RabbitMQ、CsRedisCore
+SignalR
+Dapper简易ORM框架之王
+DDD领域驱动设计（优先考虑的业务而不是数据，系统复杂后使用MVC是技术纬度优化，DDD业务是纬度优化相当于微服务，实现了高内聚低耦合，是充血模型）。CQRS（Command Query Responsibility Segration）读写分离，CRUD增删改查
+项目生成api工具：Swagger
+SqlServer集群
 
 
 ===================待学习=======================
-基于Node.js的puppeteer,edge爬虫工具
-Docker容器引擎
-MVVM开发模式
-AngelaJS
-webassemly技术革命
-nginx技术
-MongoDB数据库
-Ocelot Api网关
-
-高并发高性能，熟悉RabbitMQ，Redis，熟悉jvm这一类就好多，近年来redis/rockermq/agent 大家热衷于大数据、中间件、中台。
-rocketmq和redis区别
-docker加上Jenkins部署比较简单
-NewLife.Cube.Core 魔方平台
-
-服务治理：Consul,ZooKeeper,Doozerd,ETCD 
-Serverless
-第三方依赖注入框架：Unity、Autofac
-
-微软：
-●Windows支持OpenSSH 了
-●导出Excel另一种方式： nuget添加WeihanLi.Npoi
-●Office处理插件：Spire.Office for .NET（旗下有Spire.Doc，Spire XLS，Spire.PDF，Spire.BarCode）
-●导入导出Excel：WeihanLi.Npoi
-●DotNet项目生成api工具：Swagger
-●接口API规范统一：NET Standard?
-●Hangfire 分布式作业调度框架服务
-●终结者模式：MediatR，可以简化控制器业务逻辑。
-
-
-待学习：
-●Spring Cloud
-●依赖注入/控制反转：Autofac框架
-●Python、爬虫技术、八爪鱼
-●图书：李运华-从零开始学架构
-●AutoMapper:对象映射框架
-●Dapper：ORM框架之王
-●Kerberos：安全认证
+●微服务/集群/分布式/
+●Kubernetes、Docker容器引擎。docker加上Jenkins部署比较简单，Serverless是一种构建和管理基于微服务架构的完整流程
+●服务框架： Consul（服务治理、配置中心）+ Polly（服务熔断）+ Ocelot（API网关）,服务治理有：Consul,ZooKeeper,Doozerd,ETCD 
+●服务框架：.net版基于Spring Cloud的服务架构Steeltoe
+●终结者模式：MediatR(消息解耦)，可以简化控制器业务逻辑
+●MVVM开发模式
+●依赖注入框架：Unity、Autofac
 ●NCache：分布式缓存
 ●Ocelot：开源Api网关
 ●gRPC for dotnet?微软官方集成的谷歌PPC
-●CsRedisCore:内存数据库操作
+●nginx技术
+●Spring Cloud
+●Kerberos：安全认证
+●Hangfire 分布式作业调度框架服务
+●Windows支持OpenSSH了
+●导出Excel另一种方式： nuget添加WeihanLi.Npoi
+●Office处理插件：Spire.Office for .NET（旗下有Spire.Doc，Spire XLS，Spire.PDF，Spire.BarCode）
+●导入导出Excel：WeihanLi.Npoi
+●静态文件部署到 CDN
+
+AngelaJS
+webassemly技术革命
+基于Node.js的puppeteer,edge爬虫工具
+MongoDB数据库
+
 
 其他：
 ●文档制作工具GitBook
+●Python、爬虫技术、八爪鱼
 
 
 =============================极客时间学习纪要================================
@@ -61,5 +51,15 @@ ILogger日志作用域，日志框架Serilog使用技巧
 自定义异常处理
 静态文件中间件的使用、文件提供程序的使用
 Swagger三方包的使用，自定义路由约束
+DDD领域驱动模型，工作单元UiitOfWork
+集成事件是跨服务的领域事件，不能事务处理，可以借助CAP框架实现一致性
 
 
+
+
+=============================知识================================
+Redis：支持多种数据类型、支持持久化、支持数据同步、支持消息订阅，只能使用单线程，只能简单的事务支持
+Memcache：吞吐量极高，只支持简单的key/value类型、不能持久化、无法数据同步
+MongoDB：极高的写入速度、高可用性、快速且丰富的查询、可以数据分析，不支持事务、占用空间过大适合大数据存储，主要解决海量数据访问效率。
+CQRS（Command Query Responsibility Segration）架构
+SpringCloud（服务治理、负载均衡、服务容错、声明式服务调用、API网关服务、分布式配置中心）
