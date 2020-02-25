@@ -578,7 +578,7 @@ namespace DoNet基础.多线程
 
     #endregion
 
-    #region Interlocked互斥 为多个线程共享的变量提供原子操作
+    #region Interlocked 互斥 为多个线程共享的变量提供原子操作
 
     class Interlocked1
     {

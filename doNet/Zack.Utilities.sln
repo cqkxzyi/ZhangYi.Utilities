@@ -13,7 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "文档", "文档", "{8EC907
 	ProjectSection(SolutionItems) = preProject
 		其他.txt = 其他.txt
 		学习记录.txt = 学习记录.txt
-		项目纪要.txt = 项目纪要.txt
+		找工作.txt = 找工作.txt
+		项目.txt = 项目.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "项目集", "项目集", "{DFB01FA6-FB42-4C75-8922-EE8EF031ABFC}"

@@ -104,7 +104,6 @@ namespace DoNet基础.多线程_异步
     #endregion TaskTest~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-
     #region 简易线程的三种实现方式
     /// <summary>
     /// 简易线程的三种实现方式
@@ -201,7 +200,6 @@ namespace DoNet基础.多线程_异步
                 str.Append(index);
             });
 
-
             //并行方式3
             var tasks = new Action[] { () => Task1(), () => Task1(), () => Task1() };
             Parallel.Invoke(tasks);
@@ -286,12 +284,7 @@ namespace DoNet基础.多线程_异步
             Parallel.Invoke(pOption,
                 () => Thread1(pOption.CancellationToken),
                 () => Thread2(pOption.CancellationToken));
-
-
-
         }
-
-
 
         private void Thread1(CancellationToken token)
         {
@@ -303,7 +296,6 @@ namespace DoNet基础.多线程_异步
                 Console.WriteLine("<br />");
                 Thread.Sleep(1000);
             }
-
         }
         private void Thread2(CancellationToken token)
         {

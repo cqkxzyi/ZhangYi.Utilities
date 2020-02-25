@@ -27,7 +27,6 @@ namespace Core3._0_Web
         }
 
 
-
         /// <summary>
         /// 注册服务
         /// 以依赖注入的方式将服务添加到服务容器，IoC容器
@@ -40,8 +39,6 @@ namespace Core3._0_Web
 
             //获取json参数配置
             GetConfig();
-
-            
 
             services.AddControllersWithViews();
 
@@ -85,7 +82,7 @@ namespace Core3._0_Web
                 await next();
             });
 
-
+            //获取路劲
             string webRootPath = env.WebRootPath;
             string contentRootPath = env.ContentRootPath;
 
@@ -108,7 +105,6 @@ namespace Core3._0_Web
 
             //静态文件中间件
             app.UseStaticFiles();
-
 
             //路由中间件，解析路由信息
             app.UseRouting();
@@ -168,7 +164,6 @@ namespace Core3._0_Web
 
             //强类型方式读取
             var info = configurationRoot.GetValue<int>("model:id");
-
 
 
             //内存字段模式添加配置

@@ -19,6 +19,8 @@ Core2.2-Web
 Core3.0-Web
 	轮询任务
 	CSRedis
+	LibMan客户端库管理器
+
 
 
 
