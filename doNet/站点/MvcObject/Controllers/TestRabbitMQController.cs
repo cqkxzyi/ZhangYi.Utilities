@@ -11,17 +11,13 @@ namespace MvcObject.Controllers
 {
     /// <summary>
     /// RabbitMQ测试
-    /// 
     /// ExchangeType有direct、Fanout和Topic三种，不同类型的Exchange路由的行为是不一样的
-    /// http://localhost:15672/#/
-    /// 
-    /// 
-    /// 
+    /// http://localhost:15672
     /// </summary>
     public class TestRabbitMQController : Controller
     {
         /// <summary>
-        /// 生产者模式
+        /// 生产者测试
         /// </summary>
         /// <returns></returns>
         public ActionResult Index()

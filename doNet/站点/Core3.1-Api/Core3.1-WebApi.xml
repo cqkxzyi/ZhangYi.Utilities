@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Core3.1-WebApi</name>
+    </assembly>
+    <members>
+        <member name="T:Core31.WebApi.Controllers.HomeController">
+            <summary>
+            Api主页Home
+            </summary>
+        </member>
+        <member name="M:Core31.WebApi.Controllers.HomeController.Get">
+            <summary>
+            Get函数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core31.WebApi.Controllers.HomeController.Post(System.String)">
+            <summary>
+            Post请求函数
+            </summary>
+            <param name="orderDTO"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

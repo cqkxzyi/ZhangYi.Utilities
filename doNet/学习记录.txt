@@ -10,13 +10,14 @@ SqlServer集群
 ===================待学习=======================
 ●微服务/集群/分布式/
 ●Kubernetes、Docker容器引擎。docker加上Jenkins部署比较简单，Serverless是一种构建和管理基于微服务架构的完整流程
-●服务框架： Consul（服务治理、配置中心）+ Polly（服务熔断）+ Ocelot（API网关）,服务治理有：Consul,ZooKeeper,Doozerd,ETCD 
+●服务框架：Consul（服务治理、配置中心）+ Polly（服务熔断）+ Ocelot（API网关）,服务治理有：Consul,ZooKeeper,Doozerd,ETCD 
 ●服务框架：.net版基于Spring Cloud的服务架构Steeltoe
 ●终结者模式：MediatR(消息解耦)，可以简化控制器业务逻辑
 ●MVVM开发模式
 ●依赖注入框架：Unity、Autofac
 ●NCache：分布式缓存
 ●gRPC for dotnet?微软官方集成的谷歌PPC
+●CAP分布式事务框架
 ●nginx技术》反向代理、负载均衡
 ●Kerberos：安全认证
 ●Hangfire 分布式作业调度框架服务
@@ -69,3 +70,12 @@ SpringCloud（服务治理、负载均衡、服务容错、声明式服务调用
 =============================知识点================================
 Lazy<T> 延迟加载技术
 微软自带缓存Microsoft.Extensions.Caching.Memory 
+
+
+
+
+
+===============================使用===================================
+RabbitMq：默认地址：http://localhost:15672
+	安装插件：rabbitmq-plugins.bat enable rabbitmq_management
+	查看状态：rabbitmqctl status 运行服务：rabbitmq-server.bat

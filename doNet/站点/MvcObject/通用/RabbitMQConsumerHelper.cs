@@ -30,8 +30,7 @@ namespace MvcObject.通用
             }
             return myConnection;
         }
-
-
+        
         public static void 接收队列消息()
         {
             var connection = GetConnection();

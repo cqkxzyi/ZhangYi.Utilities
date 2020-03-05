@@ -8,7 +8,8 @@ using System.Text;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
 using System.Threading.Tasks;
-using Core3._0_Web.轮询任务;
+using Core.Common.轮询任务;
+using Core31.Web.Filter;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Hosting.Server;
@@ -19,23 +20,21 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace Core3._0_Web
+namespace Core31.Web
 {
     public class Startup
     {
-        public IConfiguration Configuration { get; }
-
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
+        public IConfiguration Configuration { get; }
 
         /// <summary>g
         /// 注册服务
         /// 以依赖注入的方式将服务添加到服务容器，IoC容器
         /// </summary>
-        /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
             //中文乱码问题
@@ -45,16 +44,21 @@ namespace Core3._0_Web
             services.AddSingleton(serviceProvider =>
             {
                 var server = serviceProvider.GetRequiredService<IServer>();
-                var temp= server.Features.Get<IServerAddressesFeature>();
+                var temp = server.Features.Get<IServerAddressesFeature>();
                 return temp;
             });
             //获取客户端IP信息
-            services.AddSingleton<IHttpContextAccessor,HttpContextAccessor>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             //获取json参数配置
             GetConfig();
 
-            services.AddControllersWithViews();
+
+            services.AddControllersWithViews(option =>
+            {
+                //添加全局异常控制
+                option.Filters.Add(new GlobalExceptionFilter());
+            });
 
             //跨域
             services.AddCors();
@@ -71,9 +75,8 @@ namespace Core3._0_Web
                     options.Handler = order.OnBackHandler;
                 });
             });
-        }
 
-        
+        }
 
         /// <summary>
         /// 配置中间件，中间件组成管道
@@ -82,7 +85,7 @@ namespace Core3._0_Web
         /// <param name="env"></param>
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.Use(async (context,next)=> {
+            app.Use(async (context, next) => {
                 //context.Response.ContentType = "text/plain; charset=utf-8";
                 //Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
                 //await context.Response.WriteAsync("第一个中间件执行完毕");
@@ -128,7 +131,7 @@ namespace Core3._0_Web
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-
+                //路由过滤
                 //endpoints.MapGet("/home/index",async c=> {
                 //    await c.Response.WriteAsync("哈哈，这是home/index");
                 //});
@@ -149,9 +152,9 @@ namespace Core3._0_Web
 
             app.Run(del);
 
-
             //Map()、MapWhen()管道中增加分支，条件匹配就走分支，且不切换回主分支
         }
+
 
         #region 获取json参数配置
         /// <summary>
@@ -209,11 +212,9 @@ namespace Core3._0_Web
                 { "section1:key4","value4" },
             });
 
-           
+
 
         }
         #endregion
-
-        
     }
 }
