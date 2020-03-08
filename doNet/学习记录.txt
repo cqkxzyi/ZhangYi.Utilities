@@ -1,6 +1,6 @@
 ===================已掌握=======================
 RabbitMQ、CsRedisCore
-SignalR
+SignalR、AutoMapper
 Dapper简易ORM框架之王
 DDD领域驱动设计（优先考虑的业务而不是数据，系统复杂后使用MVC是技术纬度优化，DDD业务是纬度优化相当于微服务，实现了高内聚低耦合，是充血模型）。CQRS（Command Query Responsibility Segration）读写分离，CRUD增删改查
 项目生成api工具：Swagger

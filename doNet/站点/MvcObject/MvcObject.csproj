@@ -201,8 +201,8 @@
     <Compile Include="MVCExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="通用\MemcacheHelper.cs" />
-    <Compile Include="通用\RabbitMQConsumerHelper.cs" />
-    <Compile Include="通用\RabbitMQProducerHelper.cs" />
+    <Compile Include="通用\RabbitMQ\RabbitMQConsumerHelper.cs" />
+    <Compile Include="通用\RabbitMQ\RabbitMQProducerHelper.cs" />
     <Compile Include="通用\Redis\RedisHelper.cs" />
     <Compile Include="通用\SignalR\ChatHub.cs" />
     <Compile Include="通用\SignalR\SignalRConn.cs" />

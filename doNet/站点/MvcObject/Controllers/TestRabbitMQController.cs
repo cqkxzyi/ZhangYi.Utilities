@@ -16,15 +16,27 @@ namespace MvcObject.Controllers
     /// </summary>
     public class TestRabbitMQController : Controller
     {
+        Random a = new Random();
+
+
         /// <summary>
         /// 生产者测试
         /// </summary>
         /// <returns></returns>
-        public ActionResult Index()
+        public ActionResult Index(int i)
         {
-            //RabbitMQProducerHelper.发送到队列("发送到队列");
-            RabbitMQProducerHelper.发送到交换机("发送到交换机");
-
+            ;
+            switch (i)
+            {
+                case 1:
+                    RabbitMQProducerHelper.发送到队列("发送到队列"+ a.Next(1, 10000)); break;
+                case 2:
+                    RabbitMQProducerHelper.Direct交换机("Direct交换机"+ a.Next(1, 10000)); break;
+                case 3:
+                    RabbitMQProducerHelper.Topic交换机("Topic交换机" + a.Next(1, 10000)); break;
+                case 4:
+                    RabbitMQProducerHelper.Fanout交换机("Fanout交换机" + a.Next(1, 10000)); break;
+            }
             return View();
         }
 
@@ -35,14 +47,28 @@ namespace MvcObject.Controllers
         /// <returns></returns>
         public ActionResult Index2(int i=1)
         {
-            //RabbitMQConsumerHelper.接收队列消息();
-            
-            //RabbitMQConsumerHelper.消费负载均衡();
+            switch (i)
+            {
+                case 1:
+                    RabbitMQConsumerHelper.接收队列消息();
+                    break;
+                case 2:
+                    RabbitMQConsumerHelper.接收Direct交换机();
+                    break;
+                case 3:
+                    RabbitMQConsumerHelper.接收Topic交换机();
+                    break;
+                case 4:
+                    RabbitMQConsumerHelper.接收Fanout交换机();
+                    break;
+                case 5:
+                    RabbitMQConsumerHelper.消费负载均衡();
+                    break;
+                case 6:
+                    RabbitMQConsumerHelper.接收交换机消息2();
+                    break;
 
-            if(i==1)
-                RabbitMQConsumerHelper.接收交换机消息1();
-            else
-                RabbitMQConsumerHelper.接收交换机消息2();
+            }
 
             return View();
         }

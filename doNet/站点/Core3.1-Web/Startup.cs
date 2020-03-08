@@ -8,7 +8,7 @@ using System.Text;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
 using System.Threading.Tasks;
-using Core.Common.轮询任务;
+using  Core31.Web.Common;
 using Core31.Web.Filter;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -19,6 +19,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using AutoMapper;
 
 namespace Core31.Web
 {
@@ -49,6 +50,9 @@ namespace Core31.Web
             });
             //获取客户端IP信息
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            //AutoMapper 注册
+            services.AddAutoMapper();
+            services.AddAutoMapper();
 
             //获取json参数配置
             GetConfig();

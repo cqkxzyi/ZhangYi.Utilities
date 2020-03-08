@@ -11,12 +11,12 @@ MvcObject
 	RabbitMQ消息队列
 	StackExchange.Redis
 
-Core2.2-Web
+	
+
+Core3.1-Web
 	NLog
 	Dapper简易ORM框架之王
 	SignalR实时通信
-
-Core3.0-Web
 	轮询任务
 	CSRedis
 	LibMan客户端库管理器
