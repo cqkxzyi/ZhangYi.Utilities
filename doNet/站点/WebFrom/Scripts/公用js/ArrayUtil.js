@@ -13,7 +13,7 @@ var index = findArray(arr, {id: '1', name: 'cmx'});
 //多个特征单个满足查找（只需满足其中一个）
 var index = findArray(arr, {id: '1', name: '习大大'}, false);
 
-可能一下函数能达到效果
+可能以下函数能达到效果
 var newArr = array.filter(function(obj){
   return id !== obj.id;
 });

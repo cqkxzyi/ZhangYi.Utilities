@@ -412,7 +412,6 @@
     <Content Include="Scripts\EasyUI\themes\metro\tree.css" />
     <Content Include="Scripts\EasyUI\themes\metro\validatebox.css" />
     <Content Include="Scripts\EasyUI\themes\metro\window.css" />
-    <Content Include="Scripts\公用js\JqueryExpand.js" />
     <Content Include="Scripts\JQuery\jquery-1.8.0-vsdoc.js" />
     <Content Include="Scripts\JQuery\jquery-1.8.0.js" />
     <Content Include="Scripts\JQuery\jquery-1.8.0.min.js" />

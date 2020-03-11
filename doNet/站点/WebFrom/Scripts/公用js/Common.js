@@ -165,3 +165,13 @@ try {
 } catch (e) {
             
 }
+
+
+//绑定界面值
+function BindInputValue(obj) {
+    if (!obj)
+        return;
+    for (var name in obj) {
+        $("#" + name).val(obj[name]);
+    }
+}

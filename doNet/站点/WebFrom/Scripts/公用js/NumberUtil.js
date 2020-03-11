@@ -26,6 +26,66 @@ function ForDight(Dight, How) {
     return Dight;
 }
 
+//四舍五入保留2位小数（不够位数，则用0替补）
+function keepTwoDecimalFull(num) {
+    if (!num || typeof (num) == "undefined")
+        num = 0;
+
+    var result = parseFloat(num);
+    if (isNaN(result)) {
+        alert('传递参数错误，请检查！');
+        return false;
+    }
+    result = Math.round(num * 100) / 100;
+    var s_x = result.toString();
+    var pos_decimal = s_x.indexOf('.');
+    if (pos_decimal < 0) {
+        pos_decimal = s_x.length;
+        s_x += '.';
+    }
+    while (s_x.length <= pos_decimal + 2) {
+        s_x += '0';
+    }
+    return s_x;
+}
+
+// ----------------------------------------------------------------------
+// <summary>
+// 限制只能输入数字或者小数(只能保留两位小数)
+// 用法;  $("#txtTotal").val(2);
+// </summary>
+// ----------------------------------------------------------------------
+$.fn.onlyNum = function () {
+    $(this).keyup(function (event) {
+        //$(this).val($(this).val().replace(/[^\d]/g, ''));
+
+        if ($(this).val() != '' && $(this).val().substr(0, 1) == '.') {
+            $(this).value = "";
+        }
+        $(this).val($(this).val().replace(/^0*(0\.|[1-9])/, '$1'));//解决 粘贴不生效
+        $(this).val($(this).val().replace(/[^\d.]/g, ""));  //清除“数字”和“.”以外的字符
+        $(this).val($(this).val().replace(/\.{2,}/g, ".")); //只保留第一个. 清除多余的     
+        $(this).val($(this).val().replace(".", "$#$").replace(/\./g, "").replace("$#$", "."));
+        $(this).val($(this).val().replace(/^(\-)*(\d+)\.(\d\d).*$/, '$1$2.$3'));//只能输入两个小数     
+        if ($(this).val().indexOf(".") < 0 && $(this).val() != "") {//以上已经过滤，此处控制的是如果没有小数点，首位不能为类似于 01、02的金额
+            if ($(this).val().substr(0, 1) == '0' && $(this).val().length == 2) {
+                $(this).val() = $(this).val().substr(1, $(this).val().length);
+            }
+        }
+
+    }).focus(function () {
+        //禁用输入法
+        this.style.imeMode = 'disabled';
+    }).bind("paste", function () {
+        //CTRL+事件处理
+        $(this).val($(this).val().replace(/[^\d.]/g, ''));
+        return false;
+    }).bind("blur", function () {
+        //CTRL+V事件处理
+        $(this).val($(this).val().replace(/[^\d.]/g, ''));
+    });
+};
+
 /*
 JS进行精确运算
 */
