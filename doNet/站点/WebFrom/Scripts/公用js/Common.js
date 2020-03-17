@@ -175,3 +175,15 @@ function BindInputValue(obj) {
         $("#" + name).val(obj[name]);
     }
 }
+
+
+//构造一个Guid
+function NewGUID() {
+    var guid = (G() + G() + "-" + G() + "-" + G() + "-" +
+        G() + "-" + G() + G() + G()).toUpperCase();
+    return guid;
+}
+
+function G() {
+    return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+}

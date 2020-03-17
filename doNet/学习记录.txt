@@ -31,6 +31,7 @@ AngelaJS
 webassemly技术革命
 基于Node.js的puppeteer,edge爬虫工具
 MongoDB数据库
+Alwayson集群，数据库容灾方案
 
 
 其他：
