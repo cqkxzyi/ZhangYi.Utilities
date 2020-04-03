@@ -63,6 +63,7 @@ Memcache：吞吐量极高，只支持简单的key/value类型、不能持久化
 MongoDB：极高的写入速度、高可用性、快速且丰富的查询、可以数据分析，不支持事务、占用空间过大适合大数据存储，主要解决海量数据访问效率。
 CQRS（Command Query Responsibility Segration）架构
 SpringCloud（服务治理、负载均衡、服务容错、声明式服务调用、API网关服务、分布式配置中心）
+三次握手：
 
 
 
@@ -71,7 +72,7 @@ SpringCloud（服务治理、负载均衡、服务容错、声明式服务调用
 =============================知识点================================
 Lazy<T> 延迟加载技术
 微软自带缓存Microsoft.Extensions.Caching.Memory 
-
+Docker Machine
 
 
 

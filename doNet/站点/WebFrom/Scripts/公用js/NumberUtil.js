@@ -94,7 +94,7 @@ function yunsuan(a, how, b) {
         //没小数   
         return eval(a + how + b);
     }
-    //至少一个有小数   
+  
     var alen = a.toString().split(".");
     if (alen.length == 1) {
         //没有小数   
@@ -108,7 +108,9 @@ function yunsuan(a, how, b) {
     } else {
         blen = blen[1].length;
     }
-    if (blen > alen) alen = blen;
+
+    if (blen > alen)
+        alen = blen;
     blen = "1";
     for (; alen > 0; alen--) {
         //创建一个相应的倍数   
@@ -152,7 +154,7 @@ function isInteger(obj) {
 }
 
 /*
- * 将一个浮点数转成整数，返回整数和倍数。如 3.14 >> 314，倍数是 100
+ * 将一个浮点数转成整数，返回整数和倍数。 如 3.14 >> 314，倍数是 100
  * @param floatNum {number} 小数
  * @return {object}
  *   {times:100, num: 314}
