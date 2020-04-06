@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Core.Model;
 using Core31.WebApi.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -22,6 +23,57 @@ namespace Core31.WebApi.Controllers
         {
             _logger = logger;
         }
+
+        [HttpGet]
+        public string Get1(string ID)
+        {
+            if (ID == null)
+                return "解析参数异常";
+
+            return "成功！！"+ ID;
+        }
+
+        //几乎所有请求方式都可以
+        [HttpGet]
+        public string Get2(DTOModel2 orderDTO)
+        {
+            if (orderDTO == null || orderDTO.ID == null)
+                return "解析参数异常";
+
+
+            return "成功！！"+ orderDTO.ID;
+        }
+
+        //raw》Content-Type:application/json
+        [HttpGet]
+        public string FromBody([FromBody]DTOModel2 orderDTO)
+        {
+            if (orderDTO == null || orderDTO.ID == null)
+                return "解析参数异常";
+
+            return "成功！！"+ orderDTO.ID;
+        }
+
+        //form-data  或者  x-www-form-urlencoded  
+        [HttpGet]
+        public string FromForm([FromForm]DTOModel2 orderDTO)
+        {
+            if (orderDTO == null || orderDTO.ID == null)
+                return "解析参数异常";
+
+            return "成功！！"+ orderDTO.ID;
+        }
+
+        //Content-Type:application/json
+        [HttpGet]
+        public string FromBody2([FromBody]DTOModel orderDTO)
+        {
+            if (orderDTO == null || orderDTO.ID==0)
+                return "解析参数异常";
+
+            return "成功！！" + orderDTO.ID;
+        }
+
 
         /// <summary>
         /// 这是一个带参数的get请求Test3
@@ -44,17 +96,7 @@ namespace Core31.WebApi.Controllers
             return new OkObjectResult(new {  name });
         }
 
-        [HttpGet]
-        public ActionResult<string> GetId1(int id)
-        {
-            return $"你请求的 id 是 {id}";
-        }
-
-        [HttpGet("{id}")]
-        public ActionResult<string> GetId2(int id)
-        {
-            return $"你请求的 id 是 {id}";
-        }
+       
 
         /// <summary>
         /// 这是一个带参数的get请求
