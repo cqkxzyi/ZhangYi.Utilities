@@ -21,7 +21,7 @@ var params = {
 var options = sy.serializeObject($("#myForm").find(":input"));
 params = $.extend(true, params, options);
 
-//●查找最近元素并删除：
+//●查找最近祖先元素并删除：
 $(当前对象).closest('查找').remove();
 
 //●返回数组中指定元素的索引值

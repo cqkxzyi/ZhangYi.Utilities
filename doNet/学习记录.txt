@@ -62,7 +62,7 @@ DDD领域驱动模型，工作单元UiitOfWork
 	文件 创建touch	查看cat或者tac或者more或者head或者tail
 	链接 ln
 	权限 修改chmod -R递归	只有root可以使用chown chgrp改变所有者、所属组  缺省配置umask
-	文件搜索 find 工具Everything能很快搜索	locate 更新updatedb	查找命令which whereis	所属文件内容grep -v ^# /home/zhangyi
+	文件搜索 find 工具Everything能很快搜索	locate 更新updatedb	查找命令which whereis	所属文件内容grep -v ^# /home/zhangyi	setup/umtui		挂载mount
 
 
 =============================知识================================
