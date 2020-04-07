@@ -20,7 +20,7 @@ SqlServer集群
 ●CAP分布式事务框架
 ●nginx技术》反向代理、负载均衡
 ●Kerberos：安全认证
-●Hangfire 分布式作业调度框架服务
+●Hangfire 分布式作业调度框架服务，类似的有：Quartz
 ●Windows支持OpenSSH了
 ●导出Excel另一种方式： nuget添加WeihanLi.Npoi
 ●Office处理插件：Spire.Office for .NET（旗下有Spire.Doc，Spire XLS，Spire.PDF，Spire.BarCode）
