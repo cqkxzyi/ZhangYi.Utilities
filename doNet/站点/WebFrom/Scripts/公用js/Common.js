@@ -3,9 +3,14 @@
 defaultOptions = $.extend(true, defaultOptions, options);
 */
 function ajaxPost(url, params, SuccessBack, ErrorBack, CompleteBack, loadingid, is_show_loading, async) {
+    //async = (typeof async !== 'undefined') ? async : true;
+    //var async = arguments[7] ? arguments[7] : true; //在布尔类型环境中undefined, 0, "", NaN, null会被转换成 false
+    //async=async || true;          //在布尔类型环境中undefined, 0, "", NaN, null会被转换成 false
+
     if (async == undefined) {
         async = true;
     }
+
     $.ajax({
         type: "POST",
         cache: false,

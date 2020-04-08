@@ -20,7 +20,7 @@ SqlServer集群
 ●CAP分布式事务框架
 ●nginx技术》反向代理、负载均衡
 ●Kerberos：安全认证
-●Hangfire 分布式作业调度框架服务
+●Hangfire 分布式作业调度框架服务，类似的有：Quartz
 ●Windows支持OpenSSH了
 ●导出Excel另一种方式： nuget添加WeihanLi.Npoi
 ●Office处理插件：Spire.Office for .NET（旗下有Spire.Doc，Spire XLS，Spire.PDF，Spire.BarCode）
@@ -62,19 +62,24 @@ DDD领域驱动模型，工作单元UiitOfWork
 	文件 创建touch	查看cat或者tac或者more或者head或者tail
 	链接 ln
 	权限 修改chmod -R递归	只有root可以使用chown chgrp改变所有者、所属组  缺省配置umask
-	文件搜索 find 工具Everything能很快搜索	locate 更新updatedb	查找命令which whereis	所属文件内容查询grep -v ^# /home/zhangyi
-	帮助文档man，1表示命令的帮助5表示配置文件帮助	whatis命令 	apropos配置文件		命令 --help
+	文件搜索 find 工具Everything能很快搜索	locate 更新updatedb	查找命令which whereis	
+		所属文件内容grep -v ^# /home/zhangyi	setup/umtui		挂载mount
+    帮助文档man，1表示命令的帮助5表示配置文件帮助	whatis命令 	apropos配置文件		命令 --help
 	内置命令查看帮助可以使用：help cd 方式
 	网络命令： write	wall	ping	ifconfig	mail	last	lastlog	traceroute	netstat
+	关机shutdown	关机(halt	poweroff	init 0 )	重启reboot init 6	系统默认运行级别：cat /etc/inittab	查询运行级别runlevel
+	网络文件系统服务NFS
+	编辑器Vim	:r !date
+	软件包：源码包、二进制包RPM格式
 	
 	
-
 =============================知识================================
 Redis：支持多种数据类型、支持持久化、支持数据同步、支持消息订阅，只能使用单线程，只能简单的事务支持
 Memcache：吞吐量极高，只支持简单的key/value类型、不能持久化、无法数据同步
 MongoDB：极高的写入速度、高可用性、快速且丰富的查询、可以数据分析，不支持事务、占用空间过大适合大数据存储，主要解决海量数据访问效率。
 CQRS（Command Query Responsibility Segration）架构
 SpringCloud（服务治理、负载均衡、服务容错、声明式服务调用、API网关服务、分布式配置中心）
+三次握手：
 
 
 
@@ -83,7 +88,7 @@ SpringCloud（服务治理、负载均衡、服务容错、声明式服务调用
 =============================知识点================================
 Lazy<T> 延迟加载技术
 微软自带缓存Microsoft.Extensions.Caching.Memory 
-
+Docker Machine
 
 
 

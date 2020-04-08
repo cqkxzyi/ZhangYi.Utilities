@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Chart图形\Assistant.cs" />
     <Compile Include="Chart图形\OWCChart11.cs" />
+    <Compile Include="CheckNumberHelper.cs" />
     <Compile Include="ContentTypeHelper.cs" />
     <Compile Include="ConvertHelper.cs" />
     <Compile Include="Cookie&amp;Session&amp;Cache\Cache\CacheSingleton.cs" />
@@ -75,6 +76,7 @@
     <Compile Include="MyExtend.cs" />
     <Compile Include="加解密\DesEncryptHelper.cs" />
     <Compile Include="加解密\SortMD5Encrypt.cs" />
+    <Compile Include="序列化\JsonConverterHelper.cs" />
     <Compile Include="序列化\Xml反序列化示例.cs" />
     <Compile Include="日志\LogWriter.cs" />
     <Compile Include="图片\CompressPicHelper.cs" />
