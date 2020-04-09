@@ -70,7 +70,8 @@ DDD领域驱动模型，工作单元UiitOfWork
 	关机shutdown	关机(halt	poweroff	init 0 )	重启reboot init 6	系统默认运行级别：cat /etc/inittab	查询运行级别runlevel
 	网络文件系统服务NFS
 	编辑器Vim	:r !date
-	软件包：源码包、二进制包RPM格式
+	软件包：源码包、二进制包rpm	yum安装	安装好的包在/var/lib/rpm/下查找， rpm -ivh 包全名，安装和升级需要包全名，
+		 查询rpm -qail 包名		查询rpm -qf 系统文件名		查询rpm -qR 包名
 	
 	
 =============================知识================================
