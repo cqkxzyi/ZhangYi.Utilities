@@ -62,16 +62,34 @@ DDD领域驱动模型，工作单元UiitOfWork
 	文件 创建touch	查看cat或者tac或者more或者head或者tail
 	链接 ln
 	权限 修改chmod -R递归	只有root可以使用chown chgrp改变所有者、所属组  缺省配置umask
-	文件搜索 find 工具Everything能很快搜索	locate 更新updatedb	查找命令which whereis	
-		所属文件内容grep -v ^# /home/zhangyi	setup/umtui		挂载mount
+	文件搜索（find、locate更快因为有一个mlocate.db索引库）工具Everything能很快搜索	 更新(updatedb)	查找命令(which、whereis)
+		搜索文件内容（grep -v ^# /home/zhangyi）	setup/umtui		挂载命令mount
     帮助文档man，1表示命令的帮助5表示配置文件帮助	whatis命令 	apropos配置文件		命令 --help
 	内置命令查看帮助可以使用：help cd 方式
 	网络命令： write	wall	ping	ifconfig	mail	last	lastlog	traceroute	netstat
 	关机shutdown	关机(halt	poweroff	init 0 )	重启reboot init 6	系统默认运行级别：cat /etc/inittab	查询运行级别runlevel
 	网络文件系统服务NFS
-	编辑器Vim	:r !date
-	软件包：源码包、二进制包rpm	yum安装	安装好的包在/var/lib/rpm/下查找， rpm -ivh 包全名，安装和升级需要包全名，
+	编辑器Vim	:r !date	查看选项(more、cat）
+	软件包：源码包、二进制包rpm		安装好的包在/var/lib/rpm/下查找， rpm -ivh 包全名，安装和升级需要包全名，
 		 查询rpm -qail 包名		查询rpm -qf 系统文件名		查询rpm -qR 包名
+	系统配置工具nmtui	配置文件/etc/sysconfig/network-scripts/   重启service network restart
+		启动服务两种方式（/etc/rc.d/init.d/服务名 start	 或者service 服务名 start 还有 systemctl（service+chkconfig））
+		查看环境变量(env)	查看分区信息(df -h)
+	Yum安装：Yum文件配置在（/etc/yum.repos.d） 查询（yum list  或者 yum search 关键字），安装（yum -y install 包名）
+		要先安装gcc（yum -y install gcc）	组安装（yum groouplist）
+	源码包安装：安装位置需手工指定（建议安装在/usr/local/软件名）
+	脚本安装包：服务器管理工具Webmin（https://localhost.localdomain:10000/）
+	用户管理： 邮箱(/var/spool/mail)	用户模板(/etc/skel)		添加用户默认值配置（/etc/default/useradd、/etc/login.defs）
+		添加用户(useradd)	修改用户(usermod)	密码管理(passwd、chage)		删除用户(userdel -r)	切换登录(su - 登录名)
+		加入组(gpasswd -a 用户名 组名)
+	权限管理：
+		acl权限（setfacl -m u:用户名:rx	文件夹）	查看文件的acl权限(getfacl 文件名)	
+		特殊权限SetUID 设置（hmod 4755 文件名   或者   chmod u+s 文件名）只针对文件	
+				SetGID 设置（hmod 2755 文件名   或者   chmod g+s 文件名）
+				Sticky BIT 设置（hmod 1755 文件名   或者   chmod o+t 文件名） 只针对目录配置
+		chattr文件系统属性权限，配置权限(chattr) 	查看该权限情况（lsattr）
+	55
+	
 	
 	
 =============================知识================================
