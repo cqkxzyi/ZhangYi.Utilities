@@ -63,7 +63,7 @@ DDD领域驱动模型，工作单元UiitOfWork
 	链接 ln
 	权限 修改chmod -R递归	只有root可以使用chown chgrp改变所有者、所属组  缺省配置umask
 	文件搜索（find、locate更快因为有一个mlocate.db索引库）工具Everything能很快搜索	 更新(updatedb)	查找命令(which、whereis)
-		搜索文件内容（grep -v ^# /home/zhangyi）	setup/umtui		挂载命令mount
+		搜索文件内容（grep -v ^# /home/zhangyi）	setup/umtui
     帮助文档man，1表示命令的帮助5表示配置文件帮助	whatis命令 	apropos配置文件		命令 --help
 	内置命令查看帮助可以使用：help cd 方式
 	网络命令： write	wall	ping	ifconfig	mail	last	lastlog	traceroute	netstat
@@ -88,9 +88,15 @@ DDD领域驱动模型，工作单元UiitOfWork
 				SetGID 设置（hmod 2755 文件名   或者   chmod g+s 文件名）
 				Sticky BIT 设置（hmod 1755 文件名   或者   chmod o+t 文件名） 只针对目录配置
 		chattr文件系统属性权限，配置权限(chattr) 	查看该权限情况（lsattr）
-	55
-	
-	
+		sudo权限(操作系统命令)	查询(sudo -l)	用法(sudo /sbin/shutdown -r now)
+	文件系统：linux使用ext文件系统	
+		查看磁盘情况fdisk
+		查看分区情况(df)注意df查看的不仅是文件本身还有系统未释放的资源		
+		统计目录和文件大小(du -sh 目录名)
+		修复命令(fsck)		显示磁盘状态(dumpe2fs)
+		挂载命令mount，注意该命令针对的都是分区		卸载命令(umount 设备名或者挂载点)
+		查看U盘设备名
+	60
 	
 =============================知识================================
 Redis：支持多种数据类型、支持持久化、支持数据同步、支持消息订阅，只能使用单线程，只能简单的事务支持
