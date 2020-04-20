@@ -1,42 +1,13 @@
 ﻿
-//日期转换成长日期格式：2019年02月05日
-Date.prototype.toCommonCase = function() {
-    var xYear = this.getYear();
-    xYear = xYear + 1900;
-
-    var xMonth = this.getMonth() + 1;
-    if (xMonth < 10) {
-        xMonth = "0" + xMonth;
-    }
-    var xDay = this.getDate();
-    if (xDay < 10) {
-        xDay = "0" + xDay;
-    }
-    var xHours = this.getHours();
-    if (xHours < 10) {
-        xHours = "0" + xHours;
-    }
-    var xMinutes = this.getMinutes();
-    if (xMinutes < 10) {
-        xMinutes = "0" + xMinutes;
-    }
-    var xSeconds = this.getSeconds();
-    if (xSeconds < 10) {
-        xSeconds = "0" + xSeconds;
-    }
-    return xYear + "年" + xMonth + "月" + xDay + "日";
-}
-
-//将Date(2123456789456)转换成"2019-02-23"
-function FormatToDate(val) {
+//将Date(2123456789456)转换成 DateTime
+function FormatToDateTime(val) {
     if (val != null) {
         var date = new Date(parseInt(val.replace("/Date(", "").replace(")/", ""), 10));
-        //月份为0-11，所以+1，月份小于10时补个0
-        var month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
-        var currentDate = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
-        return date.getFullYear() + "-" + month + "-" + currentDate;
+        return date;
     }
-    return "";
+    else {
+        return null;
+    }
 }
 
 
@@ -67,67 +38,90 @@ function getFormat(time, format) {
     return thisDate;
 }
 
-//日期格式转换 短日期格式（第二种方法）
-//将一个 Date 格式化为日期/时间字符串。
-//alert(DateFormat.format(new Date(), 'yyyy年MM月dd日'));
-//从给定字符串的开始分析文本，以生成一个日期。
-//alert(DateFormat.parse('2010-03-17', 'yyyy-MM-dd'));
-DateFormat = (function () {
-    var SIGN_REGEXP = /([yMdhsm])(\1*)/g;
-    var DEFAULT_PATTERN = 'yyyy-MM-dd';
-    function padding(s, len) {
-        var len = len - (s + '').length;
-        for (var i = 0; i < len; i++) { s = '0' + s; }
-        return s;
-    };
-    return ({
-        format: function (date, pattern) {
-            pattern = pattern || DEFAULT_PATTERN;
-            return pattern.replace(SIGN_REGEXP, function ($0) {
-                switch ($0.charAt(0)) {
-                    case 'y': return padding(date.getFullYear(), $0.length);
-                    case 'M': return padding(date.getMonth() + 1, $0.length);
-                    case 'd': return padding(date.getDate(), $0.length);
-                    case 'w': return date.getDay() + 1;
-                    case 'h': return padding(date.getHours(), $0.length);
-                    case 'm': return padding(date.getMinutes(), $0.length);
-                    case 's': return padding(date.getSeconds(), $0.length);
-                }
-            });
-        },
-        parse: function (dateString, pattern) {
-            var matchs1 = pattern.match(SIGN_REGEXP);
-            var matchs2 = dateString.match(/(\d)+/g);
-            if (matchs1.length == matchs2.length) {
-                var _date = new Date(1970, 0, 1);
-                for (var i = 0; i < matchs1.length; i++) {
-                    var _int = parseInt(matchs2[i]);
-                    var sign = matchs1[i];
-                    switch (sign.charAt(0)) {
-                        case 'y': _date.setFullYear(_int); break;
-                        case 'M': _date.setMonth(_int - 1); break;
-                        case 'd': _date.setDate(_int); break;
-                        case 'h': _date.setHours(_int); break;
-                        case 'm': _date.setMinutes(_int); break;
-                        case 's': _date.setSeconds(_int); break;
-                    }
-                }
-                return _date;
-            }
-            return null;
-        }
-    });
-})(); 
+
+//字符串转换成Date对象
+//为了兼容Safari浏览器
+function StringFormatDate(str) {
+    str = (str + "").replace(/T/g, ' ');
+    return new Date(str);
+}
 
 
-//今天是2019年02月02日 星期六
-Date.prototype.GetFullDate = function () {
-    var objDate = new Date();
-    var year = objDate.getFullYear();
-    var month = objDate.getMonth() + 1;    //getMonth返回的月份是从0开始的，因此要加1
-    var date = objDate.getDate();
-    var day = objDate.getDay();
+//日期格式不标准的转换成标准日期
+//返回例如：2020-12-02 10:12:20
+function GetRightDateStr(str) {
+    var newstr = "";
+    str = (str + "").replace(/T/g, ' ');
+
+    var stringArr = str.split(" ");
+    newstr = stringArr[0];//年月日部分
+
+    var hh, mm, ss;
+    var arr2 = stringArr[1].split(":");
+
+    if (arr2.length == 1) {
+        hh = arr2[0];
+        if (hh.length == 1)
+            hh = "0" + hh;
+        mm = "00";
+        ss = "00";
+    }
+    else if (arr2.length == 2) {
+        hh = arr2[0];
+        mm = arr2[1];
+        if (hh.length == 1)
+            hh = "0" + hh;
+        if (mm.length == 1)
+            mm = "0" + mm;
+        ss = "00";
+    }
+    else {
+        hh = arr2[0];
+        mm = arr2[1];
+        ss = arr2[2];
+        if (hh.length == 1)
+            hh = "0" + hh;
+        if (mm.length == 1)
+            mm = "0" + mm;
+        if (ss.length == 1)
+            ss = "0" + ss;
+    }
+
+    newstr = newstr + " " + hh + ":" + mm + ":" + ss;
+    return newstr;
+}
+
+
+//得到中文日期格式
+function GetDateStrByCn(dt, type) {
+    if (typeof (type) == "undefined")
+        type = "1";
+
+    var xYear = objDate.getFullYear();//或者 objDate.getYear()+ 1900;
+
+    var xMonth = dt.getMonth() + 1;
+    if (xMonth < 10) {
+        xMonth = "0" + xMonth;
+    }
+    var xDay = dt.getDate();
+    if (xDay < 10) {
+        xDay = "0" + xDay;
+    }
+    var xHours = dt.getHours();
+    if (xHours < 10) {
+        xHours = "0" + xHours;
+    }
+    var xMinutes = dt.getMinutes();
+    if (xMinutes < 10) {
+        xMinutes = "0" + xMinutes;
+    }
+    var xSeconds = dt.getSeconds();
+    if (xSeconds < 10) {
+        xSeconds = "0" + xSeconds;
+    }
+
     //根据星期数的索引确定其中文表示
+    var day = objDate.getDay();//用于判断星期几
     switch (day) {
         case 0:
             day = "星期日";
@@ -151,8 +145,29 @@ Date.prototype.GetFullDate = function () {
             day = "星期六";
             break;
     }
-    return "今天是：" + year + "年" + month + "月" + date + "日&nbsp; " + day;
+
+    var retnStr = "";
+    switch (format) {
+        case "1"://2020年09月12日
+            retnStr = xYear + "年" + xMonth + "月" + xDay + "日";
+            break;
+        case "2"://04月12日
+            retnStr = xMonth + "月" + xDay + "日";
+            break;
+        case "3"://04月12日 10:20
+            retnStr = xMonth + "月" + xDay + "日" + xHours + ":" + xMinutes;
+            break;
+        case "4"://04月12日 10:20:12
+            retnStr = xMonth + "月" + xDay + "日" + xHours + ":" + xMinutes + ":" + xSeconds;
+            break;
+        default:
+            retnStr = xYear + "年" + xMonth + "月" + xDay + "日" + xHours + ":" + xMinutes + ":" + xSeconds;
+            break;
+    }
+    return retnStr;
 }
+
+
 
 //程序:常用公历日期处理程序
 /**//*用相对不规则的字符串来创建日期对象,不规则的含义为:顺序包含年月日三个数值串,有间隔*/
