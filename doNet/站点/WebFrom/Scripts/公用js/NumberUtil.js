@@ -1,16 +1,4 @@
 ﻿
-//生成随机数
-$.fn.Random = function () {
-    var seed = new Array('1', '2', '3', '4', '5', '6', '7', '8', '9'); //数组
-    var seedlength = seed.length; //数组长度  
-    var createrandom = '';
-    for (var i = 0; i < 6; i++) {
-        j = Math.floor(Math.random() * seedlength);
-        createrandom += seed[j];
-    }
-    return createrandom;
-}
-
 
 //num表示要四舍五入的数,v表示要保留的小数位数
 function decimal(num, v) {
@@ -49,42 +37,13 @@ function keepTwoDecimalFull(num) {
     return  s_x;
 }
 
-// ----------------------------------------------------------------------
-// <summary>
-// 限制只能输入数字或者小数(只能保留两位小数)
-// 用法;  $("#txtTotal").val(2);
-// </summary>
-// ----------------------------------------------------------------------
-$.fn.onlyNum = function () {
-    $(this).keyup(function (event) {
-        //$(this).val($(this).val().replace(/[^\d]/g, ''));
-
-        if ($(this).val() != '' && $(this).val().substr(0, 1) == '.') {
-            $(this).value = "";
-        }
-        $(this).val($(this).val().replace(/^0*(0\.|[1-9])/, '$1'));//解决 粘贴不生效
-        $(this).val($(this).val().replace(/[^\d.]/g, ""));  //清除“数字”和“.”以外的字符
-        $(this).val($(this).val().replace(/\.{2,}/g, ".")); //只保留第一个. 清除多余的     
-        $(this).val($(this).val().replace(".", "$#$").replace(/\./g, "").replace("$#$", "."));
-        $(this).val($(this).val().replace(/^(\-)*(\d+)\.(\d\d).*$/, '$1$2.$3'));//只能输入两个小数     
-        if ($(this).val().indexOf(".") < 0 && $(this).val() != "") {//以上已经过滤，此处控制的是如果没有小数点，首位不能为类似于 01、02的金额
-            if ($(this).val().substr(0, 1) == '0' && $(this).val().length == 2) {
-                $(this).val() = $(this).val().substr(1, $(this).val().length);
-            }
-        }
-
-    }).focus(function () {
-        //禁用输入法
-        this.style.imeMode = 'disabled';
-    }).bind("paste", function () {
-        //CTRL+事件处理
-        $(this).val($(this).val().replace(/[^\d.]/g, ''));
-        return false;
-    }).bind("blur", function () {
-        //CTRL+V事件处理
-        $(this).val($(this).val().replace(/[^\d.]/g, ''));
-    });
-};
+//toFixed 修复
+function toFixed(num, s) {
+    var times = Math.pow(10, s)
+    var des = num * times + 0.5
+    des = parseInt(des, 10) / times
+    return des + ''
+}
 
 /*
 JS进行精确运算
@@ -148,9 +107,56 @@ function getKBInfo(str) {
 }
 
 
-//判断obj是否为一个整数
-function isInteger(obj) {
-    return Math.floor(obj) === obj
+
+
+// ----------------------------------------------------------------------
+// <summary>
+// 限制只能输入数字或者小数(只能保留两位小数)
+// 用法;  $("#txtTotal").val(2);
+// </summary>
+// ----------------------------------------------------------------------
+$.fn.onlyNum = function () {
+    $(this).keyup(function (event) {
+        //$(this).val($(this).val().replace(/[^\d]/g, ''));
+
+        if ($(this).val() != '' && $(this).val().substr(0, 1) == '.') {
+            $(this).value = "";
+        }
+        $(this).val($(this).val().replace(/^0*(0\.|[1-9])/, '$1'));//解决 粘贴不生效
+        $(this).val($(this).val().replace(/[^\d.]/g, ""));  //清除“数字”和“.”以外的字符
+        $(this).val($(this).val().replace(/\.{2,}/g, ".")); //只保留第一个. 清除多余的     
+        $(this).val($(this).val().replace(".", "$#$").replace(/\./g, "").replace("$#$", "."));
+        $(this).val($(this).val().replace(/^(\-)*(\d+)\.(\d\d).*$/, '$1$2.$3'));//只能输入两个小数     
+        if ($(this).val().indexOf(".") < 0 && $(this).val() != "") {//以上已经过滤，此处控制的是如果没有小数点，首位不能为类似于 01、02的金额
+            if ($(this).val().substr(0, 1) == '0' && $(this).val().length == 2) {
+                $(this).val() = $(this).val().substr(1, $(this).val().length);
+            }
+        }
+
+    }).focus(function () {
+        //禁用输入法
+        this.style.imeMode = 'disabled';
+    }).bind("paste", function () {
+        //CTRL+事件处理
+        $(this).val($(this).val().replace(/[^\d.]/g, ''));
+        return false;
+    }).bind("blur", function () {
+        //CTRL+V事件处理
+        $(this).val($(this).val().replace(/[^\d.]/g, ''));
+    });
+};
+
+
+//生成随机数
+$.fn.Random = function () {
+    var seed = new Array('1', '2', '3', '4', '5', '6', '7', '8', '9'); //数组
+    var seedlength = seed.length; //数组长度  
+    var createrandom = '';
+    for (var i = 0; i < 6; i++) {
+        j = Math.floor(Math.random() * seedlength);
+        createrandom += seed[j];
+    }
+    return createrandom;
 }
 
 /*
@@ -173,6 +179,11 @@ function toInteger(floatNum) {
     ret.times = times
     ret.num = intNum
     return ret
+}
+
+//判断obj是否为一个整数
+function isInteger(obj) {
+    return Math.floor(obj) === obj
 }
 
 /*
@@ -234,16 +245,6 @@ function multiply(a, b, digits) {
 }
 function divide(a, b, digits) {
     return operation(a, b, digits, 'divide')
-}
-
-
-
-//toFixed 修复
-function toFixed(num, s) {
-    var times = Math.pow(10, s)
-    var des = num * times + 0.5
-    des = parseInt(des, 10) / times
-    return des + ''
 }
 
 

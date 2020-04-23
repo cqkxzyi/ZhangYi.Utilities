@@ -30,7 +30,8 @@ $.inArray(4, arr);//输出0
 
 //●显示延迟关闭
 $('.error_tips').show().delay(1500).fadeOut();
-
+//主动触发事件
+$('#name').trigger("porpertychange");
 
 
 
