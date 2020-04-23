@@ -78,7 +78,7 @@ DDD领域驱动模型，工作单元UiitOfWork
 	Yum安装：Yum文件配置在（/etc/yum.repos.d） 查询（yum list  或者 yum search 关键字），安装（yum -y install 包名）
 		要先安装gcc（yum -y install gcc）	组安装（yum groouplist）
 	源码包安装：安装位置需手工指定（建议安装在/usr/local/软件名）
-	脚本安装包：服务器管理工具Webmin（https://localhost.localdomain:10000/）
+	服务器管理工具Webmin（https://localhost.localdomain:10000/）
 	用户管理： 邮箱(/var/spool/mail)	用户模板(/etc/skel)		添加用户默认值配置（/etc/default/useradd、/etc/login.defs）
 		添加用户(useradd)	修改用户(usermod)	密码管理(passwd、chage)		删除用户(userdel -r)	切换登录(su - 登录名)
 		加入组(gpasswd -a 用户名 组名)
@@ -90,13 +90,35 @@ DDD领域驱动模型，工作单元UiitOfWork
 		chattr文件系统属性权限，配置权限(chattr) 	查看该权限情况（lsattr）
 		sudo权限(操作系统命令)	查询(sudo -l)	用法(sudo /sbin/shutdown -r now)
 	文件系统：linux使用ext文件系统	
-		查看磁盘情况fdisk
-		查看分区情况(df)注意df查看的不仅是文件本身还有系统未释放的资源		
+		查看分区挂载情况(df)注意df查看的不仅是文件本身还有系统未释放的资源		
 		统计目录和文件大小(du -sh 目录名)
 		修复命令(fsck)		显示磁盘状态(dumpe2fs)
 		挂载命令mount，注意该命令针对的都是分区		卸载命令(umount 设备名或者挂载点)
 		查看U盘设备名
-	60
+		如何支持NTFS文件系统
+	fdisk分区操作，分完区后不用重启计算机使用partprobe命令重读分区信息。
+	分区自动挂载（/etc/fstab文件） 		fstab文件（mount -o remount,rw /）CentOS7已经能自动修复了
+	快捷键设置(alias vi='vim'该方法只能临时生效，要想永久保存请使用修改文件/root/bashrc)
+	查看环境变量(echo $PATH$)
+	输出从定向(例如：ls > log.log)	错误输出从定向(lab 2> error.log)	正确错误同时保存(命令 &> 文件名)
+		或者(命令 > 正确文件名 2> 错误文件名)
+	让配置文件马上生效（source 配置文件）
+	Shell登录信息配置(/etc/issue)	
+	Linux服务：
+		分为两种：PRM包默认服务（分为独立、基于xinetd服务两种方式）、源码包服务。
+		查看RPM包安装的服务(chkconfig --list)	
+		查询当前服务运行情况(service --status-all)
+		源码包安装的服务 一般在/usr/local/下
+		独立服务管理 (/etc/init.d/独立服务名	start/stop/status/restart	或者 service 独立服务名 start/stop/status/restart)
+		配置服务的启动模式(chkconfig --level 2345 服务名 on)  或者 使用工具(ntsysv) 或者  (修改/etc/rc.d/rc.local文件)
+	进程管理：
+		查看所有进程(ps aux 或者 ps -le)	
+		查看健康状态 top
+		查看进程树	pstree
+	杀死进程：kill、killall、pkill	pkill可以按用户踢
+	96
+	
+	
 	
 =============================知识================================
 Redis：支持多种数据类型、支持持久化、支持数据同步、支持消息订阅，只能使用单线程，只能简单的事务支持
