@@ -10,8 +10,10 @@ SqlServer集群
 ===================待学习=======================
 ●微服务/集群/分布式/
 ●Kubernetes、Docker容器引擎。docker加上Jenkins部署比较简单，Serverless是一种构建和管理基于微服务架构的完整流程
-●服务框架：Consul（服务治理、配置中心）+ Polly（服务熔断）+ Ocelot（API网关）,服务治理有：Consul,ZooKeeper,Doozerd,ETCD 
-●服务框架：.net版基于Spring Cloud的服务架构Steeltoe
+●服务框架：Consul（服务治理、配置中心）+ Polly（服务熔断）+ Ocelot（API网关）,服务治理有：Consul,ZooKeeper,Doozerd,ETCD
+	Eureka
+●服务框架Steeltoe：是.net版基于Spring Cloud的服务架构（Eureka服务中心+Hystrix断路器+Spring Cloud Config Server分布式配置中心+Cloud Foundry云平台）
+●Kestrel：ASP.NET Core的web服务器，
 ●终结者模式：MediatR(消息解耦)，可以简化控制器业务逻辑
 ●MVVM开发模式
 ●依赖注入框架：Unity、Autofac
@@ -38,6 +40,34 @@ Alwayson集群，数据库容灾方案
 ●文档制作工具GitBook
 ●Python、爬虫技术、八爪鱼
 
+
+=============================知识================================
+Redis：支持多种数据类型、支持持久化、支持数据同步、支持消息订阅，只能使用单线程，只能简单的事务支持
+Memcache：吞吐量极高，只支持简单的key/value类型、不能持久化、无法数据同步
+MongoDB：极高的写入速度、高可用性、快速且丰富的查询、可以数据分析，不支持事务、占用空间过大适合大数据存储，主要解决海量数据访问效率。
+CQRS（Command Query Responsibility Segration）架构
+SpringCloud（服务治理、负载均衡、服务容错、声明式服务调用、API网关服务、分布式配置中心）
+三次握手：
+
+
+
+
+
+=============================知识点================================
+Lazy<T> 延迟加载技术
+微软自带缓存Microsoft.Extensions.Caching.Memory 
+Docker Machine
+
+
+
+
+===============================使用===================================
+RabbitMq：默认地址：http://localhost:15672
+	安装插件：rabbitmq-plugins.bat enable rabbitmq_management
+	查看状态：rabbitmqctl status 运行服务：rabbitmq-server.bat
+	
+===============================Dokcer===================================	
+	
 
 =============================极客时间学习纪要================================
 服务生命周期：单例、作用域、瞬时
@@ -67,7 +97,7 @@ DDD领域驱动模型，工作单元UiitOfWork
     帮助文档man，1表示命令的帮助5表示配置文件帮助	whatis命令 	apropos配置文件		命令 --help
 	内置命令查看帮助可以使用：help cd 方式
 	网络命令： write	wall	ping	ifconfig	mail	last	lastlog	traceroute	netstat
-	关机shutdown	关机(halt	poweroff	init 0 )	重启reboot init 6	系统默认运行级别：cat /etc/inittab	查询运行级别runlevel
+	关机shutdown	关机(halt	poweroff	init 0 )	重启reboot init 6	
 	网络文件系统服务NFS
 	编辑器Vim	:r !date	查看选项(more、cat）
 	软件包：源码包、二进制包rpm		安装好的包在/var/lib/rpm/下查找， rpm -ivh 包全名，安装和升级需要包全名，
@@ -109,38 +139,25 @@ DDD领域驱动模型，工作单元UiitOfWork
 		查看RPM包安装的服务(chkconfig --list)	
 		查询当前服务运行情况(service --status-all)
 		源码包安装的服务 一般在/usr/local/下
-		独立服务管理 (/etc/init.d/独立服务名	start/stop/status/restart	或者 service 独立服务名 start/stop/status/restart)
+		独立服务管理 (/etc/init.d/独立服务名 [start/stop/status/restart])  或者 (service 独立服务名 [start/stop/status/restart])
+		查看服务的启动模式(chkconfig --list | grep 服务名)
 		配置服务的启动模式(chkconfig --level 2345 服务名 on)  或者 使用工具(ntsysv) 或者  (修改/etc/rc.d/rc.local文件)
 	进程管理：
-		查看所有进程(ps aux 或者 ps -le)	
+		查看所有进程(ps aux 或者 ps -le) 查看某个进程(ps aux | grep 服务名)	
 		查看健康状态 top
 		查看进程树	pstree
-	杀死进程：kill、killall、pkill	pkill可以按用户踢
-	96
-	
-	
-	
-=============================知识================================
-Redis：支持多种数据类型、支持持久化、支持数据同步、支持消息订阅，只能使用单线程，只能简单的事务支持
-Memcache：吞吐量极高，只支持简单的key/value类型、不能持久化、无法数据同步
-MongoDB：极高的写入速度、高可用性、快速且丰富的查询、可以数据分析，不支持事务、占用空间过大适合大数据存储，主要解决海量数据访问效率。
-CQRS（Command Query Responsibility Segration）架构
-SpringCloud（服务治理、负载均衡、服务容错、声明式服务调用、API网关服务、分布式配置中心）
-三次握手：
-
-
-
-
-
-=============================知识点================================
-Lazy<T> 延迟加载技术
-微软自带缓存Microsoft.Extensions.Caching.Memory 
-Docker Machine
-
-
-
-
-===============================使用===================================
-RabbitMq：默认地址：http://localhost:15672
-	安装插件：rabbitmq-plugins.bat enable rabbitmq_management
-	查看状态：rabbitmqctl status 运行服务：rabbitmq-server.bat
+		杀死进程：kill、killall、pkill	pkill可以按用户踢
+	系统管理
+		把进程放入后台( 命令+&)		查看后台工作（jobs -l）
+		查看系统资源(vmstat 1 3)	内核检测(dmesg)		内存检测(free)	查看cpu信息(/proc/cpuinfo	或者 w)
+		查看启动时间和平均负载(uptime 或者 w)	查看系统信息(uname)		查看系统位数(file /bin/ls)
+		定时任务：crond命令（service crond restart	chkconfig crond on）	crontab[选项]
+	日志管理
+		rsyslogd	常见命令(lastb、lastlog、last、w、who、users)
+	启动管理
+		运行级别(0关机、1单用户、2不完整命令行、3完整命令行、4暂无、5图形界面、6重启)
+		配置默认运行级别：cat /etc/inittab	查询运行级别runlevel	改变运行级别 (init 数字)
+	备份：
+		建议备份文件(/root,/home,/var/spool/mail,/etc,其他)
+		dump备份命令（dump -0uj -f /home/boot.bz2 /boot）
+		
