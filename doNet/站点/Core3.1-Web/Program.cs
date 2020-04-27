@@ -45,13 +45,15 @@ namespace Core31.Web
                     //可以配置各种参数
                     //配置Kestrel
                     webBuilder.ConfigureKestrel(c => c.Limits.MaxRequestBodySize = 1000 * 1024 * 1024);
-                    //主机配置项
-                    webBuilder.UseUrls("http://*:5001");
+
+                    //主机地址配置(一般配置在json中)
+                    //webBuilder.UseUrls("http://*:4999");
+
                     //日志级别
                     //webBuilder.ConfigureLogging(c => c.SetMinimumLevel(LogLevel.Information));
 
-                    //静态文件夹
-                    webBuilder.UseWebRoot("文件");
+                    //配置静态文件夹名称
+                    //webBuilder.UseWebRoot("文件夹名称");
 
                     //制定web应用启动类
                     webBuilder.UseStartup<Startup>();

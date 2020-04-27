@@ -21,17 +21,36 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using AutoMapper;
 using Core.Common;
+using Microsoft.Extensions.FileProviders;
 
 namespace Core31.Web
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public readonly IConfiguration _configuration;
+        private readonly IConfigurationRoot _appConfiguration;
+
+        public Startup( IConfiguration configuration)
         {
-            Configuration = configuration;
+            //系统默认读取到的配置，可以手动重新读取
+           // _configuration = configuration;
+
+            string configType = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+            _configuration = new ConfigurationBuilder()
+            .SetBasePath(AppContext.BaseDirectory)
+            //.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+            .AddJsonFile($"appsettings.{configType ?? "Production"}.json", optional: true)
+            .AddEnvironmentVariables()
+            .Build();
+
+            //添加 json 文件路径
+            IConfigurationBuilder configurationBuilder = new ConfigurationBuilder()
+                .SetBasePath(AppContext.BaseDirectory)
+                .AddJsonFile($"appsettings.{configType ?? "Production"}.json", optional: true);
+            _appConfiguration = configurationBuilder.AddEnvironmentVariables().Build();
+
         }
 
-        public IConfiguration Configuration { get; }
 
         /// <summary>g
         /// 注册服务
@@ -41,6 +60,9 @@ namespace Core31.Web
         {
             //中文乱码问题
             services.AddSingleton(HtmlEncoder.Create(UnicodeRanges.All));
+
+            //获取json参数配置
+            GetConfig();
 
             //本机地址服务
             services.AddSingleton(serviceProvider =>
@@ -54,31 +76,28 @@ namespace Core31.Web
             //AddAutoMapper注册
             services.AddAutoMapper(typeof(AutoMapperConfig)); //services.AddAutoMapper(Assembly.Load("其他程序集dll名称"));
 
-            //获取json参数配置
-            GetConfig();
-
-
             services.AddControllersWithViews(option =>
             {
                 //添加全局异常控制
                 option.Filters.Add(new GlobalExceptionFilter());
             });
 
+
             //跨域
             services.AddCors();
 
             //注册轮询任务
-            services.AddSingleton<IHostedService, BackManagerService>(factory =>
-            {
-                OrderManagerService order = new OrderManagerService();
-                return new BackManagerService(options =>
-                {
-                    options.Name = "订单超时检查";
-                    options.CheckTime = 5 * 1000;
-                    options.Callback = order.CheckOrder;
-                    options.Handler = order.OnBackHandler;
-                });
-            });
+            //services.AddSingleton<IHostedService, BackManagerService>(factory =>
+            //{
+            //    OrderManagerService order = new OrderManagerService();
+            //    return new BackManagerService(options =>
+            //    {
+            //        options.Name = "订单超时检查";
+            //        options.CheckTime = 5 * 1000;
+            //        options.Callback = order.CheckOrder;
+            //        options.Handler = order.OnBackHandler;
+            //    });
+            //});
 
         }
 
@@ -93,17 +112,19 @@ namespace Core31.Web
                 //context.Response.ContentType = "text/plain; charset=utf-8";
                 //Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
                 //await context.Response.WriteAsync("第一个中间件执行完毕");
+                Console.WriteLine("第一个中间件执行完毕");
                 await next();
             });
 
             //获取路劲
+            string rootPath = env.ContentRootPath;
             string webRootPath = env.WebRootPath;
-            string contentRootPath = env.ContentRootPath;
-
+            string runType = env.EnvironmentName;
 
             //跨域
             app.UseCors();
 
+            
 
             if (env.IsDevelopment())
             {
@@ -119,8 +140,35 @@ namespace Core31.Web
             }
             app.UseHttpsRedirection();
 
-            //静态文件中间件
+            //启用静态文件服务
             app.UseStaticFiles();
+            //文件夹指定、路由重定向RequestPath
+            //app.UseStaticFiles(new StaticFileOptions
+            //{
+            //    //RequestPath = "/file",
+            //    FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "file")),
+            //    OnPrepareResponse = ctx =>
+            //    {
+            //        ctx.Context.Response.Headers.Append("Cache-Control", "public,max-age=600");
+            //    }
+            //});
+
+            //可以访问目录
+            //app.UseDirectoryBrowser();
+
+            //可以不输入文件名，访问默认文件
+            //app.UseDefaultFiles();
+
+            //能同事满足现实目录的功能
+            app.UseFileServer(new FileServerOptions()
+            {
+                RequestPath = new PathString("/StaticFiles"),
+                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "文件")),
+                //是否启用目录
+                EnableDirectoryBrowsing = true
+            });
+
+
 
             //路由中间件，解析路由信息
             app.UseRouting();
@@ -167,21 +215,23 @@ namespace Core31.Web
         public void GetConfig()
         {
             //直接读取字符串
-            string conn = Configuration.GetConnectionString("a");
-            conn = Configuration["connection"];
+            string conn = _configuration.GetConnectionString("conn");
+            conn = _configuration["connection"];
+            conn= _configuration["name"];
+            conn = _configuration["default"];
 
-            //读取GetSection
-            IConfigurationSection configurationSection = Configuration.GetSection("connection");
+            //GetSection方式
+            IConfigurationSection configurationSection = _configuration.GetSection("connection");
 
 
             //获取运行路径各种方法
             dynamic type = (new Program()).GetType();
-            string currentDirectory = Path.GetDirectoryName(type.Assembly.Location);//运行时根目录
 
-            var path3 = AppDomain.CurrentDomain.BaseDirectory;//运行时根目录
-            var path4 = AppContext.BaseDirectory;//运行时根目录
-            var path = Environment.CurrentDirectory;
-            var path2 = Directory.GetCurrentDirectory();
+            var path1 = AppDomain.CurrentDomain.BaseDirectory;//运行时根目录
+            var path2 = AppContext.BaseDirectory;//运行时根目录
+            var path5 = Path.GetDirectoryName(type.Assembly.Location);//运行时根目录
+            var path3 = Environment.CurrentDirectory;//获取的是执行dotnet命令所在目录
+            var path4 = Directory.GetCurrentDirectory();//获取的是执行dotnet命令所在目录
 
             //系统相关System.Runtime.InteropServices名称空间下。相关类名都带Runtime或者Environment
             string name = RuntimeInformation.ProcessArchitecture.ToString();
@@ -189,22 +239,20 @@ namespace Core31.Web
 
 
 
-            //添加 json 文件路径
-            //Directory.GetCurrentDirectory()获取的是执行dotnet命令所在目录
-            IConfigurationBuilder configurationBuilder = new ConfigurationBuilder().SetBasePath(currentDirectory).AddJsonFile("appsettings.json");
-            IConfigurationRoot configurationRoot = configurationBuilder.Build();
+            conn = _appConfiguration.GetConnectionString("conn");
+            conn = _appConfiguration["default"];
 
 
             //弱类型方式读取
-            var id = configurationRoot["model:id"];
-            var val1 = configurationRoot.GetSection("name");
+            var id = _appConfiguration["model:id"];
+            var val1 = _appConfiguration.GetSection("name");
             Console.OutputEncoding = Encoding.Unicode;
             Console.WriteLine($"name: {val1.Value}");
-            var val2 = configurationRoot.GetSection("model").GetSection("name");
+            var val2 = _appConfiguration.GetSection("model").GetSection("name");
             Console.WriteLine($"name: {val2.Value}");
 
             //强类型方式读取
-            var info = configurationRoot.GetValue<int>("model:id");
+            var info = _appConfiguration.GetValue<int>("model:id");
 
 
             //内存字段模式添加配置

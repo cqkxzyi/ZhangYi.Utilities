@@ -111,6 +111,7 @@ DDD领域驱动模型，工作单元UiitOfWork
 		启动服务两种方式（/etc/rc.d/init.d/服务名 start	 或者service 服务名 start 还有 systemctl（service+chkconfig））
 		查看环境变量(env)	查看分区信息(df -h)
 	Yum安装：Yum文件配置在（/etc/yum.repos.d） 查询（yum list  或者 yum search 关键字），安装（yum -y install 包名）
+		yum安装(sudo yum)
 		要先安装gcc（yum -y install gcc）	组安装（yum groouplist）
 	源码包安装：安装位置需手工指定（建议安装在/usr/local/软件名）
 	服务器管理工具Webmin（https://localhost.localdomain:10000/）
