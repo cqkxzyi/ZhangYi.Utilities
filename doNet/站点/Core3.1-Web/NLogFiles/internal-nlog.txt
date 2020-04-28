@@ -68,3 +68,9 @@
 2020-04-27 20:03:23.0888 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: console
 2020-04-27 20:03:43.7335 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: blackhole
 2020-04-27 20:03:43.7335 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: console
+2020-04-28 15:53:56.5628 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: blackhole
+2020-04-28 15:53:56.5787 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: console
+2020-04-28 15:55:47.2964 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: blackhole
+2020-04-28 15:55:47.2964 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: console
+2020-04-28 16:04:13.3716 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: blackhole
+2020-04-28 16:04:13.3786 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: console

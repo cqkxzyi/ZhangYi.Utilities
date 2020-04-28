@@ -86,6 +86,8 @@ namespace Core31.Web
             //跨域
             services.AddCors();
 
+            
+
             //注册轮询任务
             //services.AddSingleton<IHostedService, BackManagerService>(factory =>
             //{
@@ -111,8 +113,8 @@ namespace Core31.Web
             app.Use(async (context, next) => {
                 //context.Response.ContentType = "text/plain; charset=utf-8";
                 //Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-                //await context.Response.WriteAsync("第一个中间件执行完毕");
-                Console.WriteLine("第一个中间件执行完毕");
+                Console.WriteLine(context.Request.HttpContext.Connection.LocalIpAddress.MapToIPv4().ToString() + ":" + context.Request.HttpContext.Connection.LocalPort);
+                Console.WriteLine(context.Request.Path.Value);
                 await next();
             });
 
@@ -124,6 +126,7 @@ namespace Core31.Web
             //跨域
             app.UseCors();
 
+            
             
 
             if (env.IsDevelopment())
@@ -146,7 +149,7 @@ namespace Core31.Web
             //app.UseStaticFiles(new StaticFileOptions
             //{
             //    //RequestPath = "/file",
-            //    FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "file")),
+            //    FileProvider = new PhysicalFileProvider(Path.Combine(AppContext.BaseDirectory, "file")),
             //    OnPrepareResponse = ctx =>
             //    {
             //        ctx.Context.Response.Headers.Append("Cache-Control", "public,max-age=600");
@@ -163,7 +166,7 @@ namespace Core31.Web
             app.UseFileServer(new FileServerOptions()
             {
                 RequestPath = new PathString("/StaticFiles"),
-                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "文件")),
+                FileProvider = new PhysicalFileProvider(Path.Combine(AppContext.BaseDirectory, "文件")),
                 //是否启用目录
                 EnableDirectoryBrowsing = true
             });
@@ -212,7 +215,7 @@ namespace Core31.Web
         /// <summary>
         /// 获取json参数配置
         /// </summary>
-        public void GetConfig()
+        private void GetConfig()
         {
             //直接读取字符串
             string conn = _configuration.GetConnectionString("conn");
@@ -263,9 +266,6 @@ namespace Core31.Web
                 { "key2","value2" },
                 { "section1:key4","value4" },
             });
-
-
-
         }
         #endregion
     }

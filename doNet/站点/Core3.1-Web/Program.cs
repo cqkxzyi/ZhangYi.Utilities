@@ -37,6 +37,7 @@ namespace Core31.Web
             //加载主机配置、环境变量、命令行参数
             //配置日志组件、如果用到IIs则会配置iis集成
             Host.CreateDefaultBuilder(args)
+           
                 //配置web主机、自带默认配置
                 //web主机会配置Kestrel   》主机》 Kestrel高性能、
                 //加载前缀为"aspnetcore"环境变量
@@ -55,8 +56,19 @@ namespace Core31.Web
                     //配置静态文件夹名称
                     //webBuilder.UseWebRoot("文件夹名称");
 
+
+                    webBuilder.UseKestrel(options =>
+                    {
+                        options.AddServerHeader = true;
+                        options.Limits.MaxRequestBodySize = null;//不限制请求大小，也可以在controller、action上配置[DisableRequestSizeLimit]、[RequestSizeLimit(100_000_000)]
+                        options.Configure();
+                    });
+
                     //制定web应用启动类
                     webBuilder.UseStartup<Startup>();
+
+                    ////绑定地址
+                    //webBuilder.UseUrls("http://localhost:5000");
                 });
     }
 }

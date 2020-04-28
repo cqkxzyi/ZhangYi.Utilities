@@ -105,53 +105,6 @@ namespace DotNet.zy.Utilities
         }
         #endregion
 
-        #region System.Web.Script.Serialization方式序列化
-        /// <summary>
-        /// 序列化 
-        /// </summary>
-        /// <param name="obj"></param>
-        /// <returns></returns>
-        public static string JsonToString(this object obj)
-        {
-            var result = new JavaScriptSerializer().Serialize(obj);
-            //替换Json的Date字符串  
-            string p = @"\\/Date\([^\(]{0,}\)\\/"; /*////Date/((([/+/-]/d+)|(/d+))[/+/-]/d+/)////*/
-
-            MatchCollection matches = Regex.Matches(result, p);
-            foreach (Match item in matches)
-            {
-                result = result.Replace(item.Value, _ConvertJsonDateToDateString(item.Value));
-            }
-            return result;
-        }
-
-        private static string _ConvertJsonDateToDateString(string date)
-        {
-            date = Regex.Match(date, "\\d{1,}").Value;
-            if (string.IsNullOrWhiteSpace(date))
-            {
-                return date;
-            }
-            string result = string.Empty;
-            DateTime dt = new DateTime(1970, 1, 1);
-            dt = dt.AddMilliseconds(long.Parse(date));
-            dt = dt.ToLocalTime();
-            result = dt.ToString("yyyy-MM-dd HH:mm:ss");
-            return result;
-        }
-
-        /// <summary>
-        /// 反序列化
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="json"></param>
-        /// <returns></returns>
-        public static T StringToJson<T>(this string json)
-        {
-            return new JavaScriptSerializer().Deserialize<T>(json);
-        }
-        #endregion
-
 
 
         #region 将指定串值转换JSON格式(很简单)
