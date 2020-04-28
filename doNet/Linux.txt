@@ -1,5 +1,14 @@
+打开控制面板：control
 
-===============================Dokcer===================================
+===============================Windows部署Dokcer===================================
+安装Docker Desktop
+
+
+
+===============================Linux部署.net core===================================
+
+
+===============================Linux部署Dokcer===================================
 Registry是存储docker镜像的地方，在Registry中,镜像存储在Repository
 #更新软件
 	sudo yum upgrade
@@ -22,7 +31,9 @@ Registry是存储docker镜像的地方，在Registry中,镜像存储在Repositor
 	systemctl start docker      启动
 	systemctl enable docker		开机启动
 	systemctl stop docker       停止
-	systemctl status docker     或者  ps -ef|grep docker    查看状态 
+	systemctl status docker     或者  ps -ef|grep docker    查看状态
+#docker常用命令：
+		docker ps #查看运行中的容器	docker stop 容器的id #停止运行中的容器
 
 =============================Linux================================
 一切皆文件 -表示文件，d表示目录，l表示软链接
