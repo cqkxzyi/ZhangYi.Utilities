@@ -26,5 +26,11 @@
     <ProjectReference Include="..\..\Infrastructure\Core.Model\Core.Model.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Dockerfile">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 
 </Project>

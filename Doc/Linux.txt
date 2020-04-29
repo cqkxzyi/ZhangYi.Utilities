@@ -1,14 +1,47 @@
 打开控制面板：control
+===============================docker常用命令===================================
+#验证是否安装成功
+	docker info	或者	docker version
+#启动 docker
+	systemctl start docker      启动
+	systemctl enable docker		开机启动
+	systemctl stop docker       停止
+	systemctl status docker     或者  ps -ef|grep docker    查看状态
 
-===============================Windows部署Dokcer===================================
+#查看创建的镜像	docker images	
+#删除镜像	docker rmi -f id		删除所有：docker rmi -f $(docker images -q)
+
+
+#查看容器列表	docker ps 	或者  docker ps -a 
+#停止运行中的容器	docker stop 容器id 
+#删除容器	docker rm 容器id		删除所有：docker rm -f $(docker ps -a -q) 	[-f]表示运行的也可以删除
+#启动	docker start 容器id	
+#重启	docker restart container_1 
+#列出容器中运行进程		docker top 	容器id 
+#运行容器命令(docker run)
+	-t:在新容器内指定一个伪终端或终端
+	-i:允许你对容器内的标准输入 (STDIN) 进行交互
+	-d:后台运行容器
+#查看容器日志
+	docker logs 容器id	
+	docker logs -f -t --tail=50 container_1
+#退出容器	exit:	
+
+===============================部署.net core===================================
+#创建镜像：
+	docker build -t image_1:v1 .
+#运行容器
+	docker run -it -p 9001:80 --name=container_1 image_1:v1
+	docker run --name container_1 image_1:v1
+		-d houtai d
+#获取容器的IP
+	docker inspect -f '{{.NetworkSettings.Networks.nat.IPAddress}}' container_1
+
+===============================Windows使用Dokcer===================================
 安装Docker Desktop
+Kitematic可视化管理Docker
 
-
-
-===============================Linux部署.net core===================================
-
-
-===============================Linux部署Dokcer===================================
+===============================Linux使用Dokcer===================================
 Registry是存储docker镜像的地方，在Registry中,镜像存储在Repository
 #更新软件
 	sudo yum upgrade
@@ -25,19 +58,12 @@ Registry是存储docker镜像的地方，在Registry中,镜像存储在Repositor
 	yum list docker-ce --showduplicates | sort -r
 #安装 docker-ce
 	sudo yum install docker-ce-？.？.？.ce	或者直接安装最新版：yum install docker-ce
-#验证是否安装成功
-	docker info	或者	docker version
-#启动 docker
-	systemctl start docker      启动
-	systemctl enable docker		开机启动
-	systemctl stop docker       停止
-	systemctl status docker     或者  ps -ef|grep docker    查看状态
-#docker常用命令：
-		docker ps #查看运行中的容器	docker stop 容器的id #停止运行中的容器
+
+
+	
 
 =============================Linux================================
 一切皆文件 -表示文件，d表示目录，l表示软链接
-严格区分大小写
 命令：
 	目录 ls -ald	创建目录mkdir  -p	删除目录rmdir	复制cp	剪切mv	删除文件rm	显示完整目录 pwd
 	文件 创建touch	查看cat或者tac或者more或者head或者tail
@@ -46,14 +72,15 @@ Registry是存储docker镜像的地方，在Registry中,镜像存储在Repositor
 	文件搜索（find、locate更快因为有一个mlocate.db索引库）工具Everything能很快搜索	 更新(updatedb)	查找命令(which、whereis)
 		搜索文件内容（grep -v ^# /home/zhangyi）	setup/umtui
     帮助文档man，1表示命令的帮助5表示配置文件帮助	whatis命令 	apropos配置文件		命令 --help
-	内置命令查看帮助可以使用：help cd 方式
+		内置命令查看帮助可以使用：help cd 方式
 	网络命令： write	wall	ping	ifconfig	mail	last	lastlog	traceroute	netstat
-	关机shutdown	关机(halt	poweroff	init 0 )	重启reboot init 6	
-	网络文件系统服务NFS
+		系统配置工具nmtui	配置文件/etc/sysconfig/network-scripts/   重启service network restart
+		关机shutdown	关机(halt	poweroff	init 0 )	重启reboot init 6	
+		网络文件系统服务NFS
 	编辑器Vim	:r !date	查看选项(more、cat）
 	软件包：源码包、二进制包rpm		安装好的包在/var/lib/rpm/下查找， rpm -ivh 包全名，安装和升级需要包全名，
 		 查询rpm -qail 包名		查询rpm -qf 系统文件名		查询rpm -qR 包名
-	系统配置工具nmtui	配置文件/etc/sysconfig/network-scripts/   重启service network restart
+	服务配置
 		启动服务两种方式（/etc/rc.d/init.d/服务名 start	 或者service 服务名 start 还有 systemctl（service+chkconfig））
 		查看环境变量(env)	查看分区信息(df -h)
 	Yum安装：Yum文件配置在（/etc/yum.repos.d） 查询（yum list  或者 yum search 关键字），安装（yum -y install 包名）
