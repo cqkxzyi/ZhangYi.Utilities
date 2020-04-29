@@ -57,6 +57,7 @@ SpringCloud（服务治理、负载均衡、服务容错、声明式服务调用
 Lazy<T> 延迟加载技术
 微软自带缓存Microsoft.Extensions.Caching.Memory 
 Docker Machine
+FreeSql
 
 
 
