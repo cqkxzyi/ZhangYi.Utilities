@@ -44,8 +44,6 @@ namespace Core31.Web
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     //可以配置各种参数
-                    //配置Kestrel
-                    webBuilder.ConfigureKestrel(c => c.Limits.MaxRequestBodySize = 1000 * 1024 * 1024);
 
                     //主机地址配置(一般配置在json中)
                     //webBuilder.UseUrls("http://*:4999");
@@ -56,13 +54,14 @@ namespace Core31.Web
                     //配置静态文件夹名称
                     //webBuilder.UseWebRoot("文件夹名称");
 
-
+                    //配置Kestrel
                     webBuilder.UseKestrel(options =>
                     {
                         options.AddServerHeader = true;
                         options.Limits.MaxRequestBodySize = null;//不限制请求大小，也可以在controller、action上配置[DisableRequestSizeLimit]、[RequestSizeLimit(100_000_000)]
                         options.Configure();
                     });
+                    //webBuilder.ConfigureKestrel(c => c.Limits.MaxRequestBodySize = 1000 * 1024 * 1024);
 
                     //制定web应用启动类
                     webBuilder.UseStartup<Startup>();

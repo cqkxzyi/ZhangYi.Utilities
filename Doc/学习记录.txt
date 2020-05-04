@@ -1,18 +1,8 @@
-===================已掌握=======================
-RabbitMQ、CsRedisCore
-SignalR、AutoMapper
-Dapper简易ORM框架之王
-DDD领域驱动设计（优先考虑的业务而不是数据，系统复杂后使用MVC是技术纬度优化，DDD业务是纬度优化相当于微服务，实现了高内聚低耦合，是充血模型）。CQRS（Command Query Responsibility Segration）读写分离，CRUD增删改查
-项目生成api工具：Swagger
-SqlServer集群
-
-
-===================待学习=======================
+===================待=======================
 ●微服务/集群/分布式/
 ●Kubernetes、Docker容器引擎。docker加上Jenkins部署比较简单，Serverless是一种构建和管理基于微服务架构的完整流程
-●服务框架：Consul（服务治理、配置中心）+ Polly（服务熔断）+ Ocelot（API网关）,服务治理有：Consul,ZooKeeper,Doozerd,ETCD
-	Eureka
-●服务框架Steeltoe：是.net版基于Spring Cloud的服务架构（Eureka服务中心+Hystrix断路器+Spring Cloud Config Server分布式配置中心+Cloud Foundry云平台）
+●服务框架：Consul（服务治理、配置中心）+ Polly（服务熔断）+ Ocelot（API网关）,服务治理有：Consul,ZooKeeper,Doozerd,ETCD，Eureka
+●服务框架：Steeltoe：是.net版基于Spring Cloud的服务架构（Eureka服务中心+Hystrix断路器+Spring Cloud Config Server分布式配置中心+Cloud Foundry云平台）
 ●Kestrel：ASP.NET Core的web服务器，
 ●终结者模式：MediatR(消息解耦)，可以简化控制器业务逻辑
 ●MVVM开发模式
@@ -29,6 +19,9 @@ SqlServer集群
 ●导入导出Excel：WeihanLi.Npoi
 ●静态文件部署到 CDN
 
+FreeSql
+navicat
+
 AngelaJS
 webassemly技术革命
 基于Node.js的puppeteer,edge爬虫工具
@@ -40,6 +33,14 @@ Alwayson集群，数据库容灾方案
 ●文档制作工具GitBook
 ●Python、爬虫技术、八爪鱼
 
+===================ok=======================
+RabbitMQ、CsRedisCore
+SignalR、AutoMapper
+Dapper简易ORM框架之王
+DDD领域驱动设计（优先考虑的业务而不是数据，系统复杂后使用MVC是技术纬度优化，DDD业务是纬度优化相当于微服务，实现了高内聚低耦合，是充血模型）。CQRS（Command Query Responsibility Segration）读写分离，CRUD增删改查
+项目生成api工具：Swagger
+SqlServer集群
+
 
 =============================知识================================
 Redis：支持多种数据类型、支持持久化、支持数据同步、支持消息订阅，只能使用单线程，只能简单的事务支持
@@ -48,18 +49,17 @@ MongoDB：极高的写入速度、高可用性、快速且丰富的查询、可�
 CQRS（Command Query Responsibility Segration）架构
 SpringCloud（服务治理、负载均衡、服务容错、声明式服务调用、API网关服务、分布式配置中心）
 三次握手：
-
-
+Docker原理：Docker是一种分层文件系统(UnionFS)。docker最底层是bootfs相当于Linux的内核Kernel,加载原理(先加载bootfs，在加载rootfs相当于发行版本)
 
 
 
 =============================知识点================================
 Lazy<T> 延迟加载技术
 微软自带缓存Microsoft.Extensions.Caching.Memory 
+DevOps
+CICD持续集成持续交付
 Docker Machine
-FreeSql
-
-
+DockerHub
 
 
 ===============================使用===================================

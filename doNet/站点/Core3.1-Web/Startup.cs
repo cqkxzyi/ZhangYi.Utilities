@@ -162,14 +162,14 @@ namespace Core31.Web
             //可以不输入文件名，访问默认文件
             //app.UseDefaultFiles();
 
-            //能同事满足现实目录的功能
-            app.UseFileServer(new FileServerOptions()
-            {
-                RequestPath = new PathString("/StaticFiles"),
-                FileProvider = new PhysicalFileProvider(Path.Combine(AppContext.BaseDirectory, "文件")),
-                //是否启用目录
-                EnableDirectoryBrowsing = true
-            });
+            //能同事满足现实目录的功能(建议配置)
+            //app.UseFileServer(new FileServerOptions()
+            //{
+            //    RequestPath = new PathString("/StaticFiles"),
+            //    FileProvider = new PhysicalFileProvider(Path.Combine(AppContext.BaseDirectory, "文件")),
+            //    //是否启用目录
+            //    EnableDirectoryBrowsing = true
+            //});
 
 
 

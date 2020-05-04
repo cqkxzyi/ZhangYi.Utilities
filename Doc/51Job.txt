@@ -22,6 +22,8 @@
 	.net core、微服务、nosql、Redis、WebApi、队列、Docker、
 	数据结构、算法、内存管理、IO管理、反向代理、大数据、Nginx、集群、Linux、
 	Restful API、服务化思想、云开发、RabbitMQ、ABP、架构、
+	
+	
 
 ============================简历===========	
 ●专业技能：

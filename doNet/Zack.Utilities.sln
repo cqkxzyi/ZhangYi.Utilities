@@ -11,10 +11,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "程序集", "程序集", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "文档", "文档", "{8EC907C7-95C6-4432-9CD6-1AA6CB882170}"
 	ProjectSection(SolutionItems) = preProject
-		其他.txt = 其他.txt
-		学习记录.txt = 学习记录.txt
-		找工作.txt = 找工作.txt
-		项目.txt = 项目.txt
+		..\Doc\51Job.txt = ..\Doc\51Job.txt
+		..\Doc\Linux.txt = ..\Doc\Linux.txt
+		..\Doc\其他.txt = ..\Doc\其他.txt
+		..\Doc\学习记录.txt = ..\Doc\学习记录.txt
+		..\Doc\项目.txt = ..\Doc\项目.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "项目集", "项目集", "{DFB01FA6-FB42-4C75-8922-EE8EF031ABFC}"
@@ -54,6 +55,7 @@ Global
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{E7EDF60D-B34C-41F7-B9B4-6970F9168F70}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{E7EDF60D-B34C-41F7-B9B4-6970F9168F70}.Debug|Any CPU.Build.0 = Debug|x86
 		{E7EDF60D-B34C-41F7-B9B4-6970F9168F70}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
 		{E7EDF60D-B34C-41F7-B9B4-6970F9168F70}.Debug|Mixed Platforms.Build.0 = Debug|x86
 		{E7EDF60D-B34C-41F7-B9B4-6970F9168F70}.Debug|x86.ActiveCfg = Debug|x86

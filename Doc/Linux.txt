@@ -1,83 +1,101 @@
-打开控制面板：control
+打开控制面板：control	DevOps		
+
 ===============================docker常用命令===================================
-#验证是否安装成功
-	docker info	或者	docker version
-#启动 docker
-	systemctl start docker      启动
-	systemctl enable docker		开机启动
-	systemctl stop docker       停止
-	systemctl status docker     或者  ps -ef|grep docker    查看状态
-
-#查看创建的镜像	docker images	
-#删除镜像	docker rmi -f id		删除所有：docker rmi -f $(docker images -q)
-
-
-#查看容器列表	docker ps 	或者  docker ps -a 
-#停止运行中的容器	docker stop 容器id 
-#删除容器	docker rm 容器id		删除所有：docker rm -f $(docker ps -a -q) 	[-f]表示运行的也可以删除
-#启动	docker start 容器id	
-#重启	docker restart container_1 
-#列出容器中运行进程		docker top 	容器id 
-#运行容器命令(docker run)
-	-t:在新容器内指定一个伪终端或终端
-	-i:允许你对容器内的标准输入 (STDIN) 进行交互
-	-d:后台运行容器
-#查看容器日志
-	docker logs 容器id	
-	docker logs -f -t --tail=50 container_1
-#退出容器	exit:	
-
-===============================部署.net core===================================
-#创建镜像：
-	docker build -t image_1:v1 .
-#运行容器
-	docker run -it -p 9001:80 --name=container_1 image_1:v1
-	docker run --name container_1 image_1:v1
-		-d houtai d
-#获取容器的IP
-	docker inspect -f '{{.NetworkSettings.Networks.nat.IPAddress}}' container_1
-
-===============================Windows使用Dokcer===================================
-安装Docker Desktop
-Kitematic可视化管理Docker
-
-===============================Linux使用Dokcer===================================
-Registry是存储docker镜像的地方，在Registry中,镜像存储在Repository
+ 是存储docker镜像的地方，在Registry中,镜像存储在Repository
 #更新软件
 	sudo yum upgrade
 #卸载旧版本
-	sudo yum remove docker  docker-common docker-selinux docker-engine
+	yum remove docker  docker-common docker-selinux docker-engine
 #安装需要的软件包， yum-util 提供yum-config-manager功能
-	sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+	yum install -y yum-utils device-mapper-persistent-data lvm2
 #设置yum源
-	sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-	保存到路径：repo saved to /etc/yum.repos.d/docker-ce.repo
+	yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 #更新yum索引
 	yum makecache fast
 #可以查看所有仓库中所有docker版本
 	yum list docker-ce --showduplicates | sort -r
 #安装 docker-ce
-	sudo yum install docker-ce-？.？.？.ce	或者直接安装最新版：yum install docker-ce
-
-
+	yum install docker-ce-？.？.？.ce	或者直接安装最新版：yum install docker-ce
+#配置docker
+	#加速器配置/etc/docker/daemon.json	重载(systemctl daemon-reload	systemctl restart docker)
+#验证是否安装成功
+	docker info	或者	docker version
+#启动docker
+	systemctl start docker      启动
+	systemctl restart docker    重启
+	systemctl enable docker		开机启动
+	systemctl stop docker       停止
+	systemctl status docker     查看docker状态 	ps -ef|grep docker 查看docker进程状态
 	
+
+
+#创建镜像：
+	docker build -t imagewebapi .
+#查看镜像列表	docker images	
+#删除镜像		docker rmi -f 容器id		删除所有：docker rmi -f $(docker images -q)
+
+
+#创建容器(docker run)
+	docker run -it -p 9001:80 --name=container_1  webapi_image:v1
+	docker run -it -p 9002:80  -v /wwwroot/data/webapi:/myapi/info --name=containerwebapi  imagewebapi
+	docker run --name container_1 镜像名
+	-i:允许你对容器内的标准输入 (STDIN) 进行交互
+	-t:在新容器内指定一个伪终端或终端
+	-p:绑定ip映射，冒号左边是本地端口，右边是docker内端口
+	-v 目录挂载,例子(-v /宿主路径:/容器目录:ro 镜像名)
+	-d:守护式容器，后台运行容器
+	--restart=always容器会自动重启
+#查看容器列表	docker ps 	或者  docker ps -a 
+#停止运行中的容器	docker stop 容器id 
+#删除容器	docker rm 容器id	删除所有：docker rm -f $(docker ps -a -q) 	[-f]表示运行的也可以删除
+#启动容器	docker start 容器id	
+#停止容器	docker stop  容器id	
+#重启容器	docker restart 容器
+#设置容器自动重启	docker update --restart=always 容器ID 
+#列出容器中运行进程		docker top 	容器id 
+#进入容器	docker exec -it 容器ID  /bin/bash	隔空取物：docker exec  容器ID ls -l
+#退出容器(exit 或者 Ctrl+p+q） 
+#查看容器日志
+	docker logs 容器id	
+	docker logs -f -t --tail=20 container_1
+#查看容器信息
+	docker inspect	容器ID
+	docker inspect -f '{{.NetworkSettings.Networks.nat.IPAddress}}' 容器ID
+	docker inspect --format='{{.NetworkSettings.IPAddress}}' 容器ID
+#docker的save保存镜像(load与其对应)，docker的export导出容器(import与其对应)，但是两者load/import的时候都是生成镜像
+#容器镜像导入导出
+	导出容器：docker export 容器id > /home/centos7-web01.tar
+	导入容器: docker import  centos7-web01.tar  镜像新id	（记住：该命令应在镜像所在目录执行）
+	导出镜像：docker save 镜像id > /home/centos7.4.tar
+	导入镜像：docker load < /home/centos7.4.tar
+#拷贝容器文件到宿主机	docker cp 容器ID:容器文件路径 宿主机路径	
+#容器保存为镜像		docker commit 容器id  新镜像名称
+
+
+
+===============================Windows使用Dokcer===================================
+安装Docker Desktop
+Kitematic可视化管理Docker
+
+
 
 =============================Linux================================
 一切皆文件 -表示文件，d表示目录，l表示软链接
 命令：
-	目录 ls -ald	创建目录mkdir  -p	删除目录rmdir	复制cp	剪切mv	删除文件rm	显示完整目录 pwd
-	文件 创建touch	查看cat或者tac或者more或者head或者tail
+	目录 ls -ald	创建目录mkdir -p(级联)	删除目录(rmdir 或者 rm -rf 目录名) 	复制cp	剪切mv	显示当前所在目录pwd
+	文件	创建文件touch	重命名mv	删除文件(rm -f)	查看文件(cat或者tac或者more或者head或者tail)
 	链接 ln
 	权限 修改chmod -R递归	只有root可以使用chown chgrp改变所有者、所属组  缺省配置umask
 	文件搜索（find、locate更快因为有一个mlocate.db索引库）工具Everything能很快搜索	 更新(updatedb)	查找命令(which、whereis)
 		搜索文件内容（grep -v ^# /home/zhangyi）	setup/umtui
-    帮助文档man，1表示命令的帮助5表示配置文件帮助	whatis命令 	apropos配置文件		命令 --help
+	帮助文档man，1表示命令的帮助5表示配置文件帮助	whatis命令 	apropos配置文件		命令 --help
 		内置命令查看帮助可以使用：help cd 方式
 	网络命令： write	wall	ping	ifconfig	mail	last	lastlog	traceroute	netstat
-		系统配置工具nmtui	配置文件/etc/sysconfig/network-scripts/   重启service network restart
-		关机shutdown	关机(halt	poweroff	init 0 )	重启reboot init 6	
+		系统配置工具nmtui	配置文件/etc/sysconfig/network-scripts/   重启(systemctl restart network )
+		关机(shutdown	halt	poweroff	init 0 )	重启(reboot 或者 init 6)
 		网络文件系统服务NFS
 	编辑器Vim	:r !date	查看选项(more、cat）
+	文件传输	curl、wget 
 	软件包：源码包、二进制包rpm		安装好的包在/var/lib/rpm/下查找， rpm -ivh 包全名，安装和升级需要包全名，
 		 查询rpm -qail 包名		查询rpm -qf 系统文件名		查询rpm -qR 包名
 	服务配置
@@ -97,10 +115,11 @@ Registry是存储docker镜像的地方，在Registry中,镜像存储在Repositor
 				SetGID 设置（hmod 2755 文件名   或者   chmod g+s 文件名）
 				Sticky BIT 设置（hmod 1755 文件名   或者   chmod o+t 文件名） 只针对目录配置
 		chattr文件系统属性权限，配置权限(chattr) 	查看该权限情况（lsattr）
-		sudo权限(操作系统命令)	查询(sudo -l)	用法(sudo /sbin/shutdown -r now)
-	文件系统：linux使用ext文件系统	
+		sudo权限(配置系统命令权限)	查询(sudo -l)	用法(sudo /sbin/shutdown -r now)
+	文件系统：linux使用ext文件系统
+		查看分区挂载情况 dr -h
 		查看分区挂载情况(df)注意df查看的不仅是文件本身还有系统未释放的资源		
-		统计目录和文件大小(du -sh 目录名)
+		统计目录和文件大小(du -sh * | sort -n)(du -lh --max-depth=1)(du -sh 目录名)
 		修复命令(fsck)		显示磁盘状态(dumpe2fs)
 		挂载命令mount，注意该命令针对的都是分区		卸载命令(umount 设备名或者挂载点)
 		查看U盘设备名
@@ -109,7 +128,7 @@ Registry是存储docker镜像的地方，在Registry中,镜像存储在Repositor
 	分区自动挂载（/etc/fstab文件） 		fstab文件（mount -o remount,rw /）CentOS7已经能自动修复了
 	快捷键设置(alias vi='vim'该方法只能临时生效，要想永久保存请使用修改文件/root/bashrc)
 	查看环境变量(echo $PATH$)
-	输出从定向(例如：ls > log.log)	错误输出从定向(lab 2> error.log)	正确错误同时保存(命令 &> 文件名)
+	输出重定向(例如：ls > log.log)	错误输出重定向(lab 2> error.log)	正确错误同时保存(命令 &> 文件名)
 		或者(命令 > 正确文件名 2> 错误文件名)
 	让配置文件马上生效（source 配置文件）
 	Shell登录信息配置(/etc/issue)	
@@ -127,9 +146,11 @@ Registry是存储docker镜像的地方，在Registry中,镜像存储在Repositor
 		查看进程树	pstree
 		杀死进程：kill、killall、pkill	pkill可以按用户踢
 	系统管理
-		把进程放入后台( 命令+&)		查看后台工作（jobs -l）
 		查看系统资源(vmstat 1 3)	内核检测(dmesg)		内存检测(free)	查看cpu信息(/proc/cpuinfo	或者 w)
-		查看启动时间和平均负载(uptime 或者 w)	查看系统信息(uname -a)		查看系统位数(file /bin/ls)
+		查看启动时间和平均负载(uptime 或者 w)	查看系统位数(file /bin/ls)
+		查看内核信息(uname -a	或者	cat /proc/version)	
+		查看Linux系统版本(cat /etc/redhat-release)
+		把进程放入后台( 命令+&)		查看后台工作（jobs -l）
 		定时任务：crond命令（service crond restart	chkconfig crond on）	crontab[选项]
 	日志管理
 		rsyslogd	常见命令(lastb、lastlog、last、w、who、users)
@@ -139,3 +160,6 @@ Registry是存储docker镜像的地方，在Registry中,镜像存储在Repositor
 	备份：
 		建议备份文件(/root,/home,/var/spool/mail,/etc,其他)
 		dump备份命令（dump -0uj -f /home/boot.bz2 /boot）
+	技巧：
+		修改命令行颜色：vim ~/.bashrc	增加配置：PS1='\[\e[35;47m\][\u@\h\W\t]\$\e[m'
+		/bin/sh -c	让bash将一个字串作为完整的命令来执行

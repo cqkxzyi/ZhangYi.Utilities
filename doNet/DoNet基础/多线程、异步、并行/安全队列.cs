@@ -10,7 +10,7 @@ namespace DoNet基础.多线程_异步_并行
 {
     public class 安全队列
     {
-        static void Main(string[] args)
+        public static void 测试入口()
         {
             Task t = RunProgram();
             t.Wait();

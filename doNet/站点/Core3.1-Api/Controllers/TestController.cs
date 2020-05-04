@@ -30,7 +30,7 @@ namespace Core31.WebApi.Controllers
             if (ID == null)
                 return "解析参数异常";
 
-            return "成功！！"+ ID;
+            return "成功！！啊哈哈"+ ID;
         }
 
         //几乎所有请求方式都可以
