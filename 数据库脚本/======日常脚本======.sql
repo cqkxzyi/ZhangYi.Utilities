@@ -271,11 +271,9 @@ select * from AppMenuList order by 排序码 ASC
 --父级查所有子级
 with CTEGetChild as 
 ( 
-select * from [Szy_DB].[dbo].[szy_region] where parent_code='50' 
-UNION ALL 
-(SELECT a.* from [Szy_DB].[dbo].[szy_region] as a inner join 
-  CTEGetChild as b on a.parent_code=b.region_code 
-) 
+  select 0 AS lvl,* from [Szy_DB].[dbo].[szy_region] where parent_code='50' 
+  UNION ALL 
+  (SELECT lvl+1,a.* from [Szy_DB].[dbo].[szy_region] as a inner join  CTEGetChild as b on a.parent_code=b.region_code ) 
 ) 
 SELECT * FROM CTEGetChild
 
@@ -284,10 +282,9 @@ DECLARE @temp NVARCHAR(100)
 SET @temp='';
 with CTEGetParent  as 
 ( 
-	SELECT * from [Szy_DB].[dbo].[szy_region] where region_code='50,01,39' 
+	SELECT lvl+1,* from [Szy_DB].[dbo].[szy_region] where region_code='50,01,39' 
 	UNION ALL 
-	(SELECT a.* from [Szy_DB].[dbo].[szy_region] as a inner join CTEGetParent  as b on a.region_code=b.parent_code
-    ) 
+	(SELECT lvl+1,a.* from [Szy_DB].[dbo].[szy_region] as a inner join CTEGetParent  as b on a.region_code=b.parent_code ) 
 )
 
 --利用FOR XML PATH 合并列用逗号串联
