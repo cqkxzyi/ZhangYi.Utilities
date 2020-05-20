@@ -602,13 +602,14 @@ namespace DotNet.zy.Utilities
         /// </summary>
         /// <param name=”timeStamp”></param>
         /// <returns></returns>
-        public static DateTime GetTime(string timeStamp)
+        public static DateTime ConvertLongToDateTime(long time)
         {
-            DateTime dtStart = TimeZone.CurrentTimeZone.ToLocalTime(new DateTime(1970, 1, 1));
-            long lTime = long.Parse(timeStamp + "0000000");
-            TimeSpan toNow = new TimeSpan(lTime); 
+            TimeZone.CurrentTimeZone.ToLocalTime(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc));
+            DateTime datetime = DateTime.MinValue;
+            DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc));
+            datetime = startTime.AddSeconds(time);
 
-            return dtStart.Add(toNow);
+            return datetime;
         }
         #endregion
 
@@ -618,11 +619,11 @@ namespace DotNet.zy.Utilities
         /// </summary>
         /// <param name=”time”></param>
         /// <returns></returns>
-        public static int ConvertDateTimeInt(DateTime time)
+        public static long ConvertDateTimeToLong(DateTime datetime)
         {
-            System.DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new System.DateTime(1970, 1, 1));
-
-            return (int)(time - startTime).TotalSeconds;
+            DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc));
+            TimeSpan ts = (datetime - startTime);
+            return (long)ts.TotalSeconds;
         }
         #endregion
     }

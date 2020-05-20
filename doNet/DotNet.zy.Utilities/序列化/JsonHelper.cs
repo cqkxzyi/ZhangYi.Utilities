@@ -15,32 +15,6 @@ namespace DotNet.zy.Utilities
 {
     public static class JsonHelper1
     {
-        #region 方式一JsonSerializer(用到了Newtonsoft.Json日期格式能正确转换)
-
-        /// <summary>
-        /// 把对象序列化 JSON 字符串 
-        /// </summary>
-        /// <typeparam name="T">对象类型</typeparam>
-        /// <param name="obj">对象实体</param>
-        /// <returns>JSON字符串</returns>
-        public static string NewtonsoftGetJson<T>(this T obj)
-        {
-            var timeFormat = new IsoDateTimeConverter { DateTimeFormat = "yyyy-MM-dd HH:mm:ss" };
-
-            return JsonConvert.SerializeObject(obj, Formatting.Indented, timeFormat);
-        }
-
-        /// <summary>
-        /// 把JSON字符串还原为对象
-        /// </summary>
-        /// <typeparam name="T">对象类型</typeparam>
-        /// <param name="szJson">JSON字符串</param>
-        /// <returns>对象实体</returns>
-        public static T NewtonsoftGetEntity<T>(this string szJson)
-        {
-            return JsonConvert.DeserializeObject<T>(szJson);
-        }
-        #endregion
 
         #region System.Runtime.Serialization.Json方式序列化
         /// <summary>  

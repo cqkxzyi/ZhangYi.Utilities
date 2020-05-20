@@ -77,9 +77,11 @@
     <Compile Include="ExtendFunctions\GlobalUtility.cs" />
     <Compile Include="ExtendFunctions\StringUtility.cs" />
     <Compile Include="MyExtend.cs" />
+    <Compile Include="NumberHelper.cs" />
     <Compile Include="加解密\DesEncryptHelper.cs" />
     <Compile Include="加解密\SortMD5Encrypt.cs" />
     <Compile Include="序列化\JsonConverterHelper.cs" />
+    <Compile Include="序列化\SerializeUtil.cs" />
     <Compile Include="序列化\Xml反序列化示例.cs" />
     <Compile Include="日志\LogWriter.cs" />
     <Compile Include="图片\CompressPicHelper.cs" />
