@@ -66,7 +66,8 @@ DockerHub
 RabbitMq：默认地址：http://localhost:15672
 	安装插件：rabbitmq-plugins.bat enable rabbitmq_management
 	查看状态：rabbitmqctl status 运行服务：rabbitmq-server.bat
-	
+LINQPad ，真他娘的好用
+
 #解决github慢
 #192.30.253.112 github.com
 #151.101.185.194 github.global.ssl.fastly.net
