@@ -168,7 +168,7 @@ select to_date('2001-01','yyyy-mm')+(rownum-1) 日期 from user_objects where ro
 --得到一年中的天数 
 select to_char(to_date('2000-01-01','yyyy-mm-dd')+(rownum-1),'yyyy-mm-dd') 日期 from user_objects where rownum<367 and to_date('2000-01-01','yyyy-mm-dd')+(rownum-1)<to_date('2001-01-01','yyyy-mm-dd'); 
 ==================================================================================== 
-获取一个数据库的所有存储过程,可以用 
+--获取一个数据库的所有存储过程,可以用 
 select * from sysobjects where type='p' 
 ==================================================================================== 
 --生成交*表的简单通用存储过程 
@@ -230,5 +230,17 @@ else '' end
 exec('select 
 from ['+@TableName+'] 
 group by ['+@纵轴+']'+@sum3) 
-go 
+ 
+
+--SQL Server 实现Indexof和LastIndexof
+dECLARE @Name NVARCHAR (50)
+SET @Name = 'ABCDEFG.HI.JKLMNOPQ'
+DECLARE @Position INT
+--1sql first indexof
+SET @Position = CHARINDEX('.', @Name);
+select @Position
+SELECT SUBSTRING (@Name, @Position+1,LEN(@Name)-@Position)
+--2sql last indexof
+SET @Position =  LEN(@Name) - CHARINDEX('.', REVERSE(@Name)) + 1
+SELECT SUBSTRING (@Name, @Position+1,LEN(@Name)-@Position)
 
