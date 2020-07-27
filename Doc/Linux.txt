@@ -1,7 +1,7 @@
 打开控制面板：control	DevOps		
 
 ===============================docker常用命令===================================
- 是存储docker镜像的地方，在Registry中,镜像存储在Repository
+是存储docker镜像的地方，在Registry中,镜像存储在Repository
 #更新软件
 	sudo yum upgrade
 #卸载旧版本
@@ -28,15 +28,14 @@
 	systemctl status docker     查看docker状态 	ps -ef|grep docker 查看docker进程状态
 	
 
-
 #创建镜像：
-	docker build -t imagewebapi .
+	进入到Dockerfile保存目录执行：docker build -t imagewebapi .
 #查看镜像列表	docker images	
 #删除镜像		docker rmi -f 容器id		删除所有：docker rmi -f $(docker images -q)
 
 
 #创建容器(docker run)
-	docker run -it -p 9001:80 --name=container_1  webapi_image:v1
+	docker run -it -p 9001:80 --name=container_1  imagewebapi:v1
 	docker run -it -p 9002:80  -v /wwwroot/data/webapi:/myapi/info --name=containerwebapi  imagewebapi
 	docker run --name container_1 镜像名
 	-i:允许你对容器内的标准输入 (STDIN) 进行交互
@@ -68,18 +67,24 @@
 	导入容器: docker import  centos7-web01.tar  镜像新id	（记住：该命令应在镜像所在目录执行）
 	导出镜像：docker save 镜像id > /home/centos7.4.tar
 	导入镜像：docker load < /home/centos7.4.tar
-#拷贝容器文件到宿主机	docker cp 容器ID:容器文件路径 宿主机路径	
+#拷贝容器文件到宿主机	docker cp 容器ID:容器文件路径 宿主机路径
 #容器保存为镜像		docker commit 容器id  新镜像名称
 
 
+其他常用技术：
+	Docker Compose定义和运行多容器 Docker 应用程序的工具
+	Docker Machine
+	Kitematic视图化docker容器管理
 
-===============================Windows使用Dokcer===================================
+
+
+===============================Windows使用Dokcer==================
 安装Docker Desktop
 Kitematic可视化管理Docker
 
 
 
-=============================Linux================================
+=============================Linux=================================
 一切皆文件 -表示文件，d表示目录，l表示软链接
 命令：
 	目录 ls -ald	创建目录mkdir -p(级联)	删除目录(rmdir 或者 rm -rf 目录名) 	复制cp	剪切mv	显示当前所在目录pwd
@@ -163,3 +168,4 @@ Kitematic可视化管理Docker
 	技巧：
 		修改命令行颜色：vim ~/.bashrc	增加配置：PS1='\[\e[35;47m\][\u@\h\W\t]\$\e[m'
 		/bin/sh -c	让bash将一个字串作为完整的命令来执行
+Vim
