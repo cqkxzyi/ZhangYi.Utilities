@@ -9,18 +9,21 @@ REPLACE('http://image.lyzb.cn/Product/123','http://image.lyzb.cn','')
 declare @temp nvarchar(100)=',1,2,3,4,5,,';
 IF(CHARINDEX(',',@temp)=1)
 	SET @temp=SUBSTRING(@temp,2,LEN(@temp)-1);
-IF(CHARINDEX(',',@temp,LEN('1,2,3,4,5'))>0)
-	SET @temp=SUBSTRING(@temp,1,LEN(@temp)-1);
-	PRINT @temp
+while CHARINDEX(',',@temp,LEN(@temp))=LEN(@temp)
+begin 
+SET @temp=SUBSTRING(@temp,1,LEN(@temp)-1);
+end
+PRINT @temp
+
 --判断是否存在
 if exists(SELECT Id_bigint FROM N_SYS_Evaluation)
 
 
 --**************************************数据库、表、设置********************************************
---修改字段
-ALTER TABLE [szy_order] ALTER COLUMN  order_sn varchar(123);--新增字段
 --新增字段
 ALTER TABLE [szy_order] ADD  [MembershipId_uniqueidentifier] UNIQUEIDENTIFIER
+--修改字段
+ALTER TABLE [szy_order] ALTER COLUMN  order_sn varchar(123);--新增字段
 --删除字段
 ALTER TABLE [szy_freight_regions] drop column Destinationy;
 
@@ -52,7 +55,7 @@ alter database LiSpreadPlatform set online
 --让数据库处于单用户模式并且回滚所有事物：
 ALTER DATABASE DB_NAME SET SINGLE_USER WITH ROLLBACK IMMEDIATE
 
---断开连接方式2
+--**********断开连接方式2**********
 USE master
 GO
 ALTER DATABASE [GPOSDB] SET SINGLE_USER WITH ROLLBACK IMMEDIATE
@@ -62,7 +65,7 @@ SELECT * FROM sys.[sysprocesses] WHERE DB_NAME([dbid])='gposdb'
 GO
 ALTER DATABASE [GPOSDB] SET MULTI_USER 
 GO
---断开连接方式2（完毕）
+-----End----
 
 --修改数据库不支持中文的问题
 alter database LiSpreadPlatform collate Chinese_PRC_CI_AS
@@ -85,7 +88,7 @@ set @Ta='T_Module';
 (
 	 id ASC   
 )')  --a为字段名
----------删除主键再新增主键-----------------End
+---------End
 
 --插入数据时，关闭主键自增，再打开。
 SET IDENTITY_INSERT [Recursive] ON
@@ -93,8 +96,7 @@ SET IDENTITY_INSERT [Recursive] ON
 SET IDENTITY_INSERT [Recursive] OFF
 
 
-
---****************************************事务********************************************
+--************事务********
 @@Error --/错误个数
 @@TRANCOUNT --/当前连接的事务个数
 SET XACT_ABORT on;--/回滚所有语句
@@ -107,7 +109,7 @@ SET IMPLICIT_TRANSACTIONS ON  --/启动隐式事务模式
 SET IMPLICIT_TRANSACTIONS OFF --/关闭隐式事务模式
 COMMIT TRANSACTION 或者 COMMIT WORK 或者 ROLLBACK TRANSACTION 或 ROLLBACK WORK --/结束或回滚事务
 
----------------try catch 的用法1-----------------
+--**********try catch 的用法1**********
 BEGIN
  begin try
 	begin transaction 
@@ -133,9 +135,9 @@ begin transaction
 SET XACT_ABORT off
 
 SET IMPLICIT_TRANSACTIONS ON
----------------try catch 的用法1-----------------End 
+---------------End 
 
--------------简单try catch 的用法-----------------
+--**********简单try catch 的用法**********
 BEGIN
 SET NOCOUNT ON;--不返回受影响的行数
 
@@ -158,8 +160,7 @@ BEGIN CATCH------------有异常被捕获
 END CATCH--------结束异常处理
 
 END
--------------简单try catch 的用法-----------------End 
-
+-------------End 
 
 
 

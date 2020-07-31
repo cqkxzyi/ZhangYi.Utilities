@@ -1,3 +1,76 @@
+--************事务********
+@@Error --/错误个数
+@@TRANCOUNT --/当前连接的事务个数
+SET XACT_ABORT on;--/回滚所有语句
+select   *   from fn_dblog(null,null)--/查看系统事务日志
+
+commit transaction;--/提交事务
+rollback transaction--/回滚事务语句
+save transaction savepoint--/设置保存点
+SET IMPLICIT_TRANSACTIONS ON  --/启动隐式事务模式
+SET IMPLICIT_TRANSACTIONS OFF --/关闭隐式事务模式
+COMMIT TRANSACTION 或者 COMMIT WORK 或者 ROLLBACK TRANSACTION 或 ROLLBACK WORK --/结束或回滚事务
+-------------
+
+
+
+--**********try catch的用法**********
+BEGIN
+ begin try
+	begin transaction 
+		insert into aaa values (2,2,2)
+		commit --提交事务
+ end try
+ begin catch
+	  PRINT('错误代码 = '+STR(ERROR_NUMBER()))
+	  PRINT('错误严重级别 = '+STR(ERROR_SEVERITY()))
+	  PRINT('错误状态代码 = '+STR(ERROR_STATE()))
+	  PRINT('错误信息 = '+ERROR_MESSAGE())
+	  PRINT('例程中的行号 = '+str(ERROR_LINE()))
+	  PRINT('存储过程或触发器的名称='+ERROR_PROCEDURE())
+	  raiserror('不符合数据格式要求',18,2)--用户自定义抛出异常
+	  ROLLBACK  -- 回滚事务
+  end catch
+END
+
+SET XACT_ABORT ON--可以回滚所有事务
+begin transaction
+	insert into aaa (id,代码) values ('1','1')
+	commit transaction
+SET XACT_ABORT off
+
+SET IMPLICIT_TRANSACTIONS ON
+---------------End 
+
+--**********简单try catch 的用法**********
+BEGIN
+SET NOCOUNT ON;--不返回受影响的行数
+
+BEGIN TRY
+
+	--sql业务语句
+	PRINT '执行完毕！';
+	
+END TRY
+BEGIN CATCH------------有异常被捕获
+        PRINT '错误代码： ' + CONVERT(varchar(50), ERROR_NUMBER()) +      --错误代码
+        ', 严重级别： ' + CONVERT(varchar(5), ERROR_SEVERITY()) +	--错误严重级别，级别小于10 try catch 捕获不到
+        ', 状态码： ' + CONVERT(varchar(5), ERROR_STATE()) +      --错误状态码
+        ', 触发器的名称： ' + ISNULL(ERROR_PROCEDURE(), '-') +    --出现错误的存储过程或触发器的名称。
+        ', 行号：' + CONVERT(varchar(5), ERROR_LINE());			 --发生错误的行号
+		           
+        PRINT ERROR_MESSAGE();   --错误的具体信息
+
+END CATCH--结束异常处理
+
+END
+-------------End 
+
+
+
+
+
+
 CREATE PROCEDURE YourProcedure    
 AS
 BEGIN

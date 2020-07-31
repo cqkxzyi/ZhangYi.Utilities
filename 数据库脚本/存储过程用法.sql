@@ -1,5 +1,6 @@
 
   --执行存储过程  EXEC sp_executesql @SQL
+  
   --例子1---
 	DECLARE @TableName VARCHAR(50),@sql NVARCHAR(MAX),@OrderID INT;  
 	SET @TableName = 'aaa ';   

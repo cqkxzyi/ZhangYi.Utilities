@@ -1,8 +1,5 @@
 ﻿
-----区分大小写----
-ALTER TABLE [CustomerInfo]   ALTER COLUMN IDCard nvarchar(100) COLLATE Chinese_PRC_CS_AS 
-----不区分大小写----
-ALTER TABLE [CustomerInfo]  ALTER COLUMN IDCard nvarchar(100) COLLATE Chinese_PRC_CI_AS 
+
 
 --功能目的：主要就是修改列的属性，不过是可以执行以后修改N多DB的，算不算远程修改列？
 --注意：    就我可以用，因为用的临时表太多了，汗！
